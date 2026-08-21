@@ -1,0 +1,305 @@
+/* Neil Chakrabarty Consulting design library — single-file build.
+   Tokens, element defaults and utilities. Link this one file. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap");
+
+/* ===== tokens/typography.css ===== */
+:root {
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-heading-weight: 800;
+  --font-body-weight: 400;
+
+  /* Editorial display scale — the Montclaire-inspired layer. Set tight
+     (-0.03em) and used at most twice per page. Fluid: each step scales with
+     the viewport between a phone floor and the desktop size, so a display
+     headline never overflows and never needs a breakpoint. */
+  --text-display-1: clamp(44px, 7.4vw, 92px);
+  --text-display-2: clamp(36px, 5.8vw, 68px);
+  --text-display-3: clamp(28px, 4.1vw, 48px);
+
+  --text-h1: clamp(30px, 3.5vw, 42px);
+  --text-h2: clamp(24px, 2.7vw, 32px);
+  --text-h3: clamp(20px, 2.1vw, 25px);
+  --text-h4: 20px;
+  --text-lead: clamp(17px, 1.8vw, 21px);
+  --text-body: 15px;
+  --text-small: 13px;
+  --text-meta: 11px;
+  --text-kicker: 11px;
+
+  --leading-display: 0.98;
+  --leading-heading: 1.12;
+  --leading-body: 1.55;
+  --leading-lead: 1.4;
+
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.015em;
+  --tracking-kicker: 0.14em;
+
+  /* Line length caps — editorial layouts never run body copy full width. */
+  --measure-prose: 62ch;
+  --measure-narrow: 46ch;
+  --measure-lead: 34ch;
+}
+
+/* ===== tokens/colors.css ===== */
+:root {
+  /* Ground and ink */
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-accent: #10307f;
+  --color-accent-2: #10307f;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #eef1f8;
+  --color-accent-200: #d3dcf0;
+  --color-accent-300: #a8b8e4;
+  --color-accent-400: #6b86d0;
+  --color-accent-500: #2b4ea8;
+  --color-accent-600: #0c2668;
+  --color-accent-700: #0c1f52;
+  --color-accent-800: #0b193d;
+  --color-accent-900: #0a1229;
+
+  --color-accent-2-100: #eef1f8;
+  --color-accent-2-200: #d3dcf0;
+  --color-accent-2-300: #a8b8e4;
+  --color-accent-2-400: #6b86d0;
+  --color-accent-2-500: #2b4ea8;
+  --color-accent-2-600: #0c2668;
+  --color-accent-2-700: #0c1f52;
+  --color-accent-2-800: #0b193d;
+  --color-accent-2-900: #0a1229;
+
+  /* Semantic aliases — prefer these in components. */
+  --text-primary: var(--color-text);
+  --text-secondary: color-mix(in srgb, var(--color-text) 70%, transparent);
+  --text-muted: color-mix(in srgb, var(--color-text) 52%, transparent);
+  --text-on-accent: var(--color-bg);
+  --text-accent-safe: var(--color-accent-700); /* accent at body sizes */
+
+  --surface-page: var(--color-bg);
+  --surface-card: var(--color-surface);
+  --surface-invert: var(--color-text);
+  --surface-poster: var(--color-accent);
+  --text-on-invert: var(--color-bg);
+
+  --rule-strong: 2px solid var(--color-divider);
+  --rule-hair: 1px solid var(--color-divider);
+
+  --state-hover-ink: color-mix(in srgb, var(--color-text) 7%, transparent);
+  --state-press-ink: color-mix(in srgb, var(--color-text) 14%, transparent);
+  --state-hover-accent: var(--color-accent-600);
+  --state-press-accent: var(--color-accent-700);
+}
+
+/* ===== tokens/spacing.css ===== */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  /* Editorial extension — the air between blocks and sections. */
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: clamp(40px, 5.2vw, 64px);
+  --space-20: clamp(48px, 6.4vw, 80px);
+  --space-24: clamp(56px, 7.6vw, 96px);
+  --space-32: clamp(72px, 10vw, 128px);
+
+  --space-section: var(--space-24);
+  --page-max: 1240px;
+  --page-gutter: clamp(20px, 4vw, 40px);
+  --grid-cols: 12;
+  --grid-gap: var(--space-6);
+}
+
+/* ===== tokens/elevation.css ===== */
+:root {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* ===== base.css ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  /* Query container for the fold rules in utilities.css: the layouts then
+     respond to the width they are actually given — viewport, iframe or card. */
+  container: page / inline-size;
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-body-weight);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  margin: 0 0 var(--space-2);
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); }
+h5 { font-size: 16px; }
+h6 {
+  font-size: var(--text-kicker); letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase; font-weight: 600;
+}
+
+p { margin: 0 0 var(--space-3); max-width: var(--measure-prose); }
+a { color: var(--text-accent-safe); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent); }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption { font-size: var(--text-meta); margin-top: var(--space-1); color: var(--text-muted); }
+hr { height: 2px; border: 0; margin: var(--space-8) 0; background: var(--color-divider); }
+
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* ===== utilities.css ===== */
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-inline: var(--page-gutter);
+}
+.grid-12 { display: grid; grid-template-columns: repeat(var(--grid-cols), 1fr); gap: var(--grid-gap); }
+.stack-2 { display: flex; flex-direction: column; gap: var(--space-2); }
+.stack-4 { display: flex; flex-direction: column; gap: var(--space-4); }
+.stack-6 { display: flex; flex-direction: column; gap: var(--space-6); }
+.row-4 { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+
+.display-1 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: var(--text-display-1); line-height: var(--leading-display); letter-spacing: var(--tracking-display); margin: 0; }
+.display-2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: var(--text-display-2); line-height: var(--leading-display); letter-spacing: var(--tracking-display); margin: 0; }
+.display-3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: var(--text-display-3); line-height: var(--leading-display); letter-spacing: var(--tracking-display); margin: 0; }
+.lead { font-size: var(--text-lead); line-height: var(--leading-lead); max-width: var(--measure-prose); }
+.kicker { font-size: var(--text-kicker); letter-spacing: var(--tracking-kicker); text-transform: uppercase; font-weight: 600; }
+.kicker-accent { color: var(--color-accent); }
+.meta { font-size: var(--text-meta); color: var(--text-muted); }
+.muted { color: var(--text-muted); }
+.measure-narrow { max-width: var(--measure-narrow); }
+
+.rule { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
+.rule-hair { height: 1px; border: 0; margin: 0; background: color-mix(in srgb, var(--color-text) 22%, transparent); }
+
+/* Imagery: this practice is typographic. Where a photograph belongs, a
+   striped slot names what goes there until real art arrives. */
+.image-slot {
+  background-color: var(--color-surface);
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--color-text) 8%, transparent) 0 1px,
+    transparent 1px 9px);
+  border: 1px solid var(--color-divider);
+  display: grid; place-items: center;
+}
+.image-slot > span {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: var(--text-meta); letter-spacing: 0.04em; color: var(--text-muted);
+  text-transform: uppercase;
+}
+.grayscale { filter: grayscale(1) contrast(1.08); }
+
+/* ── Responsive layout primitives ───────────────────────────────────────
+   The fold rules live here rather than in the screens, so every surface
+   built from the components inherits the same behaviour. Type and air are
+   already fluid in the token layer; these handle column counts. */
+
+/* A column set that gives up columns on its own. --col-min is the width at
+   which a column stops being worth keeping. */
+.cols {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 240px), 100%), 1fr));
+  align-items: start;
+}
+
+/* The editorial two-column split: content left, aside right. */
+.split {
+  display: grid;
+  gap: var(--space-16);
+  grid-template-columns: minmax(0, var(--split-a, 1.4fr)) minmax(0, var(--split-b, 1fr));
+  align-items: start;
+}
+
+/* ServiceRow: number · title · body · price. */
+.svc-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1.1fr) minmax(0, 1fr) auto;
+  gap: var(--space-8);
+  align-items: start;
+}
+.svc-price { text-align: right; }
+.svc-action { display: flex; justify-content: flex-end; }
+
+/* The header bar. */
+.site-header { display: flex; align-items: center; gap: var(--space-8); flex-wrap: wrap; }
+.site-nav { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+
+@container page (max-width: 900px) {
+  .split { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+
+@container page (max-width: 820px) {
+  /* The price column folds under the title rather than squeezing. */
+  .svc-row { grid-template-columns: 40px minmax(0, 1fr); row-gap: var(--space-4); }
+  .svc-row > .svc-body, .svc-row > .svc-price { grid-column: 2; }
+  .svc-price { text-align: left; }
+  .svc-action { justify-content: flex-start; }
+}
+
+@container page (max-width: 720px) {
+  /* Brand and action hold the first line; nav takes the second and scrolls
+     sideways if the site ever grows past five items. */
+  .site-header { row-gap: var(--space-4); }
+  .site-nav {
+    order: 3; width: 100%; flex-wrap: nowrap;
+    overflow-x: auto; padding-bottom: 2px; scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+}
+
+/* Hero action pair: side by side, then stacked full-width on a phone with the
+   primary action on top. */
+.cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+@container page (max-width: 520px) {
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row > * { width: 100%; }
+}
