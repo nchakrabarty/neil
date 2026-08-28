@@ -1,4 +1,5 @@
 const CASES = [
+  { id: 'grit-bulk-enrollment', client: 'Grit Financial', year: '2026', headline: 'Turning a 2-day onboarding into a 3-click employer action', result: 'Onboarding success rate up from 62% to 97%, adding ~1,000 users in 3 months.', tags: ['Fintech', 'B2B Growth', 'Onboarding UX', 'Compliance/KYC', '0-1 Feature', 'Platform Architecture'], discipline: 'Usability' },
   { id: 'northline', client: 'Northline Logistics', year: '2025', headline: 'A data team that finally shipped weekly', result: 'Release cycle cut from 11 weeks to 9 days.', tags: ['Data', 'Ops'], discipline: 'Data' },
   { id: 'meridian', client: 'Meridian Health', year: '2025', headline: 'An AI triage pilot that survived contact with clinicians', result: 'Evaluation harness built before the model, not after.', tags: ['AI', 'Usability'], discipline: 'AI' },
   { id: 'kestrel', client: 'Kestrel Analytics', year: '2024', headline: 'One roadmap four founders could agree on', result: 'Two products retired, one shipped in six weeks.', tags: ['Leadership'], discipline: 'Leadership' },
@@ -16,7 +17,7 @@ function CaseStudiesScreen({ go }) {
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-20) var(--page-gutter) var(--space-10)' }}>
         <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Selected work</Kicker>
-        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Six engagements, written up honestly.</h1>
+        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Seven engagements, written up honestly.</h1>
         <div style={{ display: 'flex', gap: 'var(--space-3)', marginTop: 'var(--space-10)', flexWrap: 'wrap' }}>
           {filters.map((f) => (
             <button key={f} onClick={() => setFilter(f)}
