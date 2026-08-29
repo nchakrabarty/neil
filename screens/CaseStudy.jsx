@@ -1,25 +1,39 @@
 const CASE_CONTENT = {
   'grit-bulk-enrollment': {
-    quickRead: "Grit Financial's payroll card had a good product buried behind a bad first mile: employees had to self-onboard through a multi-step KYC flow, and only 62% made it through. I flipped the model — instead of asking employees to onboard themselves, I designed a bulk enrollment feature that let employers push existing payroll/HR data straight into Grit's system, running identity and compliance checks silently in the background. Onboarding time dropped from ~2 days to minutes, success rate jumped to 97%, and the feature helped Grit add ~1,000 users in its first 3 months. I architected the feature and the surrounding B2B admin portal, and led the team that built it.",
-    situation: "Grit's onboarding was designed around individual employees signing up on their own — providing identity documents, passing KYC, working through several friction-heavy steps. Even with strong marketing pushes, only ~62% of people who started onboarding actually finished it. Every dropped user was a lost acquisition cost and a slower path to scale.",
-    insightTitle: 'The insight',
-    insight: "The employer already had the data. HR and payroll systems already held verified employee details — the exact information Grit's KYC flow was asking employees to re-enter by hand. The unlock wasn't a better onboarding form; it was removing the form entirely for a whole class of users.",
-    approachIntro: "I designed Bulk Enrollment as the cornerstone feature of a new B2B admin portal for Grit's B2B and B2B2B clients (employers moving payroll onto the Grit card). The flow:",
-    approachSteps: [
-      "Grit integrates with the employer's existing payroll/HR system",
-      'The HR manager selects which employees to onboard',
-      'The backend silently pulls existing employee data to create accounts and run KYC/compliance checks — no employee action required',
-      'The same portal lets the employer order and track physical card shipment, and gives them an operational dashboard (enrollment volume, speed, status) to run the program day-to-day',
+    governingThought: "Redesigning onboarding around the employer instead of the employee — using data the employer already had — turned Grit's biggest growth bottleneck into its fastest-scaling channel: onboarding success rose from 62% to 97%, time-to-onboard fell from ~2 days to minutes, and monthly enrollment scaled from ~140 users to ~1,000 in the first 3 months post-launch.",
+    reasonsIntro: 'This held true for three reasons: it removed the point of failure, it repurposed data that already existed, and it turned a single-user workflow into an operational tool for the real buyer.',
+    reasons: [
+      {
+        title: '1. It removed the actual point of failure — the employee',
+        situation: "Grit's onboarding flow required each employee to personally complete a multi-step KYC process — submitting identity documents and clearing compliance checks on their own.",
+        complication: 'This was mentally taxing and slow enough that only 62% of started onboardings were completed, even with strong marketing pushes driving people to start.',
+        resolution: 'Bulk Enrollment removed the employee from the critical path entirely. The employer selects which employees to onboard; the backend silently runs identity and compliance checks using data the employer already provides — no employee action required.',
+        evidence: 'Success rate: 62% → 97%. Time-to-onboard: ~2 days → minutes.',
+      },
+      {
+        title: '2. It repurposed data that already existed, instead of asking for it twice',
+        situation: "Employers moving payroll onto the Grit card already held verified employee details in their existing HR/payroll systems.",
+        complication: "Grit's KYC flow ignored this and asked employees to re-enter the same information by hand — duplicating work and introducing drop-off risk.",
+        resolution: "I designed a direct integration between Grit and the employer's payroll/HR system, so existing verified data could flow straight into account creation and compliance checks.",
+        evidence: 'This is the mechanism behind both the time and success-rate gains above — it eliminated re-entry as a source of friction and error.',
+      },
+      {
+        title: '3. It turned a one-time signup into an ongoing operational tool for the real buyer',
+        situation: "Grit's B2B and B2B2B clients (employers) needed more than a one-off signup flow — they needed to run an enrollment program at scale.",
+        complication: 'No existing surface let an HR manager select, enroll, order cards for, and track a whole employee population in one place.',
+        resolution: 'I architected Bulk Enrollment as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard — and led the team through build.',
+        evidence: '~1,000 users added in 3 months post-launch, up from a prior average of ~140/month — evidence the portal, not just the integration, is what let volume scale.',
+      },
     ],
-    role: 'I owned the architecture of the portal and the feature, drove the UX design, and led the engineering team through build.',
-    stats: [
-      { value: 'Minutes', label: 'Time to onboard, down from ~2 days' },
-      { value: '97%', label: 'Onboarding success rate, up from 62%' },
-      { value: '~1,000', label: 'Users added in the first 3 months post-launch' },
+    outcomeTable: [
+      { metric: 'Time to onboard', before: '~2 days', after: 'Minutes' },
+      { metric: 'Onboarding success rate', before: '62%', after: '97%' },
+      { metric: 'Scale', before: '~140 users/month (avg.)', after: '~1,000 users added in 3 months post-launch' },
+      { metric: 'Cost of acquisition', before: 'High (manual drop-off)', after: 'Reduced' },
     ],
-    costNote: 'Cost of acquisition dropped alongside it — fewer manual drop-offs meant fewer wasted acquisition dollars.',
+    role: 'I am currently VP of Data Platforms at Grit. I architected the feature and its experience along with my team, drove the UX, and led the engineering team through the build.',
     meta: [
-      { label: 'Role', value: 'Feature & portal architect, eng lead' },
+      { label: 'Role', value: 'VP of Data Platforms' },
       { label: 'Client type', value: 'B2B / B2B2B payroll employers' },
       { label: 'Scope', value: 'Bulk enrollment + admin portal, 0-1' },
     ],
@@ -45,21 +59,35 @@ function CaseStudyScreen({ go, caseId }) {
         <div className="split" style={{ '--split-a': '1.5fr' }}>
           {content ? (
             <div>
-              <p className="lead" style={{ marginBottom: 'var(--space-8)' }}>{content.quickRead}</p>
-              <h3>The problem</h3>
-              <p>{content.situation}</p>
-              <h3 style={{ marginTop: 'var(--space-10)' }}>{content.insightTitle}</h3>
-              <p>{content.insight}</p>
-              <h3 style={{ marginTop: 'var(--space-10)' }}>The approach</h3>
-              <p>{content.approachIntro}</p>
-              <ul style={{ margin: '0 0 0 1.2em', padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                {content.approachSteps.map((step) => <li key={step}>{step}</li>)}
-              </ul>
-              <p style={{ marginTop: 'var(--space-6)' }}>{content.role}</p>
+              <h3>Governing thought</h3>
+              <p>{content.governingThought}</p>
+              <p>{content.reasonsIntro}</p>
               <Rule space={40} weight="hair" />
-              <h3>Outcome</h3>
-              <StatBlock style={{ marginTop: 'var(--space-6)' }} stats={content.stats} />
-              {content.costNote ? <p className="muted" style={{ marginTop: 'var(--space-6)' }}>{content.costNote}</p> : null}
+              {content.reasons.map((r, i) => (
+                <div key={r.title} style={{ marginTop: i === 0 ? 0 : 'var(--space-10)' }}>
+                  <h3>{r.title}</h3>
+                  <p><strong>Situation:</strong> {r.situation}</p>
+                  <p style={{ marginTop: 'var(--space-3)' }}><strong>Complication:</strong> {r.complication}</p>
+                  <p style={{ marginTop: 'var(--space-3)' }}><strong>Resolution:</strong> {r.resolution}</p>
+                  <p style={{ marginTop: 'var(--space-3)' }}><strong>Evidence:</strong> {r.evidence}</p>
+                </div>
+              ))}
+              <Rule space={40} weight="hair" />
+              <h3>Outcome summary</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 0, marginTop: 'var(--space-6)' }}>
+                {['Metric', 'Before', 'After'].map((h) => (
+                  <div key={h} style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', padding: '10px 0', borderTop: '2px solid var(--color-divider)' }}>{h}</div>
+                ))}
+                {content.outcomeTable.map((row) => (
+                  <React.Fragment key={row.metric}>
+                    <div style={{ padding: '10px 12px 10px 0', borderTop: '1px solid color-mix(in srgb, var(--color-text) 22%, transparent)', fontSize: 14 }}>{row.metric}</div>
+                    <div style={{ padding: '10px 12px 10px 0', borderTop: '1px solid color-mix(in srgb, var(--color-text) 22%, transparent)', fontSize: 14, color: 'var(--text-secondary)' }}>{row.before}</div>
+                    <div style={{ padding: '10px 0', borderTop: '1px solid color-mix(in srgb, var(--color-text) 22%, transparent)', fontSize: 14 }}>{row.after}</div>
+                  </React.Fragment>
+                ))}
+              </div>
+              <h3 style={{ marginTop: 'var(--space-12)' }}>My role</h3>
+              <p>{content.role}</p>
             </div>
           ) : (
             <div>
