@@ -7,7 +7,7 @@ const CASE_CONTENT = {
         title: '1. It removed the actual point of failure — the employee',
         situation: "Grit's onboarding flow required each employee to personally complete a multi-step KYC process — submitting identity documents and clearing compliance checks on their own.",
         complication: 'This was mentally taxing and slow enough that only 62% of started onboardings were completed, even with strong marketing pushes driving people to start.',
-        resolution: 'Bulk Enrollment removed the employee from the critical path entirely. The employer selects which employees to onboard; the backend silently runs identity and compliance checks using data the employer already provides — no employee action required.',
+        resolution: 'Batch Onboarding removed the employee from the critical path entirely. The employer selects which employees to onboard; the backend silently runs identity and compliance checks using data the employer already provides — no employee action required.',
         evidence: 'Success rate: 62% → 97%. Time-to-onboard: ~2 days → minutes.',
       },
       {
@@ -21,7 +21,7 @@ const CASE_CONTENT = {
         title: '3. It turned a one-time signup into an ongoing operational tool for the real buyer',
         situation: "Grit's B2B and B2B2B clients (employers) needed more than a one-off signup flow — they needed to run an enrollment program at scale.",
         complication: 'No existing surface let an HR manager select, enroll, order cards for, and track a whole employee population in one place.',
-        resolution: 'I architected Bulk Enrollment as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard — and led the team through build.',
+        resolution: 'I architected Batch Onboarding as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard — and led the team through build.',
         evidence: '~1,000 users added in 3 months post-launch, up from a prior average of ~140/month — evidence the portal, not just the integration, is what let volume scale.',
       },
     ],
@@ -35,9 +35,9 @@ const CASE_CONTENT = {
     meta: [
       { label: 'Role', value: 'VP of Data Platforms' },
       { label: 'Client type', value: 'B2B / B2B2B payroll employers' },
-      { label: 'Scope', value: 'Bulk enrollment + admin portal, 0-1' },
+      { label: 'Scope', value: 'Batch onboarding + admin portal, 0-1' },
     ],
-    artifactLabel: 'artefact · bulk enrollment flow · b&w',
+    artifactLabel: 'artefact · batch onboarding flow · b&w',
   },
 };
 
