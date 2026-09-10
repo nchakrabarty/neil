@@ -69,12 +69,9 @@ function AboutScreen({ go }) {
         <figure style={{ margin: '0 0 var(--space-12)', borderTop: '2px solid var(--color-divider)', paddingTop: 'var(--space-6)' }}>
           <p style={{
             fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'var(--text-h2)',
-            lineHeight: 1.12, letterSpacing: 'var(--tracking-heading)', margin: 0, maxWidth: '38ch',
+            lineHeight: 1.12, letterSpacing: 'var(--tracking-heading)', margin: 0, maxWidth: '42ch',
           }}>
-            He perfectly balances setting realistic expectations with his clients while also making sure the engineering team is comfortable with those expected deliverables.
-          </p>
-          <p style={{ marginTop: 'var(--space-6)', fontSize: 15, color: 'var(--text-secondary)', maxWidth: 'var(--measure-narrow)' }}>
-            I worked with Neil on a few projects and was truly impressed by his art of running discovery phases with potential clients. He goes deep into understanding the product, analyzes the current state of affairs, and suggests a thorough technical implementation plan, keeping UX as the top priority... I can't recommend him highly enough.
+            He goes deep into understanding the product, analyzes the current state of affairs, and suggests a thorough technical implementation plan, keeping UX as the top priority... He perfectly balances setting realistic expectations with his clients while also making sure the engineering team is comfortable with those expected deliverables.
           </p>
           <figcaption style={{ marginTop: 'var(--space-4)', fontSize: 12, color: 'var(--text-muted)' }}>
             <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Praneeth Yerrapragada</span> · Principal Engineer, Trovy
