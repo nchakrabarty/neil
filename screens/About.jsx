@@ -66,18 +66,8 @@ function AboutScreen({ go }) {
       </Section>
 
       <Section kicker="What clients say" title="Plain notes, no superlatives">
-        <figure style={{ margin: '0 0 var(--space-12)', borderTop: '2px solid var(--color-divider)', paddingTop: 'var(--space-6)' }}>
-          <p style={{
-            fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'var(--text-h2)',
-            lineHeight: 1.12, letterSpacing: 'var(--tracking-heading)', margin: 0, maxWidth: '42ch',
-          }}>
-            He goes deep into understanding the product, analyzes the current state of affairs, and suggests a thorough technical implementation plan, keeping UX as the top priority... He perfectly balances setting realistic expectations with his clients while also making sure the engineering team is comfortable with those expected deliverables.
-          </p>
-          <figcaption style={{ marginTop: 'var(--space-4)', fontSize: 12, color: 'var(--text-muted)' }}>
-            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Praneeth Yerrapragada</span> · Principal Engineer, Trovy
-          </figcaption>
-        </figure>
         <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-10)' }}>
+          <Testimonial quote="He goes deep into understanding the product, analyzes the current state of affairs, and suggests a thorough technical implementation plan, keeping UX as the top priority... He perfectly balances setting realistic expectations with his clients while also making sure the engineering team is comfortable with those expected deliverables." name="Praneeth Yerrapragada" role="Principal Engineer, Trovy" />
           <Testimonial quote="He rewrote our roadmap into something the four of us could actually agree on." name="M. Bergström" role="Founder, analytics startup" />
           <Testimonial quote="The written diagnosis is still the document we onboard new PMs with." name="J. Okonjo" role="Head of Data, logistics" />
         </div>
