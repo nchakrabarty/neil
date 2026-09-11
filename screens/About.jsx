@@ -4,10 +4,10 @@ function AboutScreen({ go }) {
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter) var(--space-20)' }}>
         <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Fractional product leadership</Kicker>
-        <h1 className="display-1" style={{ maxWidth: '15ch' }}>I help product teams get unstuck.</h1>
+        <h1 className="display-1" style={{ maxWidth: '15ch' }}>I help product teams get unstuck<span style={{ color: 'var(--color-accent)' }}>.</span></h1>
         <p className="lead" style={{ marginTop: 'var(--space-8)' }}>
-          Eighteen years in software, most of it where data, AI and usability meet. I join part-time,
-          find the real blocker, and stay long enough to prove the fix shipped.
+          18+ years in software, most of it where data, usability, business, and AI meet. I find the problem
+          worth solving first, then stay long enough to prove the fix shipped.
         </p>
         <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
           <Button size="lg" onClick={() => go('contact')} iconRight={<span>→</span>}>Book a call</Button>
