@@ -66,7 +66,7 @@ function AboutScreen({ go }) {
           <div>
             <ImageSlot label="portrait · 4:5 · b&w" ratio="4 / 5" />
             <p className="meta" style={{ marginTop: 'var(--space-3)' }}>
-              Based in Toronto. Working with teams in North America and Europe.
+              Based in Vancouver. Working with teams in North America, Asia and Europe.
             </p>
           </div>
         </div>
