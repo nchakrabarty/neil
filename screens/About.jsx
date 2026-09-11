@@ -68,7 +68,7 @@ function AboutScreen({ go }) {
       <Section kicker="What clients say" title="Plain notes, no superlatives">
         <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-10)' }}>
           <Testimonial quote="He goes deep into understanding the product, analyzes the current state of affairs, and suggests a thorough technical implementation plan, keeping UX as the top priority... He perfectly balances setting realistic expectations with his clients while also making sure the engineering team is comfortable with those expected deliverables." name="Praneeth Yerrapragada" role="Principal Engineer, Trovy" />
-          <Testimonial quote="He rewrote our roadmap into something the four of us could actually agree on." name="M. Bergström" role="Founder, analytics startup" />
+          <Testimonial quote="I had the pleasure of working closely with Neil for several years on the Naqi neural earbud project, where he led software development. It was a uniquely challenging effort that required creating entirely new ways of interacting with technology... He helped plan and synthesize usability studies so that real feedback shaped our decisions... He even joined fundraising conversations occasionally to share the software vision in a clear and approachable way." name="Zavier Alexander" role="Head of Product, NAQI Logix" />
           <Testimonial quote="The written diagnosis is still the document we onboard new PMs with." name="J. Okonjo" role="Head of Data, logistics" />
         </div>
       </Section>
