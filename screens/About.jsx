@@ -64,7 +64,7 @@ function AboutScreen({ go }) {
             </div>
           </div>
           <div>
-            <ImageSlot label="portrait · 4:5 · b&w" ratio="4 / 5" />
+            <ImageSlot src="assets/Fly%20over%20Westend.jpg" alt="Aerial view of Vancouver's West End" ratio="960 / 738" />
             <p className="meta" style={{ marginTop: 'var(--space-3)' }}>
               Based in Vancouver. Working with teams in North America, Asia and Europe.
             </p>
