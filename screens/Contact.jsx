@@ -13,7 +13,7 @@ function ContactScreen() {
           </p>
           <div style={{ marginTop: 'var(--space-12)' }}>
             <MetaList items={[
-              { label: 'Email', value: 'neil@chakrabarty.co' },
+              { label: 'Email', value: 'neilcbty@gmail.com' },
               { label: 'Response', value: 'Within two working days' },
               { label: 'Availability', value: 'Two slots from October' },
               { label: 'Referrals', value: 'Always welcome' },
@@ -25,7 +25,7 @@ function ContactScreen() {
           {sent ? (
             <div>
               <h3 style={{ marginTop: 0 }}>Sent.</h3>
-              <p style={{ marginBottom: 'var(--space-6)' }}>You will hear from me within two working days, from neil@chakrabarty.co.</p>
+              <p style={{ marginBottom: 'var(--space-6)' }}>You will hear from me within two working days, from neilcbty@gmail.com.</p>
               <Button variant="secondary" onClick={() => setSent(false)}>Send another</Button>
             </div>
           ) : (

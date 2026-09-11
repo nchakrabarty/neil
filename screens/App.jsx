@@ -26,7 +26,7 @@ function App() {
         blurb="Fractional product leadership for teams working on data, AI and the usability of both."
         columns={[
           { title: 'Site', links: NAV.map((n) => ({ label: n.label })) },
-          { title: 'Elsewhere', links: [{ label: 'LinkedIn' }, { label: 'Notes' }, { label: 'neil@chakrabarty.co' }] },
+          { title: 'Elsewhere', links: [{ label: 'LinkedIn' }, { label: 'Notes' }, { label: 'neilcbty@gmail.com' }] },
         ]}
         note="© 2026 Neil Chakrabarty · Toronto" />
     </>
