@@ -28,10 +28,9 @@ function AboutScreen({ go }) {
         <div className="split">
           <div>
             <p style={{ fontSize: 17 }}>
-              Across scores of projects, the pattern repeats. Leadership isn't stuck because they lack engineers
-              or technology — they're stuck because several reasonable problems compete for the same budget, and
-              no one can tell which one, solved first, would actually move the business versus quietly become a
-              landmine later.
+              Across scores of projects, the pattern repeats: leadership isn't short on engineers or technology —
+              they're short on knowing which of several reasonable problems, solved first, moves the business
+              versus becomes a landmine later.
             </p>
             <p>
               That's the gap I fill. I lean on data analysis, validated through real user research, to find what
