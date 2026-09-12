@@ -11,7 +11,7 @@ export function SiteFooter({ brand = 'Neil Chakrabarty', blurb, columns = [], no
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', display: 'flex', gap: 'var(--space-16)', flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 320px' }}>
           <Logo variant="stacked" size={44} name={brand} style={{ display: 'flex' }} />
-          {blurb ? <p style={{ maxWidth: 'var(--measure-narrow)', color: 'var(--text-secondary)', marginTop: 20 }}>{blurb}</p> : null}
+          {blurb ? <p style={{ color: 'var(--text-secondary)', marginTop: 20 }}>{blurb}</p> : null}
         </div>
         {columns.map((col) => (
           <div key={col.title} style={{ flex: '0 0 auto', minWidth: 150 }}>
