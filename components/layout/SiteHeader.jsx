@@ -6,7 +6,8 @@ export function SiteHeader({ brand = 'Neil Chakrabarty', items = [], current, on
   return (
     <header className="site-header" style={{
       padding: 'var(--space-6) var(--page-gutter)',
-      borderBottom: '2px solid var(--color-divider)', ...style,
+      borderBottom: '2px solid var(--color-divider)',
+      position: 'sticky', top: 0, zIndex: 100, background: 'var(--surface-page)', ...style,
     }}>
       <a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(items[0] && items[0].id); }}
         aria-label={brand}

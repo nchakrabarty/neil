@@ -23,7 +23,8 @@
     'components/content/ServiceRow.jsx',
     'components/content/CaseStudyCard.jsx',
     'components/content/Testimonial.jsx',
-    'components/content/MetaList.jsx'
+    'components/content/MetaList.jsx',
+    'components/content/CtaBanner.jsx'
   ];
   var MARKERS = ['Button', 'Section', 'ServiceRow', 'CaseStudyCard'];
   var SCREENS = ((script && script.getAttribute('data-screens')) || '').split(',').filter(Boolean);

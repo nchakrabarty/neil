@@ -1,5 +1,5 @@
 function AboutScreen({ go }) {
-  const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule } = window.DSX;
+  const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule, CtaBanner } = window.DSX;
   return (
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter) var(--space-20)' }}>
@@ -79,6 +79,8 @@ function AboutScreen({ go }) {
           <Testimonial quote="What distinguishes Neil from the rest is that he is able to learn, adjust and adapt quickly to course correct teams in getting them out of challenging situations, and avoiding future landmines." name="Donny Cayanan" role="Principal Program Manager, Lantronix" />
         </div>
       </Section>
+
+      <CtaBanner onClick={() => go('contact')} />
     </>
   );
 }

@@ -9,7 +9,7 @@ const CASES = [
 ];
 
 function CaseStudiesScreen({ go }) {
-  const { Section, CaseStudyCard, Kicker, Tag } = window.DSX;
+  const { Section, CaseStudyCard, Kicker, Tag, CtaBanner } = window.DSX;
   const [filter, setFilter] = React.useState('All');
   const filters = ['All', 'Data', 'AI', 'Usability', 'Leadership'];
   const shown = filter === 'All' ? CASES : CASES.filter((c) => c.discipline === filter);
@@ -39,6 +39,8 @@ function CaseStudiesScreen({ go }) {
         </div>
         {shown.length === 0 ? <p className="muted">Nothing filed under {filter} yet.</p> : null}
       </Section>
+
+      <CtaBanner onClick={() => go('contact')} />
     </>
   );
 }

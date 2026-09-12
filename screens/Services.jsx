@@ -1,5 +1,5 @@
 function ServicesScreen({ go }) {
-  const { Section, ServiceRow, Button, MetaList, Kicker } = window.DSX;
+  const { Section, ServiceRow, Button, MetaList, Kicker, CtaBanner } = window.DSX;
   const services = [
     { index: '01', title: 'Product diagnostic', body: 'Two weeks. Interviews, artefact and telemetry review, then one written diagnosis and a sequenced plan.', price: '$9,500', cadence: 'fixed fee', tags: ['Discovery', 'Data', 'Usability'] },
     { index: '02', title: 'Fractional product lead', body: 'Two days a week inside the team: roadmap, rituals, trade-offs and the hard calls. Minimum three months.', price: '$11,000', cadence: 'per month', tags: ['Leadership', 'Roadmap'] },
@@ -41,12 +41,7 @@ function ServicesScreen({ go }) {
         </div>
       </Section>
 
-      <section style={{ background: 'var(--surface-poster)', color: 'var(--text-on-accent)', marginTop: 'var(--space-20)' }}>
-        <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-20) var(--page-gutter)', display: 'flex', gap: 'var(--space-16)', alignItems: 'flex-end', flexWrap: 'wrap' }}>
-          <h2 className="display-2" style={{ flex: '1 1 420px', maxWidth: '14ch', margin: 0 }}>Tell me what is stuck.</h2>
-          <Button size="lg" variant="invert" onClick={() => go('contact')} iconRight={<span>→</span>}>Book a 30-minute call</Button>
-        </div>
-      </section>
+      <CtaBanner onClick={() => go('contact')} />
     </>
   );
 }
