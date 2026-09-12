@@ -23,12 +23,12 @@ function App() {
         onNavigate={(id) => go(id || 'about')} cta={{ label: 'Book a call', onClick: () => go('contact') }} />
       {screen}
       <SiteFooter
-        blurb="Fractional product leadership for teams working on data, AI and the usability of both."
+        blurb="Fractional product leadership across business, usability, data & AI."
         columns={[
           { title: 'Site', links: NAV.map((n) => ({ label: n.label })) },
           { title: 'Elsewhere', links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/nchakrabarty/', target: '_blank' }, { label: 'Instagram', href: 'https://www.instagram.com/neilcbty/', target: '_blank' }, { label: 'neilcbty@gmail.com' }] },
         ]}
-        note="© 2026 Neil Chakrabarty · Toronto" />
+        note="© 2026 Neil Chakrabarty · Vancouver, BC" />
     </>
   );
 }
