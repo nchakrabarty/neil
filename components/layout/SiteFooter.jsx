@@ -19,7 +19,9 @@ export function SiteFooter({ brand = 'Neil Chakrabarty', blurb, columns = [], no
             <ul style={{ listStyle: 'none', margin: '12px 0 0', padding: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href || '#'} target={l.target} rel={l.target === '_blank' ? 'noopener noreferrer' : undefined} style={{ fontSize: 14, color: 'var(--text-primary)', textDecoration: 'none' }}>{l.label}</a>
+                  <a href={l.href || '#'} target={l.target} rel={l.target === '_blank' ? 'noopener noreferrer' : undefined}
+                    onClick={l.onClick ? (e) => { e.preventDefault(); l.onClick(); } : undefined}
+                    style={{ fontSize: 14, color: 'var(--text-primary)', textDecoration: 'none' }}>{l.label}</a>
                 </li>
               ))}
             </ul>
