@@ -33,19 +33,20 @@ function AboutScreen({ go }) {
               versus becomes a landmine later.
             </p>
             <p>
-              That's the gap I fill. I lean on data analysis, validated through real user research, to find what
-              people actually need and balance it against where the business needs to go — then prioritize what
-              to build first to learn fast, avoid landmines, and get to a 10x return before the runway runs out.
-              That prioritization is also where I find the real opportunities for AI — not AI for its own sake,
-              but where it moves the needle most: compliance risk assessment, transaction monitoring for fraud,
-              loan management. Sometimes the answer is a platform build. Sometimes it's simpler — fixing a
-              misalignment in how a team already operates.
+              That's the gap I fill. I work directly with founders and leadership to lean on data analysis,
+              validated through real user research, to find what people actually need and balance it against
+              where the business needs to go — then prioritize what to build first to learn fast, avoid
+              landmines, and get to a 10x return before the runway runs out. I bring AI into that process to
+              compress the time between arriving and shipping impact, and it shapes where I look for the biggest
+              opportunities in the first place, like financial compliance reporting. Sometimes the answer is a
+              platform build. Sometimes it's simpler — fixing a misalignment in how a team already operates.
             </p>
             <p>
-              I've done this on two-person teams and enterprise programmes, on hardware products with no existing
-              playbook, and on fintech compliance flows where the wrong call meant regulatory risk, not just a
-              missed deadline. The job is always the same: find the problem worth solving first, make the
-              trade-offs explicit, and hand back a plan the team can own after I leave.
+              I've led this work on hardware products with no existing playbook and fintech compliance flows
+              where the wrong call meant regulatory risk, not just a missed deadline — owning outcomes end-to-end
+              on teams of two and steering enterprise programmes alike. The job is always the same: find the
+              problem worth solving first, make the trade-offs explicit, and hand back a plan the team can own
+              after I leave.
             </p>
             <Rule space={32} weight="hair" />
             <div className="cols" style={{ '--col-min': '190px' }}>
