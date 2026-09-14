@@ -43,7 +43,7 @@ function AboutScreen({ go }) {
       <Section>
         <StatBlock stats={[
           { value: '18+', label: 'Years shipping software' },
-          { value: '2 wks', label: 'From first call to a written plan' },
+          { value: 'TIME', label: 'Best Inventions 2023 — 1 of 200, embedded with the NAQI Logix innovation team' },
           { value: '3', label: 'Concurrent clients, maximum' },
           { value: '40+', label: 'Teams advised across data and AI' },
         ]} />
