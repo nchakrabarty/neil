@@ -33,6 +33,7 @@ function ContactScreen() {
               <div className="cols" style={{ '--col-min': '190px', gap: 'var(--space-4)' }}>
                 <Field label="Name" required><Input required placeholder="Your name" /></Field>
                 <Field label="Company"><Input placeholder="Optional" /></Field>
+                <Field label="Phone"><Input type="tel" placeholder="Optional" /></Field>
               </div>
               <Field label="Email" required hint="I reply within two working days."><Input type="email" required placeholder="you@company.com" /></Field>
               <Field label="What kind of help?">
