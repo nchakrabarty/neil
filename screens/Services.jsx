@@ -1,5 +1,5 @@
 function ServicesScreen({ go }) {
-  const { Section, Button, Kicker, PricingCard } = window.DSX;
+  const { Section, Kicker, PricingCard, CtaBanner } = window.DSX;
 
   React.useEffect(() => {
     const prevTitle = document.title;
@@ -80,11 +80,7 @@ function ServicesScreen({ go }) {
         </p>
       </Section>
 
-      <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter)', textAlign: 'center' }}>
-        <h2 style={{ margin: 0 }}>Not sure which one fits?</h2>
-        <p style={{ marginTop: 'var(--space-3)', color: 'var(--text-secondary)' }}>Start with a conversation, not a commitment.</p>
-        <Button variant="ghost" size="lg" style={{ marginTop: 'var(--space-6)' }} onClick={() => go('contact')} iconRight={<span>→</span>}>Get in touch</Button>
-      </div>
+      <CtaBanner title="Not sure which one fits?" buttonLabel="Get in touch" onClick={() => go('contact')} />
     </>
   );
 }
