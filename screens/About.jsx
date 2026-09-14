@@ -20,7 +20,7 @@ const RECENT_ENGAGEMENTS = [
   { name: 'RevenueWire' },
 ];
 
-const ENGAGEMENT_TAGS = ['Public Sector', 'Fintech', 'HealthTech', 'Consumer Electronics', 'Ecommerce', 'AgriTech'];
+const ENGAGEMENT_TAGS = ['Public Sector', 'Fintech', 'HealthTech', 'Consumer Electronics', 'Ecommerce', 'AgriTech', 'EdTech', 'IoT'];
 
 function AboutScreen({ go }) {
   const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule, CtaBanner, Tag } = window.DSX;
