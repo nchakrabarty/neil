@@ -1,3 +1,9 @@
+const RECENT_ENGAGEMENTS = [
+  'Terapeak', 'RevenueWire', 'BC Pensions', 'Public Health Ontario', 'Care Team Technologies',
+  'Sound Transit', 'WorkBC', 'Royal Bank of Canada', 'Ritchie Bros Auctioneers', 'Dynamic Math',
+  'Motorola Mobility', 'Hubble Connected', 'NAQI Logix', 'Argus Control Systems', 'Heart Water', 'eBay',
+];
+
 function AboutScreen({ go }) {
   const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule, CtaBanner } = window.DSX;
   return (
@@ -71,6 +77,19 @@ function AboutScreen({ go }) {
             </p>
           </div>
         </div>
+      </Section>
+
+      <Section>
+        <h2 style={{
+          fontSize: 'var(--text-display-3)', lineHeight: 'var(--leading-display)',
+          letterSpacing: 'var(--tracking-display)', margin: 0, maxWidth: '18ch',
+        }}>Recent engagements</h2>
+        <p style={{ margin: 0, marginTop: 'var(--space-2)', fontSize: 14, fontStyle: 'italic', color: 'var(--text-secondary)' }}>
+          Fintech, healthcare, public transit, IoT/AgriTech, and consumer electronics — 16+ organizations across North America.
+        </p>
+        <p style={{ margin: 0, marginTop: 'var(--space-4)', color: 'var(--text-secondary)', lineHeight: 1.9, letterSpacing: '0.01em' }}>
+          {RECENT_ENGAGEMENTS.map((c) => c.replace(/ /g, ' ')).join(' · ')}
+        </p>
       </Section>
 
       <Section kicker="What clients say" title="Plain notes, no superlatives">
