@@ -43,7 +43,7 @@ function AboutScreen({ go }) {
       <Section>
         <StatBlock stats={[
           { value: '18+', label: 'Years shipping software' },
-          { value: 'TIME', label: 'Best Inventions 2023 — 1 of 200, embedded with the NAQI Logix innovation team' },
+          { value: <img src="assets/Time_Magazine_logo.svg" alt="TIME Magazine" style={{ height: 34, width: 'auto', display: 'block' }} />, label: 'Best Inventions 2023 — 1 of 200, embedded with the NAQI Logix innovation team' },
           { value: '$30M', label: 'In avoided costs and landmines averted, across 3 clients' },
           { value: '0→1', label: 'To enterprise scale — 4 clients, $1.5M/build, last 5 years' },
         ]} />
