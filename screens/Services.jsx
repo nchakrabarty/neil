@@ -30,24 +30,38 @@ function ServicesScreen({ go }) {
           <PricingCard
             badge="Start here" badgeTone="quiet"
             title="Diagnose" price="$10,000 CAD" duration="2 weeks"
-            body="Data, interviews, telemetry — mapping user needs to business goals so they complement, not compete. You leave with one written plan: what ships first, what waits, what gets deleted."
-            finePrint="50% due at kickoff, 50% on delivery of the plan. Fully credited toward Embedded if you continue within 30 days."
+            body="Data, interviews, telemetry — mapping user needs to business goals so they complement, not compete. Where relevant, this includes spotting where AI can move the needle before we build anything."
+            bullets={[
+              'Stakeholder interviews and discovery',
+              'Data and telemetry review',
+              'AI opportunity assessment — standard on every engagement',
+              'One written plan: what ships first, what waits, what gets deleted',
+            ]}
+            finePrint="50% due at kickoff, 50% on delivery of the plan. Credited toward your total investment if you move into Embedded within 30 days."
           />
           <PricingCard
             featured badge="Recommended" badgeTone="solid"
-            title="Embedded" price="$15,000 CAD/month" duration="2 days a week"
-            body="I stay inside the team, driving the plan from Diagnose through to shipped. Most engagements run 3–6 months — long enough to prove the fix worked, not just propose it."
+            title="Embedded" price="$15,000 CAD/month" duration="2 days a week · typically 3–6 months"
+            body="I stay inside the team, driving the plan from Diagnose through to shipped — including scoping and executing AI-based solutions where they're the highest-leverage move, not the default one."
             bullets={[
-              '3 months: $40,000 total (vs. $45,000 month-to-month)',
-              '6 months: $80,000 total (vs. $90,000 month-to-month)',
-              'Diagnose fee fully waived when bundled upfront',
+              'Full ownership of the plan from Diagnose through to shipped',
+              'Prioritization and sequencing as the roadmap evolves',
+              'AI-based solution scoping and execution — standard, not an upsell',
+              'Direct collaboration with founders and senior leadership throughout',
+              'Stay until the team can run without me',
             ]}
             finePrint="Billed monthly, in advance."
           />
           <PricingCard
             badge="Popular add-on" badgeTone="quiet"
             title="UX Research" price="$10,000 CAD" duration="2–3 week sprint"
-            body="Usability studies and research synthesis, run the way I ran it on a hardware product with no existing playbook — real feedback, mapped directly to what gets built next. Add to any Embedded engagement."
+            body="Usability studies and research synthesis, run the way I ran it on a hardware product with no existing playbook — real feedback, mapped directly to what gets built next."
+            bullets={[
+              "Usability studies designed around your product's actual context",
+              'Research synthesis mapped directly to what gets built next',
+              'AI-accelerated analysis — standard, to compress findings-to-action time',
+              'Add to any Embedded engagement',
+            ]}
             finePrint="50% due at kickoff, 50% on delivery of findings."
           />
         </div>
