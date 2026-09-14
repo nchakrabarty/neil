@@ -1,11 +1,29 @@
+// Each entry is independently removable — delete a line and the grid reflows.
+// Add `logoPath: 'assets/logos/<file>.svg'` per entry once logo usage is
+// confirmed directly with that company; until then it renders as a text cell.
 const RECENT_ENGAGEMENTS = [
-  'Terapeak', 'RevenueWire', 'BC Pensions', 'Public Health Ontario', 'Care Team Technologies',
-  'Sound Transit', 'WorkBC', 'Royal Bank of Canada', 'Ritchie Bros Auctioneers', 'Dynamic Math',
-  'Motorola Mobility', 'Hubble Connected', 'NAQI Logix', 'Argus Control Systems', 'Heart Water', 'eBay',
+  { name: 'BC Pensions' },
+  { name: 'Public Health Ontario' },
+  { name: 'Care Team Technologies' },
+  { name: 'Sound Transit' },
+  { name: 'WorkBC' },
+  { name: 'Royal Bank of Canada' },
+  { name: 'Ritchie Bros Auctioneers' },
+  { name: 'Dynamic Math' },
+  { name: 'Motorola Mobility' },
+  { name: 'Hubble Connected' },
+  { name: 'NAQI Logix' },
+  { name: 'Argus Control Systems' },
+  { name: 'Heart Water' },
+  { name: 'eBay' },
+  { name: 'Palo Alto Networks' },
+  { name: 'RevenueWire' },
 ];
 
+const ENGAGEMENT_TAGS = ['Public Sector', 'Fintech', 'HealthTech', 'Consumer Electronics', 'Ecommerce', 'AgriTech'];
+
 function AboutScreen({ go }) {
-  const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule, CtaBanner } = window.DSX;
+  const { Section, ImageSlot, Button, Kicker, StatBlock, Testimonial, Rule, CtaBanner, Tag } = window.DSX;
   return (
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter) var(--space-20)' }}>
@@ -84,12 +102,29 @@ function AboutScreen({ go }) {
           fontSize: 'var(--text-display-3)', lineHeight: 'var(--leading-display)',
           letterSpacing: 'var(--tracking-display)', margin: 0, maxWidth: '18ch',
         }}>Recent engagements</h2>
-        <p style={{ margin: 0, marginTop: 'var(--space-2)', fontSize: 14, fontStyle: 'italic', color: 'var(--text-secondary)' }}>
-          Fintech, healthcare, public transit, IoT/AgriTech, and consumer electronics — 16+ organizations across North America.
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 'var(--space-3)' }}>
+          {ENGAGEMENT_TAGS.map((t) => <Tag key={t}>{t}</Tag>)}
+        </div>
+        <p style={{ marginTop: 'var(--space-3)', color: 'var(--text-secondary)' }}>
+          Sixteen-plus organizations across North America, including Motorola, Royal Bank of Canada, eBay, BC Pensions, and Palo Alto Networks.
         </p>
-        <p style={{ margin: 0, marginTop: 'var(--space-4)', color: 'var(--text-secondary)', lineHeight: 1.9, letterSpacing: '0.01em' }}>
-          {RECENT_ENGAGEMENTS.map((c) => c.replace(/ /g, ' ')).join(' · ')}
-        </p>
+        <div className="cols" style={{ '--col-min': '200px', gap: 'var(--space-4)', marginTop: 'var(--space-10)' }}>
+          {RECENT_ENGAGEMENTS.map((c) => (
+            <div key={c.name} className="logo-cell" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              height: 84, padding: 'var(--space-3)', border: '1px solid var(--color-divider)',
+            }}>
+              {c.logoPath ? (
+                <img src={c.logoPath} alt={c.name} style={{ maxWidth: '100%', maxHeight: 36, objectFit: 'contain' }} />
+              ) : (
+                <span style={{
+                  fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 13,
+                  letterSpacing: '0.03em', color: 'var(--text-secondary)', textAlign: 'center',
+                }}>{c.name}</span>
+              )}
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section kicker="What clients say" title="Plain notes, no superlatives">
