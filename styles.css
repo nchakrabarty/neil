@@ -236,10 +236,6 @@ hr { height: 2px; border: 0; margin: var(--space-8) 0; background: var(--color-d
 }
 .grayscale { filter: grayscale(1) contrast(1.08); }
 
-/* Client-logo grid: grayscale by default, full color on hover/focus. */
-.logo-cell img { filter: grayscale(1); transition: filter var(--duration-base) var(--ease-standard); }
-.logo-cell:hover img, .logo-cell:focus-within img { filter: grayscale(0); }
-
 /* ── Responsive layout primitives ───────────────────────────────────────
    The fold rules live here rather than in the screens, so every surface
    built from the components inherits the same behaviour. Type and air are
