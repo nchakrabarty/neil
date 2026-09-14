@@ -1,21 +1,23 @@
 // Each entry is independently removable — delete a line and the grid reflows.
-// A missing `logoPath` renders as a text-wordmark fallback cell instead.
+// Add `logoPath: 'assets/logos/<file>.svg'` per entry once logo usage is
+// confirmed directly with that company; until then it renders as a text cell.
 const RECENT_ENGAGEMENTS = [
-  { name: 'BC Pensions', logoPath: 'assets/BC%20pension_logo.png' },
-  { name: 'Public Health Ontario', logoPath: 'assets/PHO_logo_AAcompliant_RGB-01_1-1024x194.png' },
-  { name: 'Care Team Technologies', logoPath: 'assets/careteam-logo-779781984fa8a28f107868f52b9b68b0.jpg' },
-  { name: 'Sound Transit', logoPath: 'assets/Sound%20transit-logo-horizontal-blue-rgb.png' },
-  { name: 'WorkBC', logoPath: 'assets/workbc-logo-png_seeklogo-560530.png' },
-  { name: 'Royal Bank of Canada', logoPath: 'assets/Royal%20Bank%20of%20Canada.png' },
-  { name: 'Dynamic Math', logoPath: 'assets/DM%20by%20CR%20White.png' },
-  { name: 'Motorola Mobility', logoPath: 'assets/Motorola_logo.svg' },
-  { name: 'Hubble Connected', logoPath: 'assets/Hubble%20Connected.webp' },
-  { name: 'NAQI Logix', logoPath: 'assets/naqi%20logix.png' },
-  { name: 'Argus Control Systems', logoPath: 'assets/argus%20controls_200x200.png' },
-  { name: 'Heart Water', logoPath: 'assets/heart%20water.png' },
-  { name: 'eBay', logoPath: 'assets/EBay_logo.png' },
-  { name: 'Palo Alto Networks', logoPath: 'assets/PaloAltoNetworks_2020_Logo.svg.webp' },
-  { name: 'RevenueWire', logoPath: 'assets/revenuewire_logo.png' },
+  { name: 'BC Pensions' },
+  { name: 'Public Health Ontario' },
+  { name: 'Care Team Technologies' },
+  { name: 'Sound Transit' },
+  { name: 'WorkBC' },
+  { name: 'Royal Bank of Canada' },
+  { name: 'Ritchie Bros Auctioneers' },
+  { name: 'Dynamic Math' },
+  { name: 'Motorola Mobility' },
+  { name: 'Hubble Connected' },
+  { name: 'NAQI Logix' },
+  { name: 'Argus Control Systems' },
+  { name: 'Heart Water' },
+  { name: 'eBay' },
+  { name: 'Palo Alto Networks' },
+  { name: 'RevenueWire' },
 ];
 
 const ENGAGEMENT_TAGS = ['Public Sector', 'Fintech', 'HealthTech', 'Consumer Electronics', 'Ecommerce', 'AgriTech', 'EdTech', 'IoT'];
@@ -104,16 +106,16 @@ function AboutScreen({ go }) {
           {ENGAGEMENT_TAGS.map((t) => <Tag key={t}>{t}</Tag>)}
         </div>
         <p style={{ marginTop: 'var(--space-3)', color: 'var(--text-secondary)' }}>
-          Fifteen-plus organizations across North America, including Motorola, Royal Bank of Canada, eBay, BC Pensions, and Palo Alto Networks.
+          Sixteen-plus organizations across North America, including Motorola, Royal Bank of Canada, eBay, BC Pensions, and Palo Alto Networks.
         </p>
         <div className="cols" style={{ '--col-min': '200px', gap: 'var(--space-4)', marginTop: 'var(--space-10)' }}>
           {RECENT_ENGAGEMENTS.map((c) => (
             <div key={c.name} className="logo-cell" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              height: 92, padding: 'var(--space-4)', border: '1px solid var(--color-divider)',
+              height: 84, padding: 'var(--space-3)', border: '1px solid var(--color-divider)',
             }}>
               {c.logoPath ? (
-                <img src={c.logoPath} alt={c.name} style={{ maxWidth: '100%', maxHeight: 40, objectFit: 'contain' }} />
+                <img src={c.logoPath} alt={c.name} style={{ maxWidth: '100%', maxHeight: 36, objectFit: 'contain' }} />
               ) : (
                 <span style={{
                   fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 13,
