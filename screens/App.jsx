@@ -8,7 +8,7 @@ const NAV = [
 function App() {
   const { SiteHeader, SiteFooter } = window.DSX;
   const [page, setPage] = React.useState('about');
-  const [caseId, setCaseId] = React.useState('northline');
+  const [caseId, setCaseId] = React.useState('grit-bulk-enrollment');
   const go = (p, id) => { if (id) setCaseId(id); setPage(p); window.scrollTo(0, 0); };
   const screen = {
     about: <AboutScreen go={go} />,
