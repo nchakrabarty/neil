@@ -1,7 +1,7 @@
 function ContactScreen() {
   const { Field, Input, Textarea, RadioGroup, Button, MetaList, Kicker, Section } = window.DSX;
   const [sent, setSent] = React.useState(false);
-  const [kind, setKind] = React.useState('diagnostic');
+  const [kind, setKind] = React.useState('diagnose');
   return (
     <Section rule={false} style={{ paddingTop: 'var(--space-20)' }}>
       <div className="split" style={{ '--split-a': '1.1fr' }}>
@@ -37,9 +37,9 @@ function ContactScreen() {
               <Field label="Email" required hint="I reply within two working days."><Input type="email" required placeholder="you@company.com" /></Field>
               <Field label="What kind of help?">
                 <RadioGroup name="kind" value={kind} onChange={setKind} options={[
-                  { value: 'diagnostic', label: 'Two-week diagnostic', note: 'Fixed fee, $9,500' },
-                  { value: 'fractional', label: 'Fractional product lead', note: 'Two days a week' },
-                  { value: 'advisory', label: 'Data & AI advisory', note: 'Standing hours' },
+                  { value: 'diagnose', label: 'Diagnose', note: '$10,000 CAD · 2 weeks' },
+                  { value: 'embedded', label: 'Embedded', note: '$15,000 CAD/month · 2 days a week' },
+                  { value: 'research', label: 'UX Research', note: '$10,000 CAD · 2–3 week sprint' },
                   { value: 'unsure', label: 'Not sure yet', note: 'Fine — start here' },
                 ]} />
               </Field>
