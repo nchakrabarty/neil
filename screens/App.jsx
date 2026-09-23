@@ -1,26 +1,26 @@
 const NAV = [
-  { id: 'about', label: 'About' },
-  { id: 'services', label: 'Services' },
-  { id: 'work', label: 'Case studies' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', label: 'Home' },
+  { id: 'work-history', label: 'Work History' },
+  { id: 'work', label: 'Case Studies' },
+  { id: 'contact', label: 'Services + Contact' },
 ];
 
 function App() {
   const { SiteHeader, SiteFooter } = window.DSX;
-  const [page, setPage] = React.useState('about');
+  const [page, setPage] = React.useState('home');
   const [caseId, setCaseId] = React.useState('grit-bulk-enrollment');
   const go = (p, id) => { if (id) setCaseId(id); setPage(p); window.scrollTo(0, 0); };
   const screen = {
-    about: <AboutScreen go={go} />,
-    services: <ServicesScreen go={go} />,
+    home: <HomeScreen go={go} />,
+    'work-history': <WorkHistoryScreen go={go} />,
     work: <CaseStudiesScreen go={go} />,
     case: <CaseStudyScreen go={go} caseId={caseId} />,
-    contact: <ContactScreen />,
+    contact: <ServicesContactScreen />,
   }[page];
   return (
     <>
       <SiteHeader items={NAV} current={page === 'case' ? 'work' : page}
-        onNavigate={(id) => go(id || 'about')} cta={{ label: 'Book a call', onClick: () => go('contact') }} />
+        onNavigate={(id) => go(id || 'home')} cta={{ label: "Let's talk", onClick: () => go('contact') }} />
       {screen}
       <SiteFooter
         blurb="Fractional product leadership across business, usability, data & AI."
