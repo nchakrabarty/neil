@@ -15,20 +15,64 @@ const CASE_CONTENT = {
     awards: null,
     artifactLabel: 'artefact · batch onboarding flow · b&w',
   },
-  'classroom-ready-cohorts': {
+  'classroom-ready': {
+    pageTitle: 'Classroom Ready | Turning book buyers into subscribers',
+    pageResult: 'Leadership thought the videos were the problem. The data said the videos were fine and the path to them was broken.',
     narrative: [
-      "Classroom Ready's paying customer base was growing, but not evenly — some cohorts of students stuck around and upgraded, others churned within weeks, and the aggregate growth numbers were masking which behavior was actually driving retention. The team needed to know which early usage patterns predicted a paying customer six months out, not just track vanity engagement metrics.",
-      "I dug into the engagement data to find the cohorts that actually mattered — the behavioral signals in the first sessions that separated students who'd still be active (and paying) months later from those who'd quietly drop off. That analysis reshaped where the team focused: onboarding and early-engagement changes aimed at reproducing the patterns of the cohorts that stuck.",
-      'The result showed up directly in the growth line: paying customers grew from 196 to 2,048 within six months of launch — roughly 10x — tracking the shift toward optimizing for the cohort behavior the data had flagged, not just top-of-funnel signups.',
+      "Classroom Ready's Dynamic Math workbooks sold in the thousands through Staples, Amazon and schools. The companion video subscription barely moved: average course completion was under 2%, and viewing collapsed after the first unit. The owner and senior leadership faced an expensive fork. If the content was weak, they needed new videos. If the portal was the wrong bet, they should pull back from it. Underneath both was a sharper question: why weren't book sales turning into lasting subscriptions?",
+    ],
+    keyDecisionsIntro: "Every decision below began as a recommendation from me and was approved by the client's leadership.",
+    keyDecisions: [
+      {
+        title: '1. Diagnose before spending',
+        body: 'Rather than commit to either path, I recommended a short discovery phase. It combined a year of sales and viewing data with paid interviews of parents, learners and educators.',
+      },
+      {
+        title: '2. Keep the content, fix the access',
+        body: "The data didn't support a reshoot. It showed hidden behaviors that the completion metric had recorded as failure:",
+        bullets: [
+          'Younger students (grades 4–7) watched in order and dropped off after the first unit.',
+          'Older students (grade 8 and up) stayed longer, but skipped around to the exact lesson they needed for homework or a test.',
+          'The people who did watch went deep, averaging about 15 videos and more than 30-minute sessions each.',
+          'Worksheets outperformed video subscriptions.',
+        ],
+        afterBullets: "The interviews explained the rest. Families thought of Dynamic Math as a book. Many didn't know the videos existed or how to get to them, and the buyer was often a parent helping a child rather than the learner. The content was working; the gap was between the book and the screen. Keeping the existing library saved the client the months a reshoot would have cost.",
+      },
+      {
+        title: '3. Own the platform, but de-risk the build',
+        body: 'We moved off the rented course platform and built a dedicated one in three funded milestones:',
+        bullets: [
+          'First, secure access, videos and worksheets.',
+          'Then search and playlists, designed for how students of different ages actually learn.',
+          'Then payments and a free trial.',
+        ],
+        afterBullets: 'Each milestone gave leadership a decision point before the next round of spending. Existing subscribers were moved over through an invite-only beta, with their old subscriptions refunded. The public launch was timed for mid-summer 2024, just as back-to-school book sales began to climb.',
+      },
+      {
+        title: '4. Make the book the growth engine',
+        body: "Since families trusted the book, it became the front door. Our strategy focused on turning book buyers into platform users, with book-plus-video bundles as the core offer. The client's head of marketing added QR stickers in the workbooks that linked straight to the platform.",
+      },
+      {
+        title: '5. Remove friction and run growth by the funnel',
+        body: 'After launch I led the growth strategy.',
+        bullets: [
+          'I drove the decision to drop the paywall so families could try the videos before paying.',
+          'Course completion was replaced by a funnel running from book sale through QR scan, registration, trial, payment and retention.',
+          'Targets were set for each stage of that funnel.',
+          'Paid acquisition was run by my team, with campaigns aimed at the conversion goals in each stage.',
+          'The build contract became a lean retainer, so spending tracked growth.',
+        ],
+      },
     ],
     results: [
-      '196 → 2,048 paying customers within 6 months of platform launch',
-      '~10x growth, concentrated in the cohorts the engagement analysis identified as highest-retention',
+      'Paying customers grew from 196 to 2,048 within six months of launch.',
+      'QR-enabled books sent 33–44% of buyers to the platform (excluding Staples), about 9 paying customers per 1,000 books sold.',
+      'Google Ads conversion rose from about 3% to 12–15% once campaigns were tied to the funnel.',
     ],
-    role: "Data & product advisory for Classroom Ready's online math platform — identified the engagement cohorts behind the growth strategy.",
-    roleTag: 'Data & Product Advisory',
+    role: 'Fractional Head of Product',
+    roleTag: 'Fractional Head of Product',
     awards: null,
-    artifactLabel: 'artefact · cohort engagement analysis · b&w',
+    artifactLabel: 'artefact · book-to-subscriber funnel · b&w',
   },
   'grit-compliance-classification': {
     narrative: [
@@ -85,8 +129,8 @@ function CaseStudyScreen({ go, caseId }) {
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-16) var(--page-gutter) var(--space-12)' }}>
         <button onClick={() => go('work')} style={{ font: 'inherit', fontSize: 13, background: 'none', border: 0, padding: 0, cursor: 'pointer', color: 'var(--text-accent-safe)' }}>← All case studies</button>
         <Kicker accent style={{ margin: 'var(--space-8) 0 var(--space-4)' }}>{c.client} · {c.year}</Kicker>
-        <h1 className="display-2" style={{ maxWidth: '18ch' }}>{c.headline}</h1>
-        <p className="lead" style={{ marginTop: 'var(--space-6)' }}>{c.result}</p>
+        <h1 className="display-2" style={{ maxWidth: '18ch' }}>{content.pageTitle || c.headline}</h1>
+        <p className="lead" style={{ marginTop: 'var(--space-6)' }}>{content.pageResult || c.result}</p>
       </div>
 
       <Section>
@@ -96,6 +140,25 @@ function CaseStudyScreen({ go, caseId }) {
             {content.narrative.map((p, i) => (
               <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-4)' }}>{p}</p>
             ))}
+            {content.keyDecisions ? (
+              <>
+                <Rule space={40} weight="hair" />
+                <h3>Key decisions</h3>
+                {content.keyDecisionsIntro ? <p>{content.keyDecisionsIntro}</p> : null}
+                {content.keyDecisions.map((d, i) => (
+                  <div key={i} style={{ marginTop: i === 0 ? 'var(--space-6)' : 'var(--space-8)' }}>
+                    <h4 style={{ margin: 0 }}>{d.title}</h4>
+                    <p style={{ marginTop: 'var(--space-2)' }}>{d.body}</p>
+                    {d.bullets ? (
+                      <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {d.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                      </ul>
+                    ) : null}
+                    {d.afterBullets ? <p style={{ marginTop: 'var(--space-4)' }}>{d.afterBullets}</p> : null}
+                  </div>
+                ))}
+              </>
+            ) : null}
             <Rule space={40} weight="hair" />
             <h3>Results</h3>
             <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
