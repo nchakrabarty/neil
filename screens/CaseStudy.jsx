@@ -180,7 +180,7 @@ function CaseStudyScreen({ go, caseId }) {
               { label: 'Disciplines', value: c.tags.join(', ') },
             ]} />
             <ImageSlot label={content.artifactLabel} ratio="4 / 3" />
-            <Button variant="secondary" block iconRight={<span>→</span>} onClick={() => go('contact')}>Discuss a similar problem</Button>
+            <Button variant="secondary" block iconRight={<span>→</span>} href="mailto:neilcbty@gmail.com">Discuss a similar problem</Button>
           </div>
         </div>
       </Section>

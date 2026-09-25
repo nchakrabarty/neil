@@ -10,10 +10,6 @@
     'components/core/Tag.jsx',
     'components/core/Rule.jsx',
     'components/core/Kicker.jsx',
-    'components/forms/Input.jsx',
-    'components/forms/Field.jsx',
-    'components/forms/Textarea.jsx',
-    'components/forms/RadioGroup.jsx',
     'components/layout/SiteHeader.jsx',
     'components/layout/SiteFooter.jsx',
     'components/layout/Section.jsx',
@@ -24,8 +20,7 @@
     'components/content/CaseStudyCard.jsx',
     'components/content/Testimonial.jsx',
     'components/content/MetaList.jsx',
-    'components/content/CtaBanner.jsx',
-    'components/content/PricingCard.jsx'
+    'components/content/CtaBanner.jsx'
   ];
   var MARKERS = ['Button', 'Section', 'ServiceRow', 'CaseStudyCard'];
   var SCREENS = ((script && script.getAttribute('data-screens')) || '').split(',').filter(Boolean);

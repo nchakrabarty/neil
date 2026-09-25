@@ -38,7 +38,7 @@ function CaseStudiesScreen({ go }) {
         {shown.length === 0 ? <p className="muted">Nothing filed under {filter} yet.</p> : null}
       </Section>
 
-      <CtaBanner onClick={() => go('contact')} />
+      <CtaBanner href="mailto:neilcbty@gmail.com" />
     </>
   );
 }
