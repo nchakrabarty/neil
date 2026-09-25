@@ -38,16 +38,13 @@ function HomeScreen({ go }) {
         <h1 className="display-1" style={{ maxWidth: '18ch' }}>
           I help product teams get unstuck<span style={{ color: 'var(--color-accent)' }}>.</span>
         </h1>
-        <p style={{ marginTop: 'var(--space-8)', maxWidth: '58ch', fontSize: 17 }}>
-          👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech,
-          EdTech, AgriTech, Wearables, and eCommerce.
+        <p style={{ marginTop: 'var(--space-8)', maxWidth: '62ch', fontSize: 17 }}>
+          Product leadership for the harder questions. I work alongside founders and senior teams to find
+          what's actually broken, decide what's worth solving, and build something people can use.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
           I work best at the intersection of business, data, usability, and AI — finding the right problem
-          to solve, then building something people actually use.
-        </p>
-        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          Let's build something together.
+          to solve, then building something functional and useful for people.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
           I started in Human-Computer Interaction research, stumbled into building recommendation engines for
@@ -56,14 +53,16 @@ function HomeScreen({ go }) {
           actually use.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          These days I collaborate with founders and senior teams on three things: diagnosing why products
-          stall, fractional product and data leadership for teams that need a senior operator without a
-          full-time hire, and AI and data advisory — figuring out where intelligence adds real leverage, not
-          just noise.
+          These days I collaborate with founders and senior teams on fractional product and data leadership —
+          for teams that need a senior operator without a full-time hire — and AI and analytics platform
+          leadership, figuring out where intelligence adds real leverage, not just noise.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
           Off the clock: dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat
           that never sleeps.
+        </p>
+        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
+          Let's build something together.
         </p>
         <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
           <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's talk about what you're building</Button>
