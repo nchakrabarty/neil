@@ -1,21 +1,12 @@
-const TRUST_STRIP = ['Grit Financial', 'Divertica', 'Naqilogix', 'Classroom Ready', 'Argus Controls'];
-
-const ROLE_HISTORY = [
-  {
-    title: 'VP of Data Platforms', company: 'Grit Financial', dates: 'Oct 2024 – Present',
-    scope: 'EWA / fintech B2B SaaS. Long-term fractional contract, owning the data platform and 0-1 product work.',
-  },
-  {
-    title: 'COO & Partner', company: 'Divertica', dates: 'Nov 2019 – Oct 2024',
-    scope: "Consulting firm whose work funded Grit Financial's early development. Ran delivery across five concurrent client engagements.",
-  },
-];
-
-const SKILLS = [
-  'MS, Human-Computer Interaction — University of Victoria (IEEE-published; Fellowship Award 2007)',
-  'BE, University of Burdwan',
-  'CSPO (Certified Scrum Product Owner)',
-  'CSM (Certified Scrum Master)',
+const COLLABORATIONS = [
+  [
+    'Wipro BPO', 'Husky Energy', 'Terapeak', 'Ebay', 'FCV Technologies', 'FCV Labs',
+    'BC Pensions', 'Public Health Ontario', 'Careteam Technologies', 'Sound Transit', 'Inovatec', 'Virtual Vision',
+  ],
+  [
+    'Uniqlo', 'LuluLemon', 'Heart Water', 'Classroom Ready', 'Argus Controls', 'Motorola Mobility',
+    'Hubble Connected', 'Grit Financial', 'Divertica', 'Palo Alto Networks', 'Work BC', 'Price Water House Coopers',
+  ],
 ];
 
 function HomeScreen({ go }) {
@@ -89,31 +80,12 @@ function HomeScreen({ go }) {
       </Section>
 
       <Section>
-        <Kicker style={{ marginBottom: 'var(--space-4)' }}>Selected clients</Kicker>
-        <p style={{ color: 'var(--text-secondary)' }}>{TRUST_STRIP.join(' · ')}</p>
-        <p className="meta" style={{ marginTop: 'var(--space-6)' }}>
-          TIME Best Inventions 2023, via the Naqilogix wearables platform.
-        </p>
-      </Section>
-
-      <Section kicker="Role history" title="Where I've worked">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
-          {ROLE_HISTORY.map((r) => (
-            <div key={r.company} style={{ borderTop: '2px solid var(--color-divider)', paddingTop: 'var(--space-4)' }}>
-              <div className="cols" style={{ '--col-min': '220px', gap: 'var(--space-4)', alignItems: 'baseline' }}>
-                <h3 style={{ margin: 0 }}>{r.title}, {r.company}</h3>
-                <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>{r.dates}</div>
-              </div>
-              <p style={{ marginTop: 'var(--space-3)', color: 'var(--text-secondary)' }}>{r.scope}</p>
-            </div>
+        <Kicker style={{ marginBottom: 'var(--space-4)' }}>Collaborations</Kicker>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+          {COLLABORATIONS.map((row, i) => (
+            <p key={i} style={{ color: 'var(--text-secondary)' }}>{row.join(' · ')}</p>
           ))}
         </div>
-      </Section>
-
-      <Section kicker="Skills & certifications" title="Background">
-        <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {SKILLS.map((s) => <li key={s} style={{ color: 'var(--text-secondary)' }}>{s}</li>)}
-        </ul>
       </Section>
 
       <Section kicker="What clients say" title="Plain notes, no superlatives">
