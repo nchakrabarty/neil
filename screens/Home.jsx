@@ -42,11 +42,15 @@ function HomeScreen({ go }) {
           Diagnostics, fractional leadership, data and AI advisory.
         </p>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '58ch', fontSize: 17 }}>
-          I work best alongside executives and senior teams asking the harder questions — why isn't this
-          working, what are we actually building toward, and where does AI create real leverage.
+          👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech,
+          EdTech, AgriTech, Wearables, and eCommerce.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          I'm Neil — a product leader at the intersection of business, data, usability, and AI.
+          I work best at the intersection of business, data, usability, and AI — finding the right problem
+          to solve, then building something people actually use.
+        </p>
+        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
+          Let's build something together.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
           I started in Human-Computer Interaction research, stumbled into building recommendation engines for
