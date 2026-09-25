@@ -38,9 +38,6 @@ function HomeScreen({ go }) {
         <h1 className="display-1" style={{ maxWidth: '18ch' }}>
           I help product teams get unstuck<span style={{ color: 'var(--color-accent)' }}>.</span>
         </h1>
-        <p className="lead" style={{ marginTop: 'var(--space-6)' }}>
-          Diagnostics, fractional leadership, data and AI advisory.
-        </p>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '58ch', fontSize: 17 }}>
           👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech,
           EdTech, AgriTech, Wearables, and eCommerce.
