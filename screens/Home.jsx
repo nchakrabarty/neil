@@ -23,7 +23,7 @@ function HomeScreen({ go }) {
     const prevDescription = metaEl ? metaEl.getAttribute('content') : null;
     document.title = 'Neil Chakrabarty — fractional product leadership';
     if (metaEl) {
-      metaEl.setAttribute('content', 'I help product teams get unstuck. Diagnostics, fractional leadership, data and AI advisory.');
+      metaEl.setAttribute('content', 'I help product teams get unstuck.');
     }
     return () => {
       document.title = prevTitle;
