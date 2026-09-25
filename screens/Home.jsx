@@ -39,8 +39,10 @@ function HomeScreen({ go }) {
           I help product teams get unstuck<span style={{ color: 'var(--color-accent)' }}>.</span>
         </h1>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '62ch', fontSize: 17 }}>
-          I work best at the intersection of business, data, usability, and AI — finding the right problem
-          to solve, then building something functional and useful for people.
+          👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech,
+          EdTech, AgriTech, Wearables & IoT, and eCommerce. I work best at the intersection of business,
+          data, usability, and AI — finding the right problem to solve, then building something functional
+          and useful for people.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
           I started in Human-Computer Interaction research, stumbled into building recommendation engines for
@@ -57,11 +59,8 @@ function HomeScreen({ go }) {
           Off the clock: dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat
           that never sleeps.
         </p>
-        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          Let's build something together.
-        </p>
         <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
-          <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's talk about what you're building</Button>
+          <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's build something together</Button>
         </div>
       </div>
 
