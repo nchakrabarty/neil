@@ -1,11 +1,15 @@
 const COLLABORATIONS = [
   [
-    'Wipro BPO', 'Husky Energy', 'Terapeak', 'Ebay', 'FCV Technologies', 'FCV Labs',
-    'BC Pensions', 'Public Health Ontario', 'Careteam Technologies', 'Sound Transit', 'Inovatec', 'Virtual Vision',
+    'Wipro BPO', 'Husky Energy', 'Terapeak', 'Ebay',
+    'FCV Technologies', 'FCV Labs', 'BC Pensions', 'Public Health Ontario',
   ],
   [
-    'Uniqlo', 'LuluLemon', 'Heart Water', 'Classroom Ready', 'Argus Controls', 'Motorola Mobility',
-    'Hubble Connected', 'Grit Financial', 'Divertica', 'Palo Alto Networks', 'Work BC', 'Price Water House Coopers',
+    'Careteam Technologies', 'Sound Transit', 'Inovatec', 'Virtual Vision',
+    'Uniqlo', 'LuluLemon', 'Heart Water', 'Classroom Ready',
+  ],
+  [
+    'Argus Controls', 'Motorola Mobility', 'Hubble Connected', 'Grit Financial',
+    'Divertica', 'Palo Alto Networks', 'Work BC', 'Price Water House Coopers',
   ],
 ];
 
