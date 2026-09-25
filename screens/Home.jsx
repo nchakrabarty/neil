@@ -42,25 +42,27 @@ function HomeScreen({ go }) {
           Diagnostics, fractional leadership, data and AI advisory.
         </p>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '58ch', fontSize: 17 }}>
-          👋 I'm Neil — a product, data, and usability leader who's spent a career sitting at the intersection
-          of tech, business, and the people actually using the thing. Also a dad who runs bedtime like a
-          sprint, and a lifelong football (soccer) optimist who never learns.
+          I work best alongside executives and senior teams asking the harder questions — why isn't this
+          working, what are we actually building toward, and where does AI create real leverage.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          I ended up here mostly by accident. Trained academically in collaborative data visualization, my
-          first real job landed me on the R&D team at Terapeak, building recommendation engines for eBay
-          sellers — which put me squarely at the intersection of technology, business, research, and
-          usability before anyone had bothered to call that a "product" job. The title changed a few times
-          after that — developer, usability engineer, product manager — but the actual work never really did:
-          find the shape of the problem, then build something people can actually use.
+          I'm Neil — a product leader at the intersection of business, data, usability, and AI.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
-          These days I work at the intersection of Product, Entrepreneurship, Data & AI, and Usability — which
-          is a fancy way of saying I like problems that don't fit neatly into one department. Off the clock,
-          I'm a dad who's discovered that agile ceremonies work disturbingly well on a toddler — sprint
-          planning is just negotiating bedtime, and retros happen most nights whether I want them or not. I'm
-          also a hopeless case in a football (soccer) group chat that never sleeps, forever certain this is
-          our year.
+          I started in Human-Computer Interaction research, stumbled into building recommendation engines for
+          eBay sellers at Terapeak, and somewhere in the middle the title became "product manager" — though
+          the actual work never changed: find the real shape of the problem, then build something people can
+          actually use.
+        </p>
+        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
+          These days I collaborate with founders and senior teams on three things: diagnosing why products
+          stall, fractional product and data leadership for teams that need a senior operator without a
+          full-time hire, and AI and data advisory — figuring out where intelligence adds real leverage, not
+          just noise.
+        </p>
+        <p style={{ marginTop: 'var(--space-4)', maxWidth: '62ch' }}>
+          Off the clock: dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat
+          that never sleeps.
         </p>
         <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
           <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's talk about what you're building</Button>
