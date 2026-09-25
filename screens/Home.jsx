@@ -79,11 +79,14 @@ function HomeScreen({ go }) {
         </div>
       </Section>
 
-      <Section>
-        <Kicker style={{ marginBottom: 'var(--space-4)' }}>Collaborations</Kicker>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-          {COLLABORATIONS.map((row, i) => (
-            <p key={i} style={{ color: 'var(--text-secondary)' }}>{row.join(' · ')}</p>
+      <Section kicker="Companies" title="Collaborations">
+        <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-8)' }}>
+          {COLLABORATIONS.map((col, i) => (
+            <ul key={i} style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {col.map((name) => (
+                <li key={name} style={{ color: 'var(--text-secondary)' }}>{name}</li>
+              ))}
+            </ul>
           ))}
         </div>
       </Section>
