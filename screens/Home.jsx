@@ -39,10 +39,9 @@ function HomeScreen({ go }) {
           Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
         </h1>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '80ch', fontSize: 17 }}>
-          👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech, EdTech,
-          AgriTech, Wearables & IoT, and eCommerce. I work best at the intersection of business, data,
-          usability, and AI — finding the right problem to solve, then building something functional and
-          useful for people.
+          👋 Hi, I'm Neil — a thinking partner and operator for founders and senior teams. I work at the
+          intersection of business, data, usability, and AI — finding the right problem, then building
+          something people actually use.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
           I started in Human-Computer Interaction research, stumbled into building recommendation engines for
