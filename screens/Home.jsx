@@ -23,7 +23,7 @@ function HomeScreen({ go }) {
     const prevDescription = metaEl ? metaEl.getAttribute('content') : null;
     document.title = 'Neil Chakrabarty — fractional product leadership';
     if (metaEl) {
-      metaEl.setAttribute('content', 'The thinking partner who stays to build.');
+      metaEl.setAttribute('content', "Find what's worth solving. Then build it.");
     }
     return () => {
       document.title = prevTitle;
@@ -35,8 +35,8 @@ function HomeScreen({ go }) {
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter) var(--space-16)' }}>
         <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Fractional product leadership</Kicker>
-        <h1 className="display-1" style={{ maxWidth: '22ch' }}>
-          The thinking partner who stays to build<span style={{ color: 'var(--color-accent)' }}>.</span>
+        <h1 className="display-1" style={{ maxWidth: '27ch' }}>
+          Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
         </h1>
         <p style={{ marginTop: 'var(--space-8)', maxWidth: '80ch', fontSize: 17 }}>
           👋 Hi, I'm Neil — a thinking partner and operator for executives and senior teams in Fintech, EdTech,
