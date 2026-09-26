@@ -108,6 +108,10 @@ const CASE_CONTENT = {
     roleTag: 'Fractional Delivery Manager',
     awards: null,
     artifactLabel: 'artefact · planned vs. actual delivery · b&w',
+    artifactSrc: 'assets/xpo-burnup-illustration.png',
+    artifactAlt: 'Planned vs. actual delivery on the architecture roadmap. Two sprints in, actual progress had already fallen far behind plan.',
+    artifactCaption: 'Planned vs. actual delivery on the architecture roadmap. Two sprints in, actual progress had already fallen far behind plan.',
+    artifactRatio: '8 / 5',
   },
   'grit-compliance-classification': {
     narrative: [
@@ -214,7 +218,7 @@ function CaseStudyScreen({ go, caseId }) {
               { label: 'Role', value: content.roleTag },
               { label: 'Disciplines', value: c.tags.join(', ') },
             ]} />
-            <ImageSlot label={content.artifactLabel} src={content.artifactSrc} alt={content.artifactAlt || content.artifactLabel} ratio="4 / 3" />
+            <ImageSlot label={content.artifactLabel} src={content.artifactSrc} alt={content.artifactAlt || content.artifactLabel} ratio={content.artifactRatio || '4 / 3'} />
             {content.artifactCaption ? <p className="meta" style={{ marginTop: 'var(--space-3)' }}>{content.artifactCaption}</p> : null}
             <Button variant="secondary" block iconRight={<span>→</span>} href="mailto:neilcbty@gmail.com">Discuss a similar problem</Button>
           </div>
