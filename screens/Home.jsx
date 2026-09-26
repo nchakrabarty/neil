@@ -9,7 +9,7 @@ const COLLABORATIONS = [
   ],
   [
     'Argus Controls', 'Motorola Mobility', 'Hubble Connected', 'Grit Financial',
-    'Divertica', 'Palo Alto Networks', 'Work BC', 'Price Water House Coopers',
+    'Divertica', 'Palo Alto Networks', 'Work BC', 'Price Water House Coopers', 'XPO Technologies',
   ],
 ];
 

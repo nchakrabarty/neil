@@ -74,6 +74,41 @@ const CASE_CONTENT = {
     awards: null,
     artifactLabel: 'artefact · book-to-subscriber funnel · b&w',
   },
+  'xpo-technologies': {
+    pageTitle: 'XPO Technologies | Turning scope creep into a decision leadership could act on',
+    pageResult: "The roadmap wasn't behind because of bad estimating. It was behind because nearly half the team's capacity was going somewhere nobody had measured.",
+    narrative: [
+      "XPO Technologies was mid-build on a new platform architecture, a fixed roadmap of 167 story points, while its biz dev team was simultaneously onboarding new clients onto the same engineering team. Two sprints in, actual delivery had already fallen far behind plan, but the team's own reporting made this look like ordinary variance rather than a warning sign. Leadership had no way to tell whether the roadmap was slipping because of bad estimates or because something else was quietly consuming the capacity they'd already paid for.",
+    ],
+    keyDecisionsIntro: "Every decision below began as a recommendation from me and was approved by XPO's CEO and Head of Biz Dev.",
+    keyDecisions: [
+      {
+        title: '1. Diagnose the gap as a share of capacity, not story points',
+        body: 'Rather than treat the missed sprint targets as an estimating problem, I built a cost model of the team\'s actual capacity. It showed that unplanned bug work was consuming close to half of every sprint — 47.6% — leaving less than the roadmap needed to stay on track. Framed this way, "we\'re behind" became "we are spending nearly half our engineering capacity on unplanned work," a way of stating the problem that leadership could act on immediately.',
+      },
+      {
+        title: '2. Name the competing draw on capacity',
+        body: 'The roadmap wasn\'t only being eaten by bugs. It was also competing with new client onboarding, which looked like growth but was quietly drawing on the same engineers. I laid the burn-up of planned versus actual progress alongside the capacity breakdown so leadership could see both drains at once, not just the missed dates.',
+      },
+      {
+        title: '3. Present the trade-off as a real choice, not a status update',
+        body: 'I took this to the CEO and Head of Biz Dev as a decision, not an update: keep onboarding new clients on borrowed capacity, or protect the roadmap. Pausing onboarding was framed not as "no," but as "not yet, and here\'s what it buys us."',
+      },
+      {
+        title: '4. Make the fix structural, not a one-time fire drill',
+        body: 'The resolution was to pause new client onboarding and formally fold bug fixing into planned sprint capacity going forward, rather than absorbing it as invisible overhead. That meant the next spike in unplanned work would show up as a forecasted line item instead of a repeat surprise.',
+      },
+    ],
+    results: [
+      'Roadmap delivery got back on plan after the pause.',
+      'Trust was rebuilt between the engineering team and management, with decisions now grounded in shared numbers rather than competing narratives.',
+      'The added transparency and planning discipline gave the biz dev team the confidence to resume client onboarding without jeopardizing delivery.',
+    ],
+    role: 'Fractional Delivery Manager',
+    roleTag: 'Fractional Delivery Manager',
+    awards: null,
+    artifactLabel: 'artefact · planned vs. actual delivery · b&w',
+  },
   'grit-compliance-classification': {
     narrative: [
       "Grit's compliance team was manually reviewing customer service calls and transactions to satisfy audit requirements — a process that scaled linearly with volume and pulled skilled reviewers into repetitive triage work.",
@@ -179,7 +214,8 @@ function CaseStudyScreen({ go, caseId }) {
               { label: 'Role', value: content.roleTag },
               { label: 'Disciplines', value: c.tags.join(', ') },
             ]} />
-            <ImageSlot label={content.artifactLabel} ratio="4 / 3" />
+            <ImageSlot label={content.artifactLabel} src={content.artifactSrc} alt={content.artifactAlt || content.artifactLabel} ratio="4 / 3" />
+            {content.artifactCaption ? <p className="meta" style={{ marginTop: 'var(--space-3)' }}>{content.artifactCaption}</p> : null}
             <Button variant="secondary" block iconRight={<span>→</span>} href="mailto:neilcbty@gmail.com">Discuss a similar problem</Button>
           </div>
         </div>
