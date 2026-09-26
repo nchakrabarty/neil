@@ -19,7 +19,7 @@ const CASE_CONTENT = {
     pageTitle: 'Classroom Ready | Turning book buyers into subscribers',
     pageResult: 'Leadership thought the videos were the problem. The data said the videos were fine and the path to them was broken.',
     narrative: [
-      "Classroom Ready's Dynamic Math workbooks sold in the thousands through Staples, Amazon and schools. The companion video subscription barely moved: average course completion was under 2%, and viewing collapsed after the first unit. The owner and senior leadership faced an expensive fork. If the content was weak, they needed new videos. If the portal was the wrong bet, they should pull back from it. Underneath both was a sharper question: why weren't book sales turning into lasting subscriptions?",
+      "Classroom Ready's Dynamic Math workbooks sold in the thousands through Staples, Amazon and homeschool parent networks. The companion video subscription barely moved: average course completion was under 2%, and viewing collapsed after the first unit. The owner and senior leadership faced an expensive fork. If the content was weak, they needed new videos. If the portal was the wrong bet, they should pull back from it. Underneath both was a sharper question: why weren't book sales turning into lasting subscriptions?",
     ],
     keyDecisionsIntro: "Every decision below began as a recommendation from me and was approved by the client's leadership.",
     keyDecisions: [
