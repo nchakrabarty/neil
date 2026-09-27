@@ -140,21 +140,74 @@ const CASE_CONTENT = {
     awards: null,
     artifactLabel: 'artefact · coming soon · b&w',
   },
-  'naqilogix-0-to-1': {
+  'neurotech-wearable-platform': {
+    pageTitle: "From a founder's idea to a publicly funded, multi-platform release",
+    pageResult: 'Five decisions, made at the right moments, took this product from a rigged-up prototype to a multi-platform release that helped the company secure public innovation funding.',
     narrative: [
-      'Naqilogix set out to build a wearables platform from scratch — new hardware, new software, and an interaction model with no existing playbook to borrow from. I joined as part of the innovation team building it from 0 to 1.',
-      "The work spanned the same ground that runs through most of what I do — product, hardware/software integration, and usability — because a wearable lives or dies on whether people actually want to keep it on. I helped shape the software vision and joined fundraising conversations to explain it in terms non-technical stakeholders could act on.",
-      "The platform went on to be recognized in TIME's Best Inventions 2023 list — one of roughly 200 honorees that year, and a shared recognition across the team that built it, not a solo credit. Naqilogix was later valued at $126M.",
+      "I joined on day two. There was no company entity yet (we tracked billing in a spreadsheet) and no product. The founder had a bold idea: an earbud that lets people control a computer without their hands or voice. The only hardware was a proof of concept rigged from an off-the-shelf earbud, and the founders and executive team each had their own picture of what the platform could become.",
+      "Three years later, that idea shipped across platforms. We didn't get there by hiring early or moving fast for its own sake. We got there through a handful of well-timed decisions and a team disciplined enough to carry them out.",
+    ],
+    keyDecisions: [
+      {
+        title: '1. Give the vision one story before writing any code',
+        parts: [
+          { label: 'The situation', text: "Roughly a dozen product ideas were circulating, from device control to cloud services. Each was exciting, but they didn't connect." },
+          { label: 'The call', text: 'Agree on one platform story first, then prove one thing.' },
+          { label: 'How we executed', text: 'I turned the scattered ideas into a single platform narrative with a clear home for each concept: the device, a core software layer, a developer toolkit (SDK), a desktop hub, and later cloud and mobile. With my lead engineer, I mapped the architecture underneath, including how a user would set up a new device for the first time. Then we chose one use case to prove first: hands-free control of a desktop mouse and keyboard.' },
+          { label: 'What it bought us', text: 'A plan the founders could rally behind, and something investors could see.' },
+        ],
+      },
+      {
+        title: "2. Don't wait for the hardware",
+        parts: [
+          { label: 'The situation', text: "The company's own earbud hadn't been designed yet, and outside partners would take months to build it." },
+          { label: 'The call', text: 'Build software against the stand-in device and a simulator, so hardware and software could move in parallel.' },
+          { label: 'How we executed', text: "We recreated the earbud's motion data in software and built against it from the first sprint. When the real hardware arrived, we plugged it in rather than starting over." },
+          { label: 'What it bought us', text: 'A working proof of concept in about 12 weeks, right on the three-month plan. Calibrating the real device later took longer than any single feature, which is exactly why waiting would have cost us.' },
+        ],
+      },
+      {
+        title: '3. Choose speed now, with a clear path to scale',
+        parts: [
+          { label: 'The situation', text: 'Python would let us prototype fast. C++ would perform better and travel across platforms. The founder needed a clear answer.' },
+          { label: 'The call', text: 'Start in Python, with Bluetooth libraries that could support the build, and plan a later move to a shared C++ codebase for mobile and other operating systems.' },
+          { label: 'How we executed', text: 'At the proof-of-concept review, I laid the trade-offs side by side: speed versus performance, prototyping now versus cross-platform later. The founder and I agreed on a staged path, and we built the platform in layers so a future language change would touch the foundation, not the features.' },
+          { label: 'What it bought us', text: 'Fast iteration when it mattered most, with the scaling plan already agreed.' },
+        ],
+      },
+      {
+        title: '4. Run a small team with big-team discipline',
+        parts: [
+          { label: 'The situation', text: 'A tiny team was building on a moving target, the moment when shortcuts are most tempting.' },
+          { label: 'The call', text: 'Hold ourselves to real engineering practice from day one, and protect the core over new features.' },
+          { label: 'How we executed', text: 'My lead engineer and I held the line on code reviews, versioned releases, documented APIs and builds tested on clean machines. When stability slipped, I paused plugin work so the team could harden the core.' },
+          { label: 'What it bought us', text: 'Twice, events outside our control cut the engineering team off for extended periods. The product kept working, and the company ran several investor demos with almost no engineering support.' },
+        ],
+      },
+      {
+        title: '5. Scale the team to the milestone, not ahead of it',
+        parts: [
+          { label: 'The situation', text: 'A public innovation-funding program required a multi-platform release on a fixed timeline.' },
+          { label: 'The call', text: 'Grow deliberately, adding each skill only when the plan needed it.' },
+          { label: 'How we executed', text: "We grew from one engineer to four, then seven, across embedded, desktop, web and iOS, adding design, cloud and QA along the way. The scope was to bring the hub to macOS, design onboarding for Windows and Mac, set up basic cloud infrastructure and plan the launch. As account lead and interim software manager, I was the link between the founder's vision and the engineering team: I turned ideas into buildable decisions and translated technical constraints back into business terms." },
+          { label: 'What it bought us', text: 'Our first multi-platform release shipped within five months, in time for the funding milestone.' },
+        ],
+      },
     ],
     results: [
-      'Built the wearables platform from 0 to 1, with no existing playbook to build from',
-      "Recognized in TIME's Best Inventions 2023 (1 of ~200 honorees; shared team recognition)",
-      'Company later valued at $126M',
+      { stat: '12 weeks', text: 'to a working proof of concept, on plan' },
+      { stat: '10+ releases', text: 'in the first nine months' },
+      { stat: '77%', text: 'of the core mouse and keyboard backlog shipped' },
+      { stat: '7x', text: 'engineering team growth, from 1 to 7' },
+      { stat: '1 → 2', text: 'platforms in production, with 4 designed' },
+      { stat: '5 organizations', text: 'coordinated across 9 parallel workstreams' },
+      { stat: 'Several investor demos', text: 'delivered during extended development pauses' },
+      { stat: 'Within 5 months', text: 'a multi-platform release for a public funding milestone' },
     ],
-    role: 'Embedded with the NAQI Logix innovation team — 0-to-1 product and software build.',
-    roleTag: 'Embedded — 0-to-1 Build',
-    awards: "TIME Best Inventions 2023 — Naqilogix wearables platform (shared team recognition).",
-    artifactLabel: 'artefact · wearables platform · b&w',
+    role: 'Account Lead & Interim Software Manager (delivery-partner side), working alongside the lead engineer as platform co-architect.',
+    roleTag: 'Account Lead & Interim Software Manager',
+    awards: "The earbud was named one of TIME's Best Inventions of 2023. The award recognized the device. The Bluetooth-based software platform my team built is what connects it to computers and the devices around it.",
+    artifactLabel: 'artefact · multi-platform build · b&w',
   },
 };
 
@@ -187,7 +240,10 @@ function CaseStudyScreen({ go, caseId }) {
                 {content.keyDecisions.map((d, i) => (
                   <div key={i} style={{ marginTop: i === 0 ? 'var(--space-6)' : 'var(--space-8)' }}>
                     <h4 style={{ margin: 0 }}>{d.title}</h4>
-                    <p style={{ marginTop: 'var(--space-2)' }}>{d.body}</p>
+                    {d.body ? <p style={{ marginTop: 'var(--space-2)' }}>{d.body}</p> : null}
+                    {d.parts ? d.parts.map((p, j) => (
+                      <p key={j} style={{ marginTop: j === 0 ? 'var(--space-2)' : 'var(--space-3)' }}><strong>{p.label}:</strong> {p.text}</p>
+                    )) : null}
                     {d.bullets ? (
                       <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {d.bullets.map((b, j) => <li key={j}>{b}</li>)}
@@ -201,7 +257,9 @@ function CaseStudyScreen({ go, caseId }) {
             <Rule space={40} weight="hair" />
             <h3>Results</h3>
             <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {content.results.map((r) => <li key={r}>{r}</li>)}
+              {content.results.map((r, i) => (
+                <li key={i}>{typeof r === 'string' ? r : (<><strong>{r.stat}</strong> {r.text}</>)}</li>
+              ))}
             </ul>
             <h3 style={{ marginTop: 'var(--space-10)' }}>My role</h3>
             <p>{content.role}</p>
