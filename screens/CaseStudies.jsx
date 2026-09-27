@@ -3,7 +3,6 @@ const CASES = [
   { id: 'classroom-ready', client: 'Classroom Ready', year: '2024', headline: 'Grew paying customers from 196 to 2,048 in six months', result: 'Found the hidden users behind a 2% completion rate and rebuilt an EdTech platform around them.', tags: ['Product Strategy', 'User Research', 'Data Analysis', 'Growth', 'Digital Transformation'], discipline: 'Data' },
   { id: 'xpo-technologies', client: 'XPO Technologies', year: '2021', headline: 'Found that 47.6% of sprint capacity was going to unplanned work', result: 'Quantified silent scope creep and gave leadership a real trade-off to choose from — pause growth or lose the roadmap.', tags: ['Delivery Management', 'Data Analysis', 'Stakeholder Alignment', 'Roadmap Planning', 'Organizational Change'], discipline: 'Leadership' },
   { id: 'grit-compliance-classification', client: 'Grit Financial', year: '2025', headline: 'Cutting compliance audit time 60% across 9,000 customer interactions', result: 'Compliance audit review time cut 60% across ~9,000 customer calls and transactions.', tags: ['Fintech', 'Compliance', 'AI', 'Data Classification'], discipline: 'AI' },
-  { id: 'divertica-scope-visibility', client: 'Divertica', year: '2023', headline: 'Making scope creep visible before it broke the deadline', result: 'Full write-up coming soon.', tags: ['Leadership', 'Delivery', 'Scope Management'], discipline: 'Leadership' },
   { id: 'neurotech-wearable-platform', client: 'Naqi Logix', year: '2023', headline: "From a founder's idea to a publicly funded, multi-platform release", result: 'Five decisions, made at the right moments, took a rigged-up prototype to a multi-platform release that helped the company secure public innovation funding.', tags: ['0-1 Build', 'Platform Architecture', 'Hardware/Software Integration', 'Program Leadership'], discipline: 'Usability' },
 ];
 
@@ -16,7 +15,7 @@ function CaseStudiesScreen({ go }) {
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-20) var(--page-gutter) var(--space-10)' }}>
         <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Selected work</Kicker>
-        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Six engagements, written up honestly.</h1>
+        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Five engagements, written up honestly.</h1>
         <div style={{ display: 'flex', gap: 'var(--space-3)', marginTop: 'var(--space-10)', flexWrap: 'wrap' }}>
           {filters.map((f) => (
             <button key={f} onClick={() => setFilter(f)}

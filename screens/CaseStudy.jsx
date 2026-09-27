@@ -128,18 +128,6 @@ const CASE_CONTENT = {
     awards: null,
     artifactLabel: 'artefact · compliance classification layer · b&w',
   },
-  'divertica-scope-visibility': {
-    narrative: [
-      "This case study is still being written up — the short version is that a tight-timeline Divertica engagement needed scope creep made visible early, before it became the deadline's problem, rather than caught after the fact. Full narrative and results coming soon.",
-    ],
-    results: [
-      'Details coming soon.',
-    ],
-    role: 'COO & Partner, Divertica — full case details coming soon.',
-    roleTag: 'COO & Partner',
-    awards: null,
-    artifactLabel: 'artefact · coming soon · b&w',
-  },
   'neurotech-wearable-platform': {
     pageTitle: "From a founder's idea to a publicly funded, multi-platform release",
     pageResult: 'Five decisions, made at the right moments, took this product from a rigged-up prototype to a multi-platform release that helped the company secure public innovation funding.',
