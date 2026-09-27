@@ -114,19 +114,97 @@ const CASE_CONTENT = {
     artifactRatio: '8 / 5',
   },
   'grit-compliance-classification': {
+    pageTitle: 'Grit Financial | Scaling complaint review without automating judgment',
+    pageResult: 'The hard part was not getting the model to classify complaints. It was designing a system that knew when the evidence was too weak to classify at all.',
     narrative: [
-      "Grit's compliance team was manually reviewing customer service calls and transactions to satisfy audit requirements — a process that scaled linearly with volume and pulled skilled reviewers into repetitive triage work.",
-      "I worked alongside the compliance team to build a classification layer over customer service call and transaction records, tagging and routing records so reviewers could focus their time on the interactions that actually needed a human judgment call, rather than reading every record cold.",
-      'The classification layer now runs against the full volume of customer service calls and transactions that compliance pulls for audit — roughly 9,000 records — cutting review time by 60% without reducing coverage.',
+      "Grit's compliance team was reviewing customer-service complaints and transaction records by hand. The work was necessary, but the process scaled linearly with volume: every new record created another record a trained reviewer had to read from a blank page.",
+      'The opportunity looked straightforward. Build a classification layer that could identify potential UDAAP, Regulation E, Regulation P, Regulation GG and related compliance concerns, then route the right cases to a person.',
+      'The risk was less straightforward. A language model can produce a confident explanation even when the complaint does not contain enough evidence to support it. In compliance, a polished answer without a defensible trail is not a shortcut. It is a new risk.',
+      'My recommendation was to build a decision system rather than a standalone classifier: deterministic rules for clear triggers, contextual reasoning for ambiguous narratives, confidence-based routing, and human review as part of the operating model. The model would organize the work. Compliance would still own the determination.',
+    ],
+    keyDecisionsIntro: 'Every decision below began with the same constraint: the model could triage, but a person had to own the final call.',
+    keyDecisions: [
+      {
+        title: '1. Build the rulebook before the model',
+        parts: [
+          { label: 'The situation', text: 'The complaint data contained labels, but the regulatory logic behind those labels was not yet explicit enough to serve as a repeatable decision standard.' },
+          { label: 'The call', text: 'Start with a regulatory knowledge base, not a prompt.' },
+          { label: 'How I executed', text: [
+            'I structured the source material around the regulations in scope, beginning with primary and supervisory sources such as Dodd-Frank sections 1031 and 1036, the CFPB UDAAP examination guidance, and the applicable Regulation E, Regulation DD, Regulation P and Regulation GG materials.',
+            'Each rule was broken into reusable parts: scope, trigger, required evidence, missing facts, exceptions, potential consumer harm, source and recommended escalation. The complaint framework then sat on top of that knowledge base, with one layer for issue classification and another for regulatory reasoning.',
+          ] },
+          { label: 'What it bought us', text: 'The model no longer had to "remember" the regulation. It had a rule to evaluate, evidence to look for and a source a reviewer could trace.' },
+        ],
+      },
+      {
+        title: '2. Separate observable facts from regulatory conclusions',
+        parts: [
+          { label: 'The situation', text: 'A single complaint could combine an allegation, an operational explanation and a regulatory implication in the same paragraph. If the system classified all three at once, it was difficult to tell whether an error came from misunderstood facts or misapplied rules.' },
+          { label: 'The call', text: 'Extract the facts first. Apply the regulation second.' },
+          { label: 'How I executed', text: [
+            'For each record, the system produced a normalized complaint summary, issue category, product and channel, triggering facts, missing facts, potential regulatory flags, root cause, confidence score and written rationale.',
+            'For example, "my money is missing" was not enough on its own to confirm Regulation E. The system still needed to determine whether the record described a covered electronic fund transfer, whether the consumer alleged an error or unauthorized activity, whether notice had been provided and whether the resolution timeline was known.',
+          ] },
+          { label: 'What it bought us', text: 'A reviewer could disagree with the facts, the rule application or the conclusion without reverse-engineering the entire model response. That made corrections faster and the audit trail more useful.' },
+        ],
+      },
+      {
+        title: '3. Make "Unknown" a real answer',
+        parts: [
+          { label: 'The situation', text: 'Keyword-based classification was too eager. Words such as "declined," "blocked," "fraud" and "funds" appeared across ordinary operational issues, genuine transaction disputes and incomplete records. Forcing every complaint into a regulation would make the output look complete while making it less reliable.' },
+          { label: 'The call', text: 'Treat insufficient evidence as a classification, not a failure.' },
+          { label: 'How I executed', text: [
+            'When the complaint did not establish the transaction type, authorization status, disclosure, timing, consumer notice or other evidence needed for a defensible conclusion, the system selected Unknown and stated what information was missing.',
+            'That was an intentional design choice. The system was allowed to say, "The complaint log is not enough. Review the ticket notes, transaction history, disclosure record or system event."',
+          ] },
+          { label: 'What it bought us', text: 'The model became less likely to fill gaps with assumptions. More importantly, the compliance team could distinguish a potentially low-risk complaint from a complaint that simply had not been documented well enough to assess.' },
+        ],
+      },
+      {
+        title: '4. Turn confidence into workflow',
+        parts: [
+          { label: 'The situation', text: 'A confidence score is only useful when it changes what happens next. Displaying 54% beside a classification without changing the review path would have been decoration.' },
+          { label: 'The call', text: 'Use confidence as a routing control.' },
+          { label: 'How I executed', text: [
+            'Any record below 60% confidence was automatically flagged for human review. The score represented confidence in the classification based on the available evidence. It did not represent the probability that a legal violation had occurred.',
+            'I then turned the output into a searchable compliance report. Reviewers could filter by regulation, Unknown status, root cause, confidence band and human-review requirement; inspect the original complaint and resolution beside the rationale; and export the resulting review set.',
+          ] },
+          { label: 'What it bought us', text: 'The model handled the repetitive sorting. Reviewers spent their time on ambiguity, overlap and higher-risk cases — the work that actually required judgment.' },
+        ],
+      },
+      {
+        title: '5. Use human disagreement as training data',
+        parts: [
+          { label: 'The situation', text: "The first output was structured and explainable, but it still reflected the model's interpretation of incomplete operational records. It needed to be challenged at ticket level by the people accountable for the compliance decision." },
+          { label: 'The call', text: 'Make human review a formal learning loop, not a sign-off at the end.' },
+          { label: 'How I executed', text: [
+            'The report went through two rounds of human review.',
+            'The first review produced 29 ticket-level corrections. I retained each change and updated the classification logic around the issues those records exposed.',
+            'The second review was much larger: 834 disagreements, each tied to a ticket, a recommended classification and a reason for the change. I applied all 834 individually, retained the 29 earlier updates and refreshed the rules and rationales behind the model.',
+            'Across both reviews, 863 of 9,253 records changed — about 9.3% of the register. Many of the changes did not move a complaint from one regulation to another. They moved it to Unknown because the complaint narrative did not contain enough evidence to support the original classification.',
+            'Every correction remained traceable through the ticket identifier, original classification, reviewed classification, reason for disagreement and updated rationale.',
+          ] },
+          { label: 'What it bought us', text: 'The system became more conservative where the evidence was weak and more specific where reviewers supplied the missing context. Human disagreement did not sit outside the model. It became the input that improved it.' },
+        ],
+      },
     ],
     results: [
-      '60% reduction in compliance audit review time',
-      'Applied across ~9,000 customer service calls and transactions',
+      { stat: '60% reduction', text: 'in compliance audit review time without reducing the population covered by the review.' },
+      { stat: '9,253 complaint records', text: 'processed through a consistent classification and reasoning framework.' },
+      { stat: '863 ticket-level decisions updated', text: 'through two formal human-review cycles: 29 in the first review and 834 in the second.' },
+      { stat: 'Sub-60% confidence automatically routed', text: 'to human review rather than presented as a complete answer.' },
+      { stat: 'A reusable regulatory knowledge structure', text: 'covering triggers, required evidence, missing facts, exceptions, harm and source.' },
+      { stat: 'An audit-ready record', text: 'of the complaint, resolution, classification, rationale, confidence, root cause and reviewer correction.' },
     ],
-    role: 'VP of Data Platforms, Grit Financial — built the compliance data classification layer alongside the compliance team.',
+    role: 'VP of Data Platforms, Grit Financial — I designed the regulatory knowledge architecture, complaint taxonomy, classification logic, confidence and escalation model, human-review workflow and interactive compliance report. I worked alongside compliance to incorporate both rounds of ticket-level review and convert the disagreements into stronger rules rather than one-off overrides.',
     roleTag: 'VP of Data Platforms',
     awards: null,
-    artifactLabel: 'artefact · compliance classification layer · b&w',
+    lesson: [
+      'The value of the system was not that it always produced an answer.',
+      'It was that it made the boundary between evidence, inference and human judgment visible. Automation handled structure, pattern recognition and scale. Compliance retained ownership of interpretation and final determination.',
+    ],
+    closingQuestion: "How did you make sure the model wasn't hallucinating?",
+    artifactLabel: 'artefact · complaint classification and review workflow · b&w',
   },
   'neurotech-wearable-platform': {
     pageTitle: "From a founder's idea to a publicly funded, multi-platform release",
@@ -229,9 +307,14 @@ function CaseStudyScreen({ go, caseId }) {
                   <div key={i} style={{ marginTop: i === 0 ? 'var(--space-6)' : 'var(--space-8)' }}>
                     <h4 style={{ margin: 0 }}>{d.title}</h4>
                     {d.body ? <p style={{ marginTop: 'var(--space-2)' }}>{d.body}</p> : null}
-                    {d.parts ? d.parts.map((p, j) => (
-                      <p key={j} style={{ marginTop: j === 0 ? 'var(--space-2)' : 'var(--space-3)' }}><strong>{p.label}:</strong> {p.text}</p>
-                    )) : null}
+                    {d.parts ? d.parts.flatMap((p, j) => {
+                      const texts = Array.isArray(p.text) ? p.text : [p.text];
+                      return texts.map((t, k) => (
+                        <p key={`${j}-${k}`} style={{ marginTop: (j === 0 && k === 0) ? 'var(--space-2)' : 'var(--space-3)' }}>
+                          {k === 0 ? <strong>{p.label}: </strong> : null}{t}
+                        </p>
+                      ));
+                    }) : null}
                     {d.bullets ? (
                       <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {d.bullets.map((b, j) => <li key={j}>{b}</li>)}
@@ -255,6 +338,15 @@ function CaseStudyScreen({ go, caseId }) {
               <>
                 <h3 style={{ marginTop: 'var(--space-10)' }}>Awards & press</h3>
                 <p>{content.awards}</p>
+              </>
+            ) : null}
+            {content.lesson ? (
+              <>
+                <h3 style={{ marginTop: 'var(--space-10)' }}>The lesson</h3>
+                {content.lesson.map((p, i) => (
+                  <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-3)' }}>{p}</p>
+                ))}
+                {content.closingQuestion ? <p style={{ marginTop: 'var(--space-4)' }}><strong>{content.closingQuestion}</strong></p> : null}
               </>
             ) : null}
           </div>
