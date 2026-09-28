@@ -53,6 +53,9 @@ const CASE_CONTENT = {
     roleTag: 'VP of Data Platforms',
     awards: null,
     artifactLabel: 'artefact · mass enrollment flow · b&w',
+    artifactSrc: 'assets/bulk-enrollment-timeline.png',
+    artifactAlt: 'Mass Enrollment onboarding timeline.',
+    artifactRatio: '11 / 5',
   },
   'classroom-ready': {
     pageTitle: 'Turning book buyers into subscribers',
