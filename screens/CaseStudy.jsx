@@ -244,6 +244,9 @@ const CASE_CONTENT = {
     ],
     closingQuestion: "How did you make sure the model wasn't hallucinating?",
     artifactLabel: 'artefact · complaint classification and review workflow · b&w',
+    artifactSrc: 'assets/Complaint_classification.PNG',
+    artifactAlt: 'Complaint classification and review workflow diagram.',
+    artifactRatio: '37 / 10',
   },
   'neurotech-wearable-platform': {
     pageTitle: "From a founder's idea to a publicly funded, multi-platform release",
