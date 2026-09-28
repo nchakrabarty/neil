@@ -1,9 +1,48 @@
 const CASE_CONTENT = {
   'grit-bulk-enrollment': {
+    pageTitle: 'Grit Financial | Turning a 2-day onboarding into a 3-click employer action',
+    pageResult: "The fix wasn't a faster version of the employee's flow. It was removing the employee from the flow — the employer already had the data the process kept asking for.",
     narrative: [
       "Grit's onboarding flow put employees in the driver's seat of their own compliance — submitting identity documents and clearing KYC checks on their own, one step at a time. It was mentally taxing and slow enough that only 62% of people who started actually finished, even with strong marketing driving people to the front door.",
-      "The employer already had what the KYC flow was asking employees to re-type by hand: verified employee data sitting in their own HR and payroll systems. I designed a direct integration between Grit and the employer's payroll/HR system, then rebuilt onboarding around the employer instead of the employee — they select who to enroll, and the backend silently runs identity and compliance checks using data already on file. No employee action required.",
-      'I architected Batch Onboarding as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard for the HR teams running the program — and led the team through build.',
+      'The answer was Mass Enrollment: rebuilding onboarding around the employer instead of the employee, using data the employer already had on file. Getting there took four decisions, each building on the one before it.',
+    ],
+    keyDecisions: [
+      {
+        title: '1. Research both sides of onboarding before redesigning it',
+        parts: [
+          { label: 'The situation', text: "38% of the people who started onboarding never finished it, and marketing and support could point to the drop-off without explaining it." },
+          { label: 'The call', text: 'Go talk to the people stuck in the flow, and the people running payroll and HR for them, before changing a single screen.' },
+          { label: 'How I executed', text: 'I looked at onboarding from both sides of it: the employees going through the flow, and the employer HR and payroll teams who set them up on Grit in the first place. Employees experienced the identity and KYC steps as repetitive and confusing — being asked to re-enter information by hand. Employers, on the other side, already held that same information as verified data in their own payroll and HR systems.' },
+          { label: 'What it bought us', text: "A finding, not a guess: the bottleneck wasn't the KYC logic itself. It was asking the wrong party — the employee — to reassemble information the employer already had on file." },
+        ],
+      },
+      {
+        title: '2. Redesign around the employer, not the employee',
+        parts: [
+          { label: 'The situation', text: 'The research pointed at a different target user for the onboarding flow than the one it had been designed for.' },
+          { label: 'The call', text: "Move the point of action from the employee to the employer's HR admin." },
+          { label: 'How I executed', text: 'I rebuilt onboarding so the employer selects who to enroll, and the backend silently runs identity and compliance checks using data already on file. No employee action required.' },
+          { label: 'What it bought us', text: "An onboarding flow with nothing left for the employee to get stuck on, because it no longer asked them to do anything." },
+        ],
+      },
+      {
+        title: '3. Architect Mass Enrollment as a direct payroll/HR integration',
+        parts: [
+          { label: 'The situation', text: "The employer's verified employee data lived inside their own payroll and HR systems, not inside Grit." },
+          { label: 'The call', text: "Build a direct integration to that data, rather than a new form for the employer to fill out by hand." },
+          { label: 'How I executed', text: "I designed a direct integration between Grit and the employer's payroll/HR system, so identity and compliance checks could run automatically against data the employer had already verified." },
+          { label: 'What it bought us', text: 'An onboarding action that took an employer 3 clicks instead of the days of back-and-forth the old process required.' },
+        ],
+      },
+      {
+        title: '4. Build Mass Enrollment as the cornerstone of a new B2B admin portal',
+        parts: [
+          { label: 'The situation', text: 'Mass Enrollment on its own solved onboarding, but HR teams running the program still needed a place to manage everything downstream of it.' },
+          { label: 'The call', text: 'Ship Mass Enrollment as the anchor feature of a new B2B admin portal, not a standalone tool.' },
+          { label: 'How I executed', text: 'I architected Mass Enrollment as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard for the HR teams running the program — and led the team through build.' },
+          { label: 'What it bought us', text: 'A single home for HR teams to run the whole program, not just the sign-up step.' },
+        ],
+      },
     ],
     results: [
       'Onboarding time: ~2 days → minutes',
@@ -13,7 +52,7 @@ const CASE_CONTENT = {
     role: 'VP of Data Platforms, Grit Financial — architected the feature and the B2B admin portal, drove the UX, and led the engineering team through build.',
     roleTag: 'VP of Data Platforms',
     awards: null,
-    artifactLabel: 'artefact · batch onboarding flow · b&w',
+    artifactLabel: 'artefact · mass enrollment flow · b&w',
   },
   'classroom-ready': {
     pageTitle: 'Classroom Ready | Turning book buyers into subscribers',
