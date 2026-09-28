@@ -50,9 +50,8 @@ function HomeScreen({ go }) {
           actually use.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-          These days I collaborate with founders and senior teams on fractional product and data leadership —
-          for teams that need a senior operator without a full-time hire — and AI and analytics platform
-          leadership, figuring out where intelligence adds real leverage, not just noise.
+          These days I work with founders and senior teams as a fractional product and data leader — figuring
+          out where AI adds real leverage, and building toward it.
         </p>
         <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
           Off the clock: dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat
