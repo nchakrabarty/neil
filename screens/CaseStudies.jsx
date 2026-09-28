@@ -15,7 +15,7 @@ function CaseStudiesScreen({ go }) {
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-20) var(--page-gutter) var(--space-10)' }}>
         <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Selected work</Kicker>
-        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Five engagements, written up honestly.</h1>
+        <h1 className="display-2" style={{ maxWidth: '18ch' }}>Decisions that shaped the build.</h1>
         <div style={{ display: 'flex', gap: 'var(--space-3)', marginTop: 'var(--space-10)', flexWrap: 'wrap' }}>
           {filters.map((f) => (
             <button key={f} onClick={() => setFilter(f)}
