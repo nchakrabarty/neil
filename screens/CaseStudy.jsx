@@ -340,7 +340,7 @@ function CaseStudyScreen({ go, caseId }) {
             {content.keyDecisions ? (
               <>
                 <Rule space={40} weight="hair" />
-                <h3>Key decisions</h3>
+                <h3>The decisions that drove results</h3>
                 {content.keyDecisionsIntro ? <p>{content.keyDecisionsIntro}</p> : null}
                 {content.keyDecisions.map((d, i) => (
                   <div key={i} style={{ marginTop: i === 0 ? 'var(--space-6)' : 'var(--space-8)' }}>
