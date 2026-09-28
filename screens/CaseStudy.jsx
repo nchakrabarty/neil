@@ -1,6 +1,6 @@
 const CASE_CONTENT = {
   'grit-bulk-enrollment': {
-    pageTitle: 'Grit Financial | Turning a 2-day onboarding into a 3-click employer action',
+    pageTitle: 'Turning a 2-day onboarding into a 3-click employer action',
     pageResult: "The fix wasn't a faster version of the employee's flow. It was removing the employee from the flow — the employer already had the data the process kept asking for.",
     narrative: [
       "Grit's onboarding flow put employees in the driver's seat of their own compliance — submitting identity documents and clearing KYC checks on their own, one step at a time. It was mentally taxing and slow enough that only 62% of people who started actually finished, even with strong marketing driving people to the front door.",
@@ -55,7 +55,7 @@ const CASE_CONTENT = {
     artifactLabel: 'artefact · mass enrollment flow · b&w',
   },
   'classroom-ready': {
-    pageTitle: 'Classroom Ready | Turning book buyers into subscribers',
+    pageTitle: 'Turning book buyers into subscribers',
     pageResult: 'Leadership thought the videos were the problem. The data said the videos were fine and the path to them was broken.',
     narrative: [
       "Classroom Ready's Dynamic Math workbooks sold in the thousands through Staples, Amazon and homeschool parent networks. The companion video subscription barely moved: average course completion was under 2%, and viewing collapsed after the first unit. The owner and senior leadership faced an expensive fork. If the content was weak, they needed new videos. If the portal was the wrong bet, they should pull back from it. Underneath both was a sharper question: why weren't book sales turning into lasting subscriptions?",
@@ -114,7 +114,7 @@ const CASE_CONTENT = {
     artifactLabel: 'artefact · book-to-subscriber funnel · b&w',
   },
   'xpo-technologies': {
-    pageTitle: 'XPO Technologies | Turning scope creep into a decision leadership could act on',
+    pageTitle: 'Turning scope creep into a decision leadership could act on',
     pageResult: "The roadmap wasn't behind because of bad estimating. It was behind because nearly half the team's capacity was going somewhere nobody had measured.",
     narrative: [
       "XPO Technologies was mid-build on a new platform architecture, a fixed roadmap of 167 story points, while its biz dev team was simultaneously onboarding new clients onto the same engineering team. Two sprints in, actual delivery had already fallen far behind plan, but the team's own reporting made this look like ordinary variance rather than a warning sign. Leadership had no way to tell whether the roadmap was slipping because of bad estimates or because something else was quietly consuming the capacity they'd already paid for.",
@@ -153,7 +153,7 @@ const CASE_CONTENT = {
     artifactRatio: '8 / 5',
   },
   'grit-compliance-classification': {
-    pageTitle: 'Grit Financial | Scaling complaint review without automating judgment',
+    pageTitle: 'Scaling complaint review without automating judgment',
     pageResult: 'The hard part was not getting the model to classify complaints. It was designing a system that knew when the evidence was too weak to classify at all.',
     narrative: [
       "Grit's compliance team was reviewing customer-service complaints and transaction records by hand. The work was necessary, but the process scaled linearly with volume: every new record created another record a trained reviewer had to read from a blank page.",
