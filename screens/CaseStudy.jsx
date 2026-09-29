@@ -2,6 +2,7 @@ const CASE_CONTENT = {
   'grit-bulk-enrollment': {
     pageTitle: 'Turning a 2-day onboarding into a 3-click employer action',
     pageResult: "The fix wasn't a faster version of the employee's flow. It was removing the employee from the flow — the employer already had the data the process kept asking for.",
+    pullQuote: 'The employer already had the data the process kept asking for.',
     narrative: [
       "Grit's onboarding flow put employees in the driver's seat of their own compliance — submitting identity documents and clearing KYC checks on their own, one step at a time. It was mentally taxing and slow enough that only 62% of people who started actually finished, even with strong marketing driving people to the front door.",
       'The answer was Mass Enrollment: rebuilding onboarding around the employer instead of the employee, using data the employer already had on file. Getting there took four decisions, each building on the one before it.',
@@ -33,6 +34,17 @@ const CASE_CONTENT = {
           { label: 'How I executed', text: "I designed a direct integration between Grit and the employer's payroll/HR system, so identity and compliance checks could run automatically against data the employer had already verified." },
           { label: 'What it bought us', text: 'An onboarding action that took an employer 3 clicks instead of the days of back-and-forth the old process required.' },
         ],
+        // TODO(neil): this screenshot mentions "Corecard" (a legacy ZIP-format
+        // limitation) and "Fortuna" (international phone number support) as
+        // small asides in two bullet points. No "Internal use only" or
+        // "CONFIDENTIAL" marking, and no client name beyond what's already
+        // public on the site — but please confirm those two vendor/product
+        // mentions are OK to ship before this goes live.
+        figure: {
+          src: 'assets/case-studies/12-bulk-enrollment-detailed-flow.webp',
+          alt: 'Detailed flow diagram of the rules-engine validation gate for Mass Enrollment.',
+          caption: 'The rules-engine validation gate: duplicate detection, field rules and card-delivery requirements.',
+        },
       },
       {
         title: '4. Build Mass Enrollment as the cornerstone of a new B2B admin portal',
@@ -42,7 +54,17 @@ const CASE_CONTENT = {
           { label: 'How I executed', text: 'I architected Mass Enrollment as the cornerstone feature of a new B2B admin portal — covering enrollment, card ordering, shipment tracking, and an operational metrics dashboard for the HR teams running the program — and led the team through build.' },
           { label: 'What it bought us', text: 'A single home for HR teams to run the whole program, not just the sign-up step.' },
         ],
+        figure: {
+          src: 'assets/case-studies/13-bulk-enrollment-iteration-2.webp',
+          alt: 'Iteration 2 development priorities for Mass Enrollment.',
+          caption: 'Iteration 2 priorities.',
+        },
       },
+    ],
+    stats: [
+      { value: '62% → 97%', label: 'Onboarding success rate' },
+      { value: '~2 days → minutes', label: 'Onboarding time' },
+      { value: '~1,000', label: 'New users in the first 3 months' },
     ],
     results: [
       'Onboarding time: ~2 days → minutes',
@@ -53,13 +75,15 @@ const CASE_CONTENT = {
     roleTag: 'VP of Data Platforms',
     awards: null,
     artifactLabel: 'artefact · mass enrollment flow · b&w',
-    artifactSrc: 'assets/bulk-enrollment-timeline.png',
+    artifactSrc: 'assets/bulk-enrollment-timeline.webp',
     artifactAlt: 'Mass Enrollment onboarding timeline.',
     artifactRatio: '11 / 5',
+    artifactTone: 'color',
   },
   'classroom-ready': {
     pageTitle: 'Turning book buyers into subscribers',
     pageResult: 'Leadership thought the videos were the problem. The data said the videos were fine and the path to them was broken.',
+    pullQuote: 'The data said the videos were fine and the path to them was broken.',
     narrative: [
       "Classroom Ready's Dynamic Math workbooks sold in the thousands through Staples, Amazon and homeschool parent networks. The companion video subscription barely moved: average course completion was under 2%, and viewing collapsed after the first unit. The owner and senior leadership faced an expensive fork. If the content was weak, they needed new videos. If the portal was the wrong bet, they should pull back from it. Underneath both was a sharper question: why weren't book sales turning into lasting subscriptions?",
     ],
@@ -106,6 +130,11 @@ const CASE_CONTENT = {
         ],
       },
     ],
+    stats: [
+      { value: '196 → 2,048', label: 'Paying customers in six months' },
+      { value: '33–44%', label: 'QR scan to platform (excl. Staples)' },
+      { value: '3% → 12–15%', label: 'Google Ads conversion' },
+    ],
     results: [
       'Paying customers grew from 196 to 2,048 within six months of launch.',
       'QR-enabled books sent 33–44% of buyers to the platform (excluding Staples), about 9 paying customers per 1,000 books sold.',
@@ -115,10 +144,12 @@ const CASE_CONTENT = {
     roleTag: 'Fractional Head of Product',
     awards: null,
     artifactLabel: 'artefact · book-to-subscriber funnel · b&w',
+    artifactComponent: 'FunnelFigure',
   },
   'xpo-technologies': {
     pageTitle: 'Turning scope creep into a decision leadership could act on',
     pageResult: "The roadmap wasn't behind because of bad estimating. It was behind because nearly half the team's capacity was going somewhere nobody had measured.",
+    pullQuote: "It was behind because nearly half the team's capacity was going somewhere nobody had measured.",
     narrative: [
       "XPO Technologies was mid-build on a new platform architecture, a fixed roadmap of 167 story points, while its biz dev team was simultaneously onboarding new clients onto the same engineering team. Two sprints in, actual delivery had already fallen far behind plan, but the team's own reporting made this look like ordinary variance rather than a warning sign. Leadership had no way to tell whether the roadmap was slipping because of bad estimates or because something else was quietly consuming the capacity they'd already paid for.",
     ],
@@ -158,6 +189,7 @@ const CASE_CONTENT = {
   'grit-compliance-classification': {
     pageTitle: 'Scaling complaint review without automating judgment',
     pageResult: 'The hard part was not getting the model to classify complaints. It was designing a system that knew when the evidence was too weak to classify at all.',
+    pullQuote: 'It was designing a system that knew when the evidence was too weak to classify at all.',
     narrative: [
       "Grit's compliance team was reviewing customer-service complaints and transaction records by hand. The work was necessary, but the process scaled linearly with volume: every new record created another record a trained reviewer had to read from a blank page.",
       'The opportunity looked straightforward. Build a classification layer that could identify potential UDAAP, Regulation E, Regulation P, Regulation GG and related compliance concerns, then route the right cases to a person.',
@@ -230,6 +262,11 @@ const CASE_CONTENT = {
         ],
       },
     ],
+    stats: [
+      { value: '60% reduction', label: 'In compliance audit review time' },
+      { value: '9,253', label: 'Complaint records classified' },
+      { value: '863', label: 'Ticket-level decisions updated across two review rounds' },
+    ],
     results: [
       { stat: '60% reduction', text: 'in compliance audit review time without reducing the population covered by the review.' },
       { stat: '9,253 complaint records', text: 'processed through a consistent classification and reasoning framework.' },
@@ -247,13 +284,15 @@ const CASE_CONTENT = {
     ],
     closingQuestion: "How did you make sure the model wasn't hallucinating?",
     artifactLabel: 'artefact · complaint classification and review workflow · b&w',
-    artifactSrc: 'assets/Complaint_classification.PNG',
+    artifactSrc: 'assets/Complaint_classification.webp',
     artifactAlt: 'Complaint classification and review workflow diagram.',
     artifactRatio: '37 / 10',
+    artifactTone: 'color',
   },
   'neurotech-wearable-platform': {
     pageTitle: "From a founder's idea to a publicly funded, multi-platform release",
     pageResult: 'Five decisions, made at the right moments, took this product from a rigged-up prototype to a multi-platform release that helped the company secure public innovation funding.',
+    pullQuote: 'The founder had a bold idea: an earbud that lets people control a computer without their hands or voice.',
     narrative: [
       "I joined on day two. There was no company entity yet (we tracked billing in a spreadsheet) and no product. The founder had a bold idea: an earbud that lets people control a computer without their hands or voice. The only hardware was a proof of concept rigged from an off-the-shelf earbud, and the founders and executive team each had their own picture of what the platform could become.",
       "Three years later, that idea shipped across platforms. We didn't get there by hiring early or moving fast for its own sake. We got there through a handful of well-timed decisions and a team disciplined enough to carry them out.",
@@ -305,6 +344,11 @@ const CASE_CONTENT = {
         ],
       },
     ],
+    stats: [
+      { value: '12 weeks', label: 'To a working proof of concept, on plan' },
+      { value: '7x', label: 'Engineering team growth, from 1 to 7' },
+      { value: 'Within 5 months', label: 'Multi-platform release for the funding milestone' },
+    ],
     results: [
       { stat: '12 weeks', text: 'to a working proof of concept, on plan' },
       { stat: '10+ releases', text: 'in the first nine months' },
@@ -323,9 +367,11 @@ const CASE_CONTENT = {
 };
 
 function CaseStudyScreen({ go, caseId }) {
-  const { Section, MetaList, Button, Kicker, Rule, ImageSlot } = window.DSX;
+  const DSX = window.DSX;
+  const { Section, MetaList, Button, Kicker, Rule, ImageSlot, PullQuote, StatBlock } = DSX;
   const c = (window.CASES || []).find((x) => x.id === caseId) || (window.CASES || [])[0];
   const content = CASE_CONTENT[c.id];
+  const ArtifactComponent = content.artifactComponent ? DSX[content.artifactComponent] : null;
 
   return (
     <>
@@ -343,6 +389,7 @@ function CaseStudyScreen({ go, caseId }) {
             {content.narrative.map((p, i) => (
               <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-4)' }}>{p}</p>
             ))}
+            {content.pullQuote ? <PullQuote style={{ margin: 'var(--space-10) 0' }}>{content.pullQuote}</PullQuote> : null}
             {content.keyDecisions ? (
               <>
                 <Rule space={40} weight="hair" />
@@ -366,12 +413,19 @@ function CaseStudyScreen({ go, caseId }) {
                       </ul>
                     ) : null}
                     {d.afterBullets ? <p style={{ marginTop: 'var(--space-4)' }}>{d.afterBullets}</p> : null}
+                    {d.figure ? (
+                      <div style={{ marginTop: 'var(--space-4)', maxWidth: 480 }}>
+                        <ImageSlot src={d.figure.src} alt={d.figure.alt} caption={d.figure.caption}
+                          tone={d.figure.tone || 'mono'} ratio="4 / 3" />
+                      </div>
+                    ) : null}
                   </div>
                 ))}
               </>
             ) : null}
             <Rule space={40} weight="hair" />
             <h3>Results</h3>
+            {content.stats ? <StatBlock stats={content.stats} style={{ marginBottom: 'var(--space-6)' }} /> : null}
             <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
               {content.results.map((r, i) => (
                 <li key={i}>{typeof r === 'string' ? r : (<><strong>{r.stat}</strong> {r.text}</>)}</li>
@@ -395,13 +449,20 @@ function CaseStudyScreen({ go, caseId }) {
               </>
             ) : null}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+          <div className="case-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
             <MetaList items={[
               { label: 'Client', value: c.client },
               { label: 'Role', value: content.roleTag },
               { label: 'Disciplines', value: c.tags.join(', ') },
             ]} />
-            <ImageSlot label={content.artifactLabel} src={content.artifactSrc} alt={content.artifactAlt || content.artifactLabel} ratio={content.artifactRatio || '4 / 3'} />
+            {ArtifactComponent ? (
+              <div style={{ width: '100%', aspectRatio: content.artifactRatio || '4 / 3', background: 'var(--surface-card)' }}>
+                <ArtifactComponent />
+              </div>
+            ) : (
+              <ImageSlot label={content.artifactLabel} src={content.artifactSrc} alt={content.artifactAlt || content.artifactLabel}
+                ratio={content.artifactRatio || '4 / 3'} tone={content.artifactTone || 'mono'} />
+            )}
             {content.artifactCaption ? <p className="meta" style={{ marginTop: 'var(--space-3)' }}>{content.artifactCaption}</p> : null}
             <Button variant="secondary" block iconRight={<span>→</span>} href="mailto:neilcbty@gmail.com">Discuss a similar problem</Button>
           </div>

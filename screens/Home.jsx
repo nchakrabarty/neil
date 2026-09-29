@@ -14,8 +14,9 @@ const COLLABORATIONS = [
 ];
 
 function HomeScreen({ go }) {
-  const { Section, Button, Kicker, CtaBanner, Testimonial, StatBlock } = window.DSX;
+  const { Section, Button, Kicker, CtaBanner, Testimonial, StatBlock, CaseStudyCard, ImageSlot } = window.DSX;
   const CASES = window.CASES || [];
+  const [portraitOk, setPortraitOk] = React.useState(true);
 
   React.useEffect(() => {
     const prevTitle = document.title;
@@ -34,33 +35,43 @@ function HomeScreen({ go }) {
   return (
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-24) var(--page-gutter) var(--space-16)' }}>
-        <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Fractional product leadership</Kicker>
-        <h1 className="display-1" style={{ maxWidth: '27ch' }}>
-          Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
-        </h1>
-        <p style={{ marginTop: 'var(--space-8)', maxWidth: '80ch', fontSize: 17 }}>
-          👋 Hi, I'm Neil — a thinking partner and operator for founders and senior teams. I work at the
-          intersection of business, data, usability, and AI — finding the right problem, then building
-          something people actually use.
-        </p>
-        <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-          I started in Human-Computer Interaction research, stumbled into building recommendation engines for
-          eBay sellers at Terapeak, and somewhere in the middle the title became "product manager" — though
-          the actual work never changed: find the real shape of the problem, then build something people can
-          actually use.
-        </p>
-        <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-          These days I work with founders and senior teams as a fractional product and data leader — figuring
-          out where AI adds real leverage, and building toward it.
-        </p>
-        <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-          Off the clock: dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat
-          that never sleeps.
-        </p>
-        <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
-          <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's build something together</Button>
+        <div className={portraitOk ? 'split' : undefined} style={portraitOk ? { '--split-a': '1.6fr', alignItems: 'center' } : undefined}>
+          <div>
+            <Kicker accent style={{ marginBottom: 'var(--space-6)' }}>Fractional product leadership</Kicker>
+            <h1 className="display-1" style={{ maxWidth: '27ch' }}>
+              Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
+            </h1>
+            <p style={{ marginTop: 'var(--space-8)', maxWidth: '80ch', fontSize: 17 }}>
+              👋 Hi, I'm Neil — a thinking partner and operator for founders and senior teams. I work at the
+              intersection of business, data, usability, and AI — finding the right problem, then building
+              something people actually use.
+            </p>
+            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
+              I started in Human-Computer Interaction research, stumbled into building recommendation engines for
+              eBay sellers at Terapeak, and somewhere in the middle the title became "product manager" — though
+              the actual work never changed: find the real shape of the problem, then build something people can
+              actually use.
+            </p>
+            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
+              These days I work with founders and senior teams as a fractional product and data leader — figuring
+              out where AI adds real leverage, and building toward it.
+            </p>
+            <Kicker style={{ marginTop: 'var(--space-8)', marginBottom: 'var(--space-3)' }}>Off the clock</Kicker>
+            <p style={{ maxWidth: '80ch', fontSize: 17 }}>
+              Dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat that never
+              sleeps.
+            </p>
+            <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
+              <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's build something together</Button>
+            </div>
+          </div>
+          {portraitOk ? (
+            <ImageSlot src="assets/neil-portrait.jpg" alt="Neil Chakrabarty" ratio="4 / 5" tone="mono"
+              onError={() => setPortraitOk(false)} />
+          ) : null}
         </div>
       </div>
+      {/* TODO(neil): add assets/neil-portrait.jpg (natural light, not studio; ~1200x1500) to show the two-column hero with your portrait. */}
 
       <Section>
         <StatBlock stats={[
@@ -73,15 +84,8 @@ function HomeScreen({ go }) {
       <Section kicker="Case studies" title="Recent work">
         <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-8)' }}>
           {CASES.map((c) => (
-            <a key={c.id} href="#" onClick={(e) => { e.preventDefault(); go('case', c.id); }}
-              style={{
-                display: 'block', textDecoration: 'none', color: 'inherit',
-                borderTop: '2px solid var(--color-divider)', paddingTop: 'var(--space-4)',
-              }}>
-              <div style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-accent)' }}>{c.client}</div>
-              <h3 style={{ margin: '10px 0 14px', fontSize: 'var(--text-h3)', maxWidth: '24ch' }}>{c.headline}</h3>
-              <span style={{ fontSize: 13, color: 'var(--text-accent-safe)' }}>Learn more →</span>
-            </a>
+            <CaseStudyCard key={c.id} {...c} ctaLabel="Learn more →"
+              onClick={(e) => { e.preventDefault(); go('case', c.id); }} />
           ))}
         </div>
       </Section>
