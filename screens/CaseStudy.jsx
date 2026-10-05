@@ -373,10 +373,27 @@ function CaseStudyScreen({ go, caseId }) {
   const content = CASE_CONTENT[c.id];
   const ArtifactComponent = content.artifactComponent ? DSX[content.artifactComponent] : null;
 
+  React.useEffect(() => {
+    const prevTitle = document.title;
+    const metaEl = document.querySelector('meta[name="description"]');
+    const prevDescription = metaEl ? metaEl.getAttribute('content') : null;
+    document.title = `${content.pageTitle || c.headline} — Neil Chakrabarty`;
+    if (metaEl) {
+      metaEl.setAttribute('content', content.pageResult || c.result);
+    }
+    return () => {
+      document.title = prevTitle;
+      if (metaEl && prevDescription !== null) metaEl.setAttribute('content', prevDescription);
+    };
+  }, [c.id]);
+
   return (
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-16) var(--page-gutter) var(--space-12)' }}>
-        <button onClick={() => go('work')} style={{ font: 'inherit', fontSize: 13, background: 'none', border: 0, padding: 0, cursor: 'pointer', color: 'var(--text-accent-safe)' }}>← All case studies</button>
+        <a href="#/work" onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault(); go('work');
+        }} style={{ font: 'inherit', fontSize: 13, background: 'none', border: 0, padding: 0, cursor: 'pointer', color: 'var(--text-accent-safe)', textDecoration: 'none' }}>← All case studies</a>
         <Kicker accent style={{ margin: 'var(--space-8) 0 var(--space-4)' }}>{c.client} · {c.year}</Kicker>
         <h1 className="display-2" style={{ maxWidth: '18ch' }}>{content.pageTitle || c.headline}</h1>
         <p className="lead" style={{ marginTop: 'var(--space-6)' }}>{content.pageResult || c.result}</p>

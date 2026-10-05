@@ -11,6 +11,21 @@ function CaseStudiesScreen({ go }) {
   const [filter, setFilter] = React.useState('All');
   const filters = ['All', 'Data', 'AI', 'Usability', 'Leadership'];
   const shown = filter === 'All' ? CASES : CASES.filter((c) => c.discipline === filter);
+
+  React.useEffect(() => {
+    const prevTitle = document.title;
+    const metaEl = document.querySelector('meta[name="description"]');
+    const prevDescription = metaEl ? metaEl.getAttribute('content') : null;
+    document.title = 'Case studies — Neil Chakrabarty';
+    if (metaEl) {
+      metaEl.setAttribute('content', 'Selected work across fintech, EdTech, and hardware — fractional product leadership from business to usability, data, and AI.');
+    }
+    return () => {
+      document.title = prevTitle;
+      if (metaEl && prevDescription !== null) metaEl.setAttribute('content', prevDescription);
+    };
+  }, []);
+
   return (
     <>
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: 'var(--space-20) var(--page-gutter) var(--space-10)' }}>
@@ -32,7 +47,11 @@ function CaseStudiesScreen({ go }) {
       <Section rule={false}>
         <div className="cols" style={{ '--col-min': '280px', gap: 'var(--space-6)' }}>
           {shown.map((c) => (
-            <CaseStudyCard key={c.id} {...c} onClick={(e) => { e.preventDefault(); go('case', c.id); }} />
+            <CaseStudyCard key={c.id} {...c} href={window.caseHref(c.id)}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault(); go('case', c.id);
+              }} />
           ))}
         </div>
         {shown.length === 0 ? <p className="muted">Nothing filed under {filter} yet.</p> : null}

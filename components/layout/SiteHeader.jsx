@@ -9,7 +9,11 @@ export function SiteHeader({ brand = 'Neil Chakrabarty', items = [], current, on
       borderBottom: '2px solid var(--color-divider)',
       position: 'sticky', top: 0, zIndex: 100, background: 'var(--surface-page)', ...style,
     }}>
-      <a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(items[0] && items[0].id); }}
+      <a href={(items[0] && items[0].href) || '#/'}
+        onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault(); onNavigate && onNavigate(items[0] && items[0].id);
+        }}
         aria-label={brand}
         className="site-brand"
         style={{ textDecoration: 'none', marginRight: 'auto', display: 'flex', alignSelf: 'center' }}>
@@ -17,9 +21,12 @@ export function SiteHeader({ brand = 'Neil Chakrabarty', items = [], current, on
       </a>
       <nav className="site-nav">
         {items.map((it) => (
-          <a key={it.id} href={`#${it.id}`}
+          <a key={it.id} href={it.href || `#/${it.id}`}
             aria-current={current === it.id ? 'page' : undefined}
-            onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(it.id); }}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+              e.preventDefault(); onNavigate && onNavigate(it.id);
+            }}
             style={{
               fontSize: 14, textDecoration: 'none',
               color: current === it.id ? 'var(--color-accent)' : 'var(--text-primary)',

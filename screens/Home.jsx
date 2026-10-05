@@ -84,8 +84,11 @@ function HomeScreen({ go }) {
       <Section kicker="Case studies" title="Recent work">
         <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-8)' }}>
           {CASES.map((c) => (
-            <CaseStudyCard key={c.id} {...c} ctaLabel="Learn more →"
-              onClick={(e) => { e.preventDefault(); go('case', c.id); }} />
+            <CaseStudyCard key={c.id} {...c} ctaLabel="Learn more →" href={window.caseHref(c.id)}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault(); go('case', c.id);
+              }} />
           ))}
         </div>
       </Section>

@@ -20,7 +20,10 @@ export function SiteFooter({ brand = 'Neil Chakrabarty', blurb, columns = [], no
               {col.links.map((l) => (
                 <li key={l.label}>
                   <a href={l.href || '#'} target={l.target} rel={l.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    onClick={l.onClick ? (e) => { e.preventDefault(); l.onClick(); } : undefined}
+                    onClick={l.onClick ? (e) => {
+                      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                      e.preventDefault(); l.onClick();
+                    } : undefined}
                     style={{ fontSize: 14, color: 'var(--text-primary)', textDecoration: 'none' }}>{l.label}</a>
                 </li>
               ))}
