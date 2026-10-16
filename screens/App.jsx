@@ -36,6 +36,15 @@ function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
+  React.useEffect(() => {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname + window.location.hash,
+    });
+  }, [page, caseId]);
+
   const go = (p, id) => {
     const hash = buildHash(p, id);
     if (window.location.hash === hash) {
