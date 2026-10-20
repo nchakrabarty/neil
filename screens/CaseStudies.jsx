@@ -35,7 +35,7 @@ function CaseStudiesScreen({ go }) {
           {filters.map((f) => (
             <button key={f} onClick={() => setFilter(f)}
               style={{
-                font: 'inherit', fontSize: 13, cursor: 'pointer', padding: '6px 12px',
+                font: 'inherit', fontSize: 13, cursor: 'pointer', padding: '11px 14px',
                 border: '1px solid var(--color-divider)', borderRadius: 0,
                 background: filter === f ? 'var(--color-accent)' : 'transparent',
                 color: filter === f ? 'var(--text-on-accent)' : 'var(--text-primary)',

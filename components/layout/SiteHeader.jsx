@@ -28,9 +28,9 @@ export function SiteHeader({ brand = 'Neil Chakrabarty', items = [], current, on
               e.preventDefault(); onNavigate && onNavigate(it.id);
             }}
             style={{
-              fontSize: 14, textDecoration: 'none',
+              fontSize: 14, textDecoration: 'none', display: 'inline-flex', alignItems: 'center',
               color: current === it.id ? 'var(--color-accent)' : 'var(--text-primary)',
-              paddingBottom: 2,
+              padding: '12px 2px 10px',
               borderBottom: current === it.id ? '2px solid var(--color-accent)' : '2px solid transparent',
             }}>{it.label}</a>
         ))}

@@ -321,3 +321,32 @@ a:focus-within .imageslot-hover,
   .cta-row { flex-direction: column; align-items: stretch; }
   .cta-row > * { width: 100%; }
 }
+
+/* Fallback for browsers that don't support CSS container queries (older
+   mobile browsers, some in-app webviews). Same breakpoints, driven by the
+   viewport instead — since body is itself the query container and sized to
+   the viewport, the two approaches produce the same result everywhere. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; gap: var(--space-10); }
+    .case-sidebar { position: static; top: auto; }
+  }
+  @media (max-width: 820px) {
+    .svc-row { grid-template-columns: 40px minmax(0, 1fr); row-gap: var(--space-4); }
+    .svc-row > .svc-body, .svc-row > .svc-price { grid-column: 2; }
+    .svc-price { text-align: left; }
+    .svc-action { justify-content: flex-start; }
+  }
+  @media (max-width: 720px) {
+    .site-header { row-gap: var(--space-4); }
+    .site-nav {
+      order: 3; width: 100%; flex-wrap: nowrap;
+      overflow-x: auto; padding-bottom: 2px; scrollbar-width: none;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+  }
+  @media (max-width: 520px) {
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .cta-row > * { width: 100%; }
+  }
+}

@@ -8,7 +8,7 @@ const base = {
 };
 
 const sizes = {
-  sm: { fontSize: 13, padding: '6px 12px' },
+  sm: { fontSize: 13, padding: '12px 16px' },
   md: { fontSize: 14, padding: '10px 16px' },
   lg: { fontSize: 16, padding: '14px 22px' },
 };
