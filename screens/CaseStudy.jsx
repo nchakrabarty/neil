@@ -187,9 +187,9 @@ const CASE_CONTENT = {
     artifactRatio: '8 / 5',
   },
   'grit-compliance-classification': {
-    pageTitle: 'Scaling complaint review without automating judgment',
-    pageResult: 'The hard part was not getting the model to classify complaints. It was designing a system that knew when the evidence was too weak to classify at all.',
-    pullQuote: 'It was designing a system that knew when the evidence was too weak to classify at all.',
+    pageTitle: "Earning the compliance team's trust, one threshold at a time",
+    pageResult: "We earned the compliance team's trust in an AI classifier one confidence threshold at a time, then cut audit review time by 60% across 50 states.",
+    pullQuote: "We earned the compliance team's trust in an AI classifier one confidence threshold at a time, then cut audit review time by 60% across 50 states.",
     narrative: [
       "Grit's compliance team was reviewing customer-service complaints and transaction records by hand. The work was necessary, but the process scaled linearly with volume: every new record created another record a trained reviewer had to read from a blank page.",
       'The opportunity looked straightforward. Build a classification layer that could identify potential UDAAP, Regulation E, Regulation P, Regulation GG and related compliance concerns, then route the right cases to a person.',
@@ -266,17 +266,32 @@ const CASE_CONTENT = {
       { value: '60% reduction', label: 'In compliance audit review time' },
       { value: '9,253', label: 'Complaint records classified' },
       { value: '863', label: 'Ticket-level decisions updated across two review rounds' },
+      { value: '60% → 80%', label: 'Confidence threshold raised as model accuracy was proven' },
+    ],
+    // TODO(neil): the validation story below (supplied separately) cites "9,000 calls and
+    // transactions" for the full dataset the 80% threshold was held across. That's a different
+    // figure from the 9,253 complaint records already established above. Confirm whether these
+    // are the same dataset (and should match) or genuinely different scopes (e.g. calls/
+    // transactions vs. complaint records) before this goes further.
+    validationHeading: 'How we knew it was right',
+    validationParagraphs: [
+      "An AI model that is wrong with confidence is worse than no model at all, especially when the output goes to auditors. So we didn't let it decide alone on day one.",
+      "We started with 20 real customer samples. Anything the model was less than 60% sure about went to a person for review. Each round of testing, we compared the model's calls against the human reviewers' calls.",
+      'As the model held up, we raised the bar instead of lowering it. At 80%, the model had to be more certain before it could skip human review. We kept that threshold across the full dataset of 9,000 calls and transactions.',
+      'The final call on "good enough" wasn\'t ours. The compliance team set the standard, and only after they signed off did the data go to financial audit across all 50 US states.',
     ],
     results: [
       { stat: '60% reduction', text: 'in compliance audit review time without reducing the population covered by the review.' },
       { stat: '9,253 complaint records', text: 'processed through a consistent classification and reasoning framework.' },
       { stat: '863 ticket-level decisions updated', text: 'through two formal human-review cycles: 29 in the first review and 834 in the second.' },
       { stat: 'Sub-60% confidence automatically routed', text: 'to human review rather than presented as a complete answer.' },
+      { stat: 'Confidence threshold raised from 60% to 80%', text: 'as model accuracy was proven across testing rounds, then held there for the remainder of the review.' },
+      { stat: 'Compliance-approved release', text: 'for financial audit across all 50 US states, signed off by the compliance team.' },
       { stat: 'A reusable regulatory knowledge structure', text: 'covering triggers, required evidence, missing facts, exceptions, harm and source.' },
       { stat: 'An audit-ready record', text: 'of the complaint, resolution, classification, rationale, confidence, root cause and reviewer correction.' },
     ],
-    role: 'VP of Data Platforms, Grit Financial — I designed the regulatory knowledge architecture, complaint taxonomy, classification logic, confidence and escalation model, human-review workflow and interactive compliance report. I worked alongside compliance to incorporate both rounds of ticket-level review and convert the disagreements into stronger rules rather than one-off overrides.',
-    roleTag: 'VP of Data Platforms',
+    role: 'VP of Data Products, Grit Financial — I designed the regulatory knowledge architecture, complaint taxonomy, classification logic, confidence and escalation model, human-review workflow and interactive compliance report. I worked alongside compliance to incorporate both rounds of ticket-level review and convert the disagreements into stronger rules rather than one-off overrides.',
+    roleTag: 'VP of Data Products',
     awards: null,
     lesson: [
       'The value of the system was not that it always produced an answer.',
@@ -437,6 +452,15 @@ function CaseStudyScreen({ go, caseId }) {
                       </div>
                     ) : null}
                   </div>
+                ))}
+              </>
+            ) : null}
+            {content.validationHeading ? (
+              <>
+                <Rule space={40} weight="hair" />
+                <h3>{content.validationHeading}</h3>
+                {content.validationParagraphs.map((p, i) => (
+                  <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-3)' }}>{p}</p>
                 ))}
               </>
             ) : null}
