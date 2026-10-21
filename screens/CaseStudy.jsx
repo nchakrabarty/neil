@@ -1,12 +1,12 @@
 const CASE_CONTENT = {
   'argus-controls': {
     pageTitle: 'We built the AI in a month. Then I told them to stop.',
-    pageResult: "A one-month ML prototype showed Argus's data couldn't support machine learning yet, so I advised fixing the data and building a platform first. That call turned a 3-month contract into a 3-year partnership and the software platform behind the company's 2022 sale.",
+    pageResult: "A one-month ML prototype showed Argus's data couldn't support machine learning yet, so I advised fixing the data and building a platform first. That call turned a 3-month contract into a 3-year partnership and the software platform that added value to the company's 2022 sale.",
     pullQuote: 'Argus asked for machine learning, and the fastest way to the right product was proving that one wrong quickly.',
     narrative: [
-      'Argus Controls builds environmental control systems for commercial greenhouses and indoor growers — climate control, the Titan controller and automated fertigation. The company has been part of Conviron since 2013. In 2019, its own operating procedures told technicians to "contact the Master Grower of any discrepancies in Argus graphs," and where a batch-tracking system belonged, the templates left a blank: "(Insert Cannabis Tracking System Here)." Argus wanted machine learning to close that gap: learn from historical climate data and grower decisions, suggest the next action, and eventually take that decision on the grower\'s behalf.',
+      'Argus Controls builds environmental control systems for commercial greenhouses and indoor growers: climate control, the Titan controller and automated fertigation. The company has been part of Conviron since 2013. In 2019, its own operating procedures told technicians to "contact the Master Grower of any discrepancies in Argus graphs," and where a batch-tracking system belonged, the templates left a blank: "(Insert Cannabis Tracking System Here)." Argus wanted machine learning to close that gap: learn from historical climate data and grower decisions, suggest the next action, and eventually take that decision on the grower\'s behalf.',
       'I joined in November 2019 as Fractional Product Manager (through Divertica) and built the team from zero: 4 developers, 1 QA engineer and 1 ML engineer.',
-      'A model that suggests actions has to learn what "good" looks like. The Argus data recorded what each room did, but not whether that was good for the crop. Readings arrived at irregular intervals, ranges were missing for some measures, and nothing tied a set of conditions to a batch or its yield. That left a choice: keep building the AI we were hired to build and accept a model that learns from noise, or stop, fix what sits under it, and come back to ML when the data could carry it. The question for management was which one to fund — and we needed evidence before asking it.',
+      'A model that suggests actions has to learn what "good" looks like. The Argus data recorded what each room did, but not whether that was good for the crop. Readings arrived at irregular intervals, ranges were missing for some measures, and nothing tied a set of conditions to a batch or its yield. That left a choice: keep building the AI we were hired to build and accept a model that learns from noise, or stop, fix what sits under it, and come back to ML when the data could carry it. The question for management was which one to fund, and we needed evidence before asking it.',
     ],
     structureCaption: 'Data first, AI second: prove the wrong product fast',
     structureColumns: ['1. Diagnose fast', '2. Fix the foundation', '3. Embed and compound'],
@@ -26,21 +26,21 @@ const CASE_CONTENT = {
           { label: 'The call', text: 'Build the ML prototype first. A working model on real data would answer the question faster than any data audit.' },
           { label: 'How I executed', text: [
             'The prototype had two layers: the first classified each temperature and humidity reading as normal, low alarm or high alarm against its limits; the second mapped the 9 possible combinations to an action (for example, normal temperature with high humidity meant "turn on the dryer for 30 minutes").',
-            "We planned the next stage across 5 areas — temperature, humidity, light, nutrients and irrigation — with models to forecast setpoints 5 days ahead. Working through the historical data turned up 3 findings: inconsistent intervals that needed resampling to hourly, missing humidity ranges the model's first layer depended on, and no markers tying conditions to a batch, stage or outcome for the model to learn from.",
+            "We planned the next stage across 5 areas (temperature, humidity, light, nutrients and irrigation) with models to forecast setpoints 5 days ahead. Working through the historical data turned up 3 findings: inconsistent intervals that needed resampling to hourly, missing humidity ranges the model's first layer depended on, and no markers tying conditions to a batch, stage or outcome for the model to learn from.",
           ] },
-          { label: 'What it bought us', text: 'Evidence, not opinion. I advised management to pause ML after the prototype and redirect the budget to the data and a platform — a call the prototype itself made concrete rather than theoretical.' },
+          { label: 'What it bought us', text: 'Evidence, not opinion. I advised management to pause ML after the prototype and redirect the budget to the data and a platform: a call the prototype itself made concrete rather than theoretical.' },
         ],
       },
       {
         title: '2. Fix the foundation: a data model and a platform to capture it',
         parts: [
-          { label: 'The situation', text: 'The data recorded what each room did, but nothing tied a reading to a batch, a stage or an outcome — the label any model would need to learn from.' },
+          { label: 'The situation', text: 'The data recorded what each room did, but nothing tied a reading to a batch, a stage or an outcome: the label any model would need to learn from.' },
           { label: 'The call', text: 'Fix data quality with a proper data architecture, then build a platform on that architecture that takes new data directly from sensors.' },
           { label: 'How I executed', text: [
             'The data model ties every reading to the crop it affects: site (with its weather station) to zone (CO₂, temperature, humidity and light, each with its range and setpoint) to batch to plant, with ancestry for each batch (mother plant, clone or seed) so a result can be traced back to its genetics. Irrigation schedules and nutrient recipes link to the batch they fed, setpoint changes are limited by access level, and one rule makes the rest work: a batch sits in exactly one environmental zone at a time.',
-            "On top of this we built Batch Tracker. Growers move each batch across a board through its lifecycle — clone, vegetative, flower, dry, cure — see live and historical climate charts per zone and per batch, keep a calendar of events and notes, and record success metrics when they archive a batch so batches can be compared later. Zones sync from the existing Argus controllers, so growers didn't set up their rooms twice. The platform runs on AWS: Lambda and SQS to create batches of many plants at once, DynamoDB for high-volume climate data, and documented APIs so third-party tools can integrate.",
+            "On top of this we built Batch Tracker. Growers move each batch across a board through its lifecycle (clone, vegetative, flower, dry, cure), see live and historical climate charts per zone and per batch, keep a calendar of events and notes, and record success metrics when they archive a batch so batches can be compared later. Zones sync from the existing Argus controllers, so growers didn't set up their rooms twice. The platform runs on AWS: Lambda and SQS to create batches of many plants at once, DynamoDB for high-volume climate data, and documented APIs so third-party tools can integrate.",
           ] },
-          { label: 'What it bought us', text: 'Every sensor reading can now be traced to a batch, and every batch to an outcome — the label the ML prototype was missing.' },
+          { label: 'What it bought us', text: 'Every sensor reading can now be traced to a batch, and every batch to an outcome: the label the ML prototype was missing.' },
         ],
       },
       {
@@ -49,10 +49,10 @@ const CASE_CONTENT = {
           { label: 'The situation', text: "A one-time platform build doesn't compound on its own. Turning it into lasting value meant becoming part of how Argus planned, not just a team that shipped one release." },
           { label: 'The call', text: 'Work alongside Argus management as their thinking and planning partner, shaping the product vision and setting releases quarter by quarter.' },
           { label: 'How I executed', text: [
-            'The roadmap grew from one app into a platform: Batch Tracker expanded into batch, zone and mother-plant management, then analytics for light, VPD and irrigation, alerts on setpoints, and multi-site support. Argus Hub V2 became a marketplace where customers buy Argus software and subscribe monthly or annually, giving a hardware company a path to recurring revenue. Forms brought a document uploader, task planner and form builder, so the paper SOP forms growers filled in every day could move into the platform — alongside compliance and security reviews against GMP and 21 CFR requirements.',
+            'The roadmap grew from one app into a platform: Batch Tracker expanded into batch, zone and mother-plant management, then analytics for light, VPD and irrigation, alerts on setpoints, and multi-site support. Argus Hub V2 became a marketplace where customers buy Argus software and subscribe monthly or annually, giving a hardware company a path to recurring revenue. Forms brought a document uploader, task planner and form builder, so the paper SOP forms growers filled in every day could move into the platform, alongside compliance and security reviews against GMP and 21 CFR requirements.',
             'I ran prioritization on impact and effort scores per feature, with growers and managers as the core personas and QA, finance and admin as secondary. We shipped several releases along the way, and my team supported 3 client onboardings, all greenhouses in Atlantic Canada.',
           ] },
-          { label: 'What it bought us', text: 'Argus extended the contract twice — from the first 3 months to a year, then another year — and the engagement ran until December 2022.' },
+          { label: 'What it bought us', text: 'Argus extended the contract twice (from the first 3 months to a year, then another year), and the engagement ran until December 2022.' },
         ],
       },
     ],
@@ -88,12 +88,12 @@ const CASE_CONTENT = {
     // page]" / a Diagnose offer, but this site doesn't have a services page yet.
     // Left as plain text rather than a fabricated link — give me the real page
     // or offer link whenever it exists and I'll wire it in.
-    adviceClosing: "If any of these is missing, build the capture into the product first (a success field on every batch, a link from every reading to what it affected) and keep the ML tables in the data model from day one. My Diagnose engagement runs this test on your data with a quick prototype, so you know whether to build the model or the foundation first — get in touch to set one up.",
+    adviceClosing: "If any of these is missing, build the capture into the product first (a success field on every batch, a link from every reading to what it affected) and keep the ML tables in the data model from day one. My Diagnose engagement runs this test on your data with a quick prototype, so you know whether to build the model or the foundation first: get in touch to set one up.",
     sources: [
       { label: "MLT Aikins: Counsel to Controlled Environments Limited on its sale to Madison Industries (October 2022)", href: 'https://www.mltaikins.com/news/counsel-to-controlled-environments-limited-on-its-sale-to-madison-industries/' },
       { label: 'Greenhouse Canada: Conviron acquires Argus Control Systems (April 2013)', href: 'https://www.greenhousecanada.com/conviron-acquires-argus-control-systems-3580/' },
     ],
-    role: 'Fractional Product Manager (via Divertica), Argus Controls — I built the team from zero (4 developers, 1 QA engineer and 1 ML engineer), ran the ML prototype that diagnosed the data gaps, designed the data model and platform that replaced it, and worked with Argus management as planning partner through two contract extensions.',
+    role: 'Fractional Product Manager (via Divertica), Argus Controls: I built the team from zero (4 developers, 1 QA engineer and 1 ML engineer), ran the ML prototype that diagnosed the data gaps, designed the data model and platform that replaced it, and worked with Argus management as planning partner through two contract extensions.',
     roleTag: 'Fractional Product Manager',
     awards: null,
     // TODO(neil): no image was supplied for this case study. Add a real
