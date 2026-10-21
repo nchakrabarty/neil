@@ -16,6 +16,9 @@ const COLLABORATIONS = [
 function HomeScreen({ go }) {
   const { Section, Button, Kicker, CtaBanner, Testimonial, StatBlock, CaseStudyCard, ImageSlot } = window.DSX;
   const CASES = window.CASES || [];
+  const RECENT_IDS = ['argus-controls', 'grit-compliance-classification', 'classroom-ready'];
+  const RECENT_IMAGE_TAGS = { 'argus-controls': 'AI', 'grit-compliance-classification': 'AI', 'classroom-ready': 'Business Consulting' };
+  const recentCases = RECENT_IDS.map((id) => CASES.find((c) => c.id === id)).filter(Boolean);
   const [portraitOk, setPortraitOk] = React.useState(true);
 
   React.useEffect(() => {
@@ -81,10 +84,15 @@ function HomeScreen({ go }) {
         ]} />
       </Section>
 
-      <Section kicker="Case studies" title="Recent work">
-        <div className="cols" style={{ '--col-min': '260px', gap: 'var(--space-8)' }}>
-          {CASES.map((c) => (
+      <Section kicker="Case studies" title="Recent work"
+        aside={<a href="#/work" onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault(); go('work');
+        }} style={{ fontSize: 14, color: 'var(--text-accent-safe)', textDecoration: 'none' }}>More →</a>}>
+        <div className="cols" style={{ '--col-min': '320px', gap: 'var(--space-10)' }}>
+          {recentCases.map((c) => (
             <CaseStudyCard key={c.id} {...c} ctaLabel="Learn more →" href={window.caseHref(c.id)}
+              imageTag={RECENT_IMAGE_TAGS[c.id]}
               onClick={(e) => {
                 if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
                 e.preventDefault(); go('case', c.id);

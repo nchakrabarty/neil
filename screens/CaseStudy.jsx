@@ -1,4 +1,105 @@
 const CASE_CONTENT = {
+  'argus-controls': {
+    pageTitle: 'We built the AI in a month. Then I told them to stop.',
+    pageResult: "A one-month ML prototype showed Argus's data couldn't support machine learning yet, so I advised fixing the data and building a platform first. That call turned a 3-month contract into a 3-year partnership and the software platform behind the company's 2022 sale.",
+    pullQuote: 'Argus asked for machine learning, and the fastest way to the right product was proving that one wrong quickly.',
+    narrative: [
+      'Argus Controls builds environmental control systems for commercial greenhouses and indoor growers — climate control, the Titan controller and automated fertigation. The company has been part of Conviron since 2013. In 2019, its own operating procedures told technicians to "contact the Master Grower of any discrepancies in Argus graphs," and where a batch-tracking system belonged, the templates left a blank: "(Insert Cannabis Tracking System Here)." Argus wanted machine learning to close that gap: learn from historical climate data and grower decisions, suggest the next action, and eventually take that decision on the grower\'s behalf.',
+      'I joined in November 2019 as Fractional Product Manager (through Divertica) and built the team from zero: 4 developers, 1 QA engineer and 1 ML engineer.',
+      'A model that suggests actions has to learn what "good" looks like. The Argus data recorded what each room did, but not whether that was good for the crop. Readings arrived at irregular intervals, ranges were missing for some measures, and nothing tied a set of conditions to a batch or its yield. That left a choice: keep building the AI we were hired to build and accept a model that learns from noise, or stop, fix what sits under it, and come back to ML when the data could carry it. The question for management was which one to fund — and we needed evidence before asking it.',
+    ],
+    structureCaption: 'Data first, AI second: prove the wrong product fast',
+    structureColumns: ['1. Diagnose fast', '2. Fix the foundation', '3. Embed and compound'],
+    structureRows: [
+      ['ML prototype in 1 month', 'Data model: site to plant', 'Quarterly roadmap partner'],
+      ['Showed 3 gaps in the data', 'Batch Tracker platform', '3 client onboardings'],
+      ['Advised a pause on ML', 'Live sensor data ingest', 'Alpha at MJBiz 2022'],
+    ],
+    structureFooterRow: ['First 3-month contract', 'First 1-year extension', 'Second extension to Dec 2022'],
+    structureOutcome: 'a software platform that added value to Argus in its 2022 sale.',
+    keyDecisionsIntro: 'Each decision below follows the same order: what we did, the evidence it produced, and the call it led to.',
+    keyDecisions: [
+      {
+        title: '1. Diagnose fast: prove the wrong product before building it',
+        parts: [
+          { label: 'The situation', text: 'Argus was hired to build machine learning that would learn from historical climate data and grower decisions and eventually act on the grower\'s behalf.' },
+          { label: 'The call', text: 'Build the ML prototype first. A working model on real data would answer the question faster than any data audit.' },
+          { label: 'How I executed', text: [
+            'The prototype had two layers: the first classified each temperature and humidity reading as normal, low alarm or high alarm against its limits; the second mapped the 9 possible combinations to an action (for example, normal temperature with high humidity meant "turn on the dryer for 30 minutes").',
+            "We planned the next stage across 5 areas — temperature, humidity, light, nutrients and irrigation — with models to forecast setpoints 5 days ahead. Working through the historical data turned up 3 findings: inconsistent intervals that needed resampling to hourly, missing humidity ranges the model's first layer depended on, and no markers tying conditions to a batch, stage or outcome for the model to learn from.",
+          ] },
+          { label: 'What it bought us', text: 'Evidence, not opinion. I advised management to pause ML after the prototype and redirect the budget to the data and a platform — a call the prototype itself made concrete rather than theoretical.' },
+        ],
+      },
+      {
+        title: '2. Fix the foundation: a data model and a platform to capture it',
+        parts: [
+          { label: 'The situation', text: 'The data recorded what each room did, but nothing tied a reading to a batch, a stage or an outcome — the label any model would need to learn from.' },
+          { label: 'The call', text: 'Fix data quality with a proper data architecture, then build a platform on that architecture that takes new data directly from sensors.' },
+          { label: 'How I executed', text: [
+            'The data model ties every reading to the crop it affects: site (with its weather station) to zone (CO₂, temperature, humidity and light, each with its range and setpoint) to batch to plant, with ancestry for each batch (mother plant, clone or seed) so a result can be traced back to its genetics. Irrigation schedules and nutrient recipes link to the batch they fed, setpoint changes are limited by access level, and one rule makes the rest work: a batch sits in exactly one environmental zone at a time.',
+            "On top of this we built Batch Tracker. Growers move each batch across a board through its lifecycle — clone, vegetative, flower, dry, cure — see live and historical climate charts per zone and per batch, keep a calendar of events and notes, and record success metrics when they archive a batch so batches can be compared later. Zones sync from the existing Argus controllers, so growers didn't set up their rooms twice. The platform runs on AWS: Lambda and SQS to create batches of many plants at once, DynamoDB for high-volume climate data, and documented APIs so third-party tools can integrate.",
+          ] },
+          { label: 'What it bought us', text: 'Every sensor reading can now be traced to a batch, and every batch to an outcome — the label the ML prototype was missing.' },
+        ],
+      },
+      {
+        title: '3. Embed and compound: from contractor to planning partner',
+        parts: [
+          { label: 'The situation', text: "A one-time platform build doesn't compound on its own. Turning it into lasting value meant becoming part of how Argus planned, not just a team that shipped one release." },
+          { label: 'The call', text: 'Work alongside Argus management as their thinking and planning partner, shaping the product vision and setting releases quarter by quarter.' },
+          { label: 'How I executed', text: [
+            'The roadmap grew from one app into a platform: Batch Tracker expanded into batch, zone and mother-plant management, then analytics for light, VPD and irrigation, alerts on setpoints, and multi-site support. Argus Hub V2 became a marketplace where customers buy Argus software and subscribe monthly or annually, giving a hardware company a path to recurring revenue. Forms brought a document uploader, task planner and form builder, so the paper SOP forms growers filled in every day could move into the platform — alongside compliance and security reviews against GMP and 21 CFR requirements.',
+            'I ran prioritization on impact and effort scores per feature, with growers and managers as the core personas and QA, finance and admin as secondary. We shipped several releases along the way, and my team supported 3 client onboardings, all greenhouses in Atlantic Canada.',
+          ] },
+          { label: 'What it bought us', text: 'Argus extended the contract twice — from the first 3 months to a year, then another year — and the engagement ran until December 2022.' },
+        ],
+      },
+    ],
+    stats: [
+      { value: '1 month', label: "ML prototype that proved the data wasn't ready yet" },
+      { value: '3 → 3+ yrs', label: 'A 3-month contract extended twice into a 3-year partnership' },
+      { value: '0 → 3', label: 'Greenhouse clients onboarded to the platform' },
+    ],
+    results: [
+      { stat: 'Software on top of the controllers', text: 'went from a controller interface only to Batch Tracker and Argus Hub V2.' },
+      { stat: 'Every sensor reading', text: 'is now tied to a zone, batch and outcome, where before no link between climate data and crop existed at all.' },
+      { stat: '0 → 3 greenhouse clients', text: 'onboarded to the platform, all in Atlantic Canada.' },
+      { stat: 'Hardware and systems sales', text: 'gained a second business model: subscriptions built into the Argus Hub marketplace.' },
+      { stat: 'A 3-month contract', text: 'extended twice into an engagement of just over 3 years, ending December 2022.' },
+      { stat: 'An alpha release', text: 'shown at MJBiz 2022, the cannabis industry trade show in Las Vegas.' },
+    ],
+    // TODO(neil): the source material explicitly says not to add a deal value or
+    // acquisition figure, so this stays qualified rather than quantified.
+    limitsHeading: 'Limits and trade-offs',
+    limitsItems: [
+      'The pivot traded speed for breadth. The 2020 roadmap aimed at a commercial launch in December 2020; the alpha came at MJBiz in November 2022. Releases shipped in between, but the scope grew (marketplace, subscriptions, forms) and pushed the big release out by 2 years.',
+      "ML did not go into production during the engagement, because the job was to complete the platform. The platform created the labelled data a model needs, but it doesn't prove that a model trained on that data would perform.",
+      'The platform was designed around cannabis workflows first (mother plants, clones, compliance forms). A user story from a tomato grower showed the board had to support custom stages and batches without mother plants before it could serve other crops.',
+    ],
+    adviceHeading: "What this means if you're about to build with AI",
+    adviceIntro: 'If you are about to put budget into AI, spend a few weeks finding out whether your data can carry it. From Argus, I would check 3 things first:',
+    adviceItems: [
+      'Readings arrive on a consistent schedule, or can be resampled without losing what matters.',
+      'Every measure has defined ranges for what normal looks like.',
+      'Outcomes are recorded and linked to the conditions that produced them, so a model has something to learn from.',
+    ],
+    // TODO(neil): the source doc points this closing line at "[Link to services
+    // page]" / a Diagnose offer, but this site doesn't have a services page yet.
+    // Left as plain text rather than a fabricated link — give me the real page
+    // or offer link whenever it exists and I'll wire it in.
+    adviceClosing: "If any of these is missing, build the capture into the product first (a success field on every batch, a link from every reading to what it affected) and keep the ML tables in the data model from day one. My Diagnose engagement runs this test on your data with a quick prototype, so you know whether to build the model or the foundation first — get in touch to set one up.",
+    sources: [
+      { label: "MLT Aikins: Counsel to Controlled Environments Limited on its sale to Madison Industries (October 2022)", href: 'https://www.mltaikins.com/news/counsel-to-controlled-environments-limited-on-its-sale-to-madison-industries/' },
+      { label: 'Greenhouse Canada: Conviron acquires Argus Control Systems (April 2013)', href: 'https://www.greenhousecanada.com/conviron-acquires-argus-control-systems-3580/' },
+    ],
+    role: 'Fractional Product Manager (via Divertica), Argus Controls — I built the team from zero (4 developers, 1 QA engineer and 1 ML engineer), ran the ML prototype that diagnosed the data gaps, designed the data model and platform that replaced it, and worked with Argus management as planning partner through two contract extensions.',
+    roleTag: 'Fractional Product Manager',
+    awards: null,
+    // TODO(neil): no image was supplied for this case study. Add a real
+    // artifact (e.g. a Batch Tracker screenshot or the data model diagram)
+    // and set artifactSrc/artifactAlt/artifactRatio when you have one.
+  },
   'grit-bulk-enrollment': {
     pageTitle: 'Turning a 2-day onboarding into a 3-click employer action',
     pageResult: "The fix wasn't a faster version of the employee's flow. It was removing the employee from the flow — the employer already had the data the process kept asking for.",
@@ -422,6 +523,39 @@ function CaseStudyScreen({ go, caseId }) {
               <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-4)' }}>{p}</p>
             ))}
             {content.pullQuote ? <PullQuote style={{ margin: 'var(--space-10) 0' }}>{content.pullQuote}</PullQuote> : null}
+            {content.structureColumns ? (
+              <div style={{ margin: 'var(--space-6) 0' }}>
+                {content.structureCaption ? <p style={{ fontWeight: 700, marginBottom: 'var(--space-3)' }}>{content.structureCaption}</p> : null}
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
+                    <thead>
+                      <tr>
+                        {content.structureColumns.map((col, i) => (
+                          <th key={i} style={{ textAlign: 'left', padding: '8px 16px 8px 0', borderBottom: '2px solid var(--color-divider)', fontFamily: 'var(--font-heading)', fontWeight: 800, whiteSpace: 'nowrap' }}>{col}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {content.structureRows.map((row, i) => (
+                        <tr key={i}>
+                          {row.map((cell, j) => (
+                            <td key={j} style={{ padding: '8px 16px 8px 0', borderBottom: '1px solid color-mix(in srgb, var(--color-text) 22%, transparent)', verticalAlign: 'top' }}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                      {content.structureFooterRow ? (
+                        <tr>
+                          {content.structureFooterRow.map((cell, j) => (
+                            <td key={j} style={{ padding: '8px 16px 8px 0', fontStyle: 'italic', color: 'var(--text-muted)' }}>{cell}</td>
+                          ))}
+                        </tr>
+                      ) : null}
+                    </tbody>
+                  </table>
+                </div>
+                {content.structureOutcome ? <p style={{ marginTop: 'var(--space-4)' }}><strong>Outcome:</strong> {content.structureOutcome}</p> : null}
+              </div>
+            ) : null}
             {content.keyDecisions ? (
               <>
                 <Rule space={40} weight="hair" />
@@ -487,6 +621,36 @@ function CaseStudyScreen({ go, caseId }) {
                   <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-3)' }}>{p}</p>
                 ))}
                 {content.closingQuestion ? <p style={{ marginTop: 'var(--space-4)' }}><strong>{content.closingQuestion}</strong></p> : null}
+              </>
+            ) : null}
+            {content.limitsHeading ? (
+              <>
+                <h3 style={{ marginTop: 'var(--space-10)' }}>{content.limitsHeading}</h3>
+                <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {content.limitsItems.map((item, i) => <li key={i}>{item}</li>)}
+                </ul>
+              </>
+            ) : null}
+            {content.adviceHeading ? (
+              <>
+                <h3 style={{ marginTop: 'var(--space-10)' }}>{content.adviceHeading}</h3>
+                {content.adviceIntro ? <p>{content.adviceIntro}</p> : null}
+                {content.adviceItems ? (
+                  <ol style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {content.adviceItems.map((item, i) => <li key={i}>{item}</li>)}
+                  </ol>
+                ) : null}
+                {content.adviceClosing ? <p style={{ marginTop: 'var(--space-4)' }}>{content.adviceClosing}</p> : null}
+              </>
+            ) : null}
+            {content.sources ? (
+              <>
+                <h3 style={{ marginTop: 'var(--space-10)' }}>Sources</h3>
+                <ul style={{ margin: 'var(--space-4) 0 0', paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 13 }}>
+                  {content.sources.map((s, i) => (
+                    <li key={i}><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>
+                  ))}
+                </ul>
               </>
             ) : null}
           </div>

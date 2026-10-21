@@ -3,7 +3,7 @@ import { Tag } from '../core/Tag.jsx';
 
 export function CaseStudyCard({
   client, headline, result, tags = [], year,
-  thumb, thumbAlt, thumbComponent, thumbFallback,
+  thumb, thumbAlt, thumbComponent, thumbFallback, imageTag,
   ctaLabel, href, onClick, style,
 }) {
   const [hover, setHover] = React.useState(false);
@@ -21,18 +21,29 @@ export function CaseStudyCard({
         borderTop: '2px solid var(--color-divider)',
         transition: 'background var(--duration-base) var(--ease-standard)', ...style,
       }}>
-      {ThumbComponent ? (
-        <div style={{ width: '100%', aspectRatio: '16 / 10', background: 'var(--surface-card)' }}>
-          <ThumbComponent />
-        </div>
-      ) : thumb && ImageSlot ? (
-        <ImageSlot src={thumb} alt={thumbAlt || headline} ratio="16 / 10" fit="contain" padded tone="mono" hoverColor />
-      ) : thumbFallback ? (
-        <div style={{
-          width: '100%', aspectRatio: '16 / 10', background: 'var(--surface-card)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'var(--text-display-3)' }}>{thumbFallback}</span>
+      {(ThumbComponent || (thumb && ImageSlot) || thumbFallback) ? (
+        <div style={{ position: 'relative' }}>
+          {ThumbComponent ? (
+            <div style={{ width: '100%', aspectRatio: '16 / 10', background: 'var(--surface-card)' }}>
+              <ThumbComponent />
+            </div>
+          ) : thumb && ImageSlot ? (
+            <ImageSlot src={thumb} alt={thumbAlt || headline} ratio="16 / 10" fit="contain" padded tone="mono" hoverColor />
+          ) : (
+            <div style={{
+              width: '100%', aspectRatio: '16 / 10', background: 'var(--surface-card)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'var(--text-display-3)' }}>{thumbFallback}</span>
+            </div>
+          )}
+          {imageTag ? (
+            <span style={{
+              position: 'absolute', top: 'var(--space-3)', left: 'var(--space-3)',
+              fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 700,
+              padding: '5px 10px', background: 'var(--color-accent)', color: 'var(--text-on-accent)',
+            }}>{imageTag}</span>
+          ) : null}
         </div>
       ) : null}
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
