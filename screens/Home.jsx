@@ -84,11 +84,7 @@ function HomeScreen({ go }) {
         ]} />
       </Section>
 
-      <Section kicker="Case studies" title="Recent work"
-        aside={<a href="#/work" onClick={(e) => {
-          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-          e.preventDefault(); go('work');
-        }} style={{ fontSize: 14, color: 'var(--text-accent-safe)', textDecoration: 'none' }}>More →</a>}>
+      <Section kicker="Case studies" title="Recent work">
         <div className="cols" style={{ '--col-min': '320px', gap: 'var(--space-10)' }}>
           {recentCases.map((c) => (
             <CaseStudyCard key={c.id} {...c} ctaLabel="Learn more →" href={window.caseHref(c.id)}
@@ -98,6 +94,13 @@ function HomeScreen({ go }) {
                 e.preventDefault(); go('case', c.id);
               }} />
           ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-12)' }}>
+          <Button variant="secondary" size="md" href="#/work" iconRight={<span>→</span>}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+              e.preventDefault(); go('work');
+            }}>More case studies</Button>
         </div>
       </Section>
 
