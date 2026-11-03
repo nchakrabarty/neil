@@ -52,10 +52,10 @@ function HomeScreen({ go }) {
               thing.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              The pressure to spend overrides the discipline to diagnose. At an EdTech platform, the product had
-              near-zero video completion rates — not a tech problem, a direction problem. I redirected the roadmap
-              before a line of code was written to the original brief. Six months later: 10x paying subscriber
-              growth.
+              The pressure to spend overrides the discipline to diagnose. Recently, at a B2C platform, the product
+              had very low usage rates — it was not a tech problem, it was a direction problem. I redirected the
+              roadmap before a line of code was written to the original brief. Six months later: 10x paying
+              subscriber growth.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
               That's the job. I act as a thinking partner and operator — taking ideas from strategy through
