@@ -290,7 +290,7 @@ a:focus-within .imageslot-hover,
 .case-sidebar { position: sticky; top: 96px; align-self: start; }
 
 @container page (max-width: 900px) {
-  .split { grid-template-columns: 1fr; gap: var(--space-10); }
+  .split { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
   .case-sidebar { position: static; top: auto; }
 }
 
@@ -328,7 +328,7 @@ a:focus-within .imageslot-hover,
    the viewport, the two approaches produce the same result everywhere. */
 @supports not (container-type: inline-size) {
   @media (max-width: 900px) {
-    .split { grid-template-columns: 1fr; gap: var(--space-10); }
+    .split { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
     .case-sidebar { position: static; top: auto; }
   }
   @media (max-width: 820px) {

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Executive readout of a 25-participant, 5-variant usability study of instant earned wage transfer, by Neil Chakrabarty.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<title>Instant Wage Transfer Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<style>
+/* Layout: one full-height section per slide, flush-left content on a 12-col grid, 2px ink rules split headline zone from content. Single light theme by brand choice. */
+:root{
+  --ground:#F3F2F2; --surface:#EAE9E9; --ink:#201E1D; --accent:#10307F; --accent-700:#0C1F52;
+  --accent-400:#6B86D0; --accent-300:#A8B8E4; --n900:#2D2B2B; --n800:#444141; --n700:#605D5D; --n400:#A9A5A5; --n300:#C9C6C6;
+  --font:"Archivo",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-snap-type:y proximity;background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+.slide{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;
+  padding-block:clamp(40px,7vh,96px) clamp(28px,5vh,64px);
+  padding-left:max(16px,env(safe-area-inset-left,0px),7vw);padding-right:max(16px,env(safe-area-inset-right,0px),7vw);
+  border-bottom:2px solid var(--ink)}
+.slide.tint{background:var(--surface)}
+.slide.blue{background:var(--accent);color:var(--ground)}
+.slide.inkbg{background:var(--ink);color:var(--ground)}
+.inner{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(20px,3vh,36px);max-width:1440px;width:100%}
+.kicker{font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(12px,1vw,15px);color:var(--accent)}
+.blue .kicker,.inkbg .kicker{color:var(--accent-300)}
+h1{font-weight:800;font-size:clamp(40px,7vw,112px);line-height:.98;letter-spacing:-.03em;max-width:15ch;text-wrap:balance}
+h2{font-weight:800;font-size:clamp(28px,3.9vw,60px);line-height:1.04;letter-spacing:-.03em;max-width:24ch;text-wrap:balance}
+h3{font-weight:800;font-size:clamp(18px,1.6vw,24px);line-height:1.15;letter-spacing:-.015em}
+p{color:var(--n900);max-width:62ch}
+.blue p,.inkbg p{color:var(--ground)}
+.lede{font-size:clamp(17px,1.6vw,24px);color:var(--n800);max-width:46ch}
+.small{font-size:clamp(13px,.95vw,15px);color:var(--n700)}
+.blue .small,.inkbg .small{color:var(--accent-300)}
+.rule{border-top:2px solid var(--ink);padding-top:clamp(18px,2.5vh,28px)}
+.blue .rule,.inkbg .rule{border-color:var(--ground)}
+.cols{display:grid;gap:0}
+.cols>*{min-width:0;padding:clamp(14px,1.4vw,24px) clamp(14px,1.6vw,28px) clamp(14px,1.4vw,24px) 0}
+.cols>*+*{border-left:2px solid var(--ink);padding-left:clamp(14px,1.6vw,28px)}
+.c2{grid-template-columns:repeat(2,1fr)} .c3{grid-template-columns:repeat(3,1fr)} .c4{grid-template-columns:repeat(4,1fr)} .c5{grid-template-columns:repeat(5,1fr)}
+.cols p{margin-top:8px}
+.num{font-weight:800;font-size:clamp(34px,4.4vw,68px);line-height:1;letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.blue .num{color:var(--ground)}
+.label{font-weight:600;font-size:clamp(13px,1vw,15px);color:var(--n800);margin-top:8px}
+.foot{display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:13px;color:var(--n700);padding-top:18px;max-width:1440px;width:100%}
+.blue .foot,.inkbg .foot{color:var(--accent-300)}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--ink);color:var(--ground);font-weight:800;font-size:19px;letter-spacing:-.02em}
+.mark b{color:var(--accent-400)}
+.inkbg .mark{background:var(--ground);color:var(--ink)} .inkbg .mark b{color:var(--accent)}
+/* bars */
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr 52px;align-items:center;gap:14px}
+.bar span{font-weight:600;font-size:15px}
+.track{height:22px;background:var(--surface);position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--n400)}
+.fill.hi{background:var(--accent)}
+.bar em{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-variant-numeric:tabular-nums}
+th{text-align:left;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--n700);padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}
+td{padding:14px 14px 14px 0;border-bottom:2px solid var(--n300);font-size:16px;vertical-align:top}
+tr.best td{color:var(--accent-700);font-weight:600}
+td.v{font-weight:800;font-size:20px}
+.note{border-left:2px solid var(--accent);padding-left:16px}
+.note p+p{margin-top:8px}
+/* heatmaps */
+.heat{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.heat img{width:100%;display:block;border:2px solid var(--ink)}
+.flow{width:100%;display:block;border:2px solid var(--ink)}
+.flowwrap{overflow-x:auto}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:baseline;counter-increment:s}
+.steps li::before{content:counter(s);font-weight:800;color:var(--accent)}
+.eq{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(10px,2vw,28px)}
+.eq .op{font-weight:800;font-size:clamp(28px,3vw,48px);color:var(--n700);padding-bottom:22px}
+ul.plain{margin:8px 0 0;padding-left:18px} ul.plain li{margin:6px 0;color:var(--n900)}
+.pcode{font-weight:800;color:var(--accent);font-size:15px;letter-spacing:.06em}
+.owner{font-size:13px;font-weight:600;color:var(--n700);margin-top:10px}
+.split{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(20px,3vw,48px);align-items:start}
+.split>*{min-width:0}
+a{color:inherit}
+.nav{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:0;z-index:5;background:var(--ink)}
+.nav button{appearance:none;border:0;background:var(--ink);color:var(--ground);font:600 14px var(--font);padding:10px 14px;cursor:pointer;min-width:44px;min-height:44px}
+.nav button:focus-visible{outline:2px solid var(--accent-400);outline-offset:2px}
+.nav output{color:var(--ground);font:600 14px var(--font);padding:12px 6px;font-variant-numeric:tabular-nums}
+@media (max-width:900px){
+  .c3,.c4,.c5,.c2,.split{grid-template-columns:1fr}
+  .cols>*+*{border-left:0;border-top:2px solid var(--ink);padding-left:0}
+  .heat{grid-template-columns:repeat(4,1fr)}
+  .flow{min-width:900px}
+  .bar{grid-template-columns:110px 1fr 44px}
+  .slide{min-height:auto}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+</head>
+<body>
+<main class="deck">
+
+<!-- 01 Cover -->
+<section class="slide" id="s1">
+  <div class="inner">
+    <span class="mark">Neil<b>.</b></span>
+    <div class="kicker">Usability study · Executive readout · Aug 2026</div>
+    <h1>Instant wage transfer, understood.</h1>
+    <p class="lede">What 25 mobile participants understood, and misunderstood, when moving wages they had already earned to a company paycard.</p>
+    <div class="cols c4 rule">
+      <div><div class="num">25</div><div class="label">US-based mobile participants</div></div>
+      <div><div class="num">5</div><div class="label">Interface variants tested</div></div>
+      <div><div class="num">$50</div><div class="label">Requested from $200 of available wages</div></div>
+      <div><div class="num">100%</div><div class="label">Task completion across all variants</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>01 / 13</span></div>
+</section>
+
+<!-- 02 Executive takeaway -->
+<section class="slide" id="s2">
+  <div class="inner">
+    <div class="kicker">Executive takeaway</div>
+    <h2>The transaction can be understood. The interface must make the math unmistakable.</h2>
+    <div class="cols c3 rule">
+      <div><div class="kicker">Direction</div><h3 style="margin-top:8px">Use E2 as the foundation</h3><p>E2 produced the strongest normalized comprehension: users understood the amount received, fee, payroll repayment, remaining wages, timing and destination.</p></div>
+      <div><div class="kicker">Primary risk</div><h3 style="margin-top:8px">The starting action is not obvious</h3><p>Participants consistently needed more than 3 taps before finding "Transfer Wages." "Transfer Money" competes directly with the intended entry point.</p></div>
+      <div><div class="kicker">Design principle</div><h3 style="margin-top:8px">Show one financial equation</h3><p>Keep "$50 received," "$3 fee," "$53 payroll repayment" and "$147 wages remaining" together at review and confirmation.</p></div>
+    </div>
+    <div class="note"><p><strong>Recommended decision:</strong> combine E2's financial model with a redesigned entry point and a clearer confirmation hierarchy.</p></div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>02 / 13</span></div>
+</section>
+
+<!-- 03 Study design -->
+<section class="slide tint" id="s3">
+  <div class="inner">
+    <div class="kicker">Study design</div>
+    <h2>A directional comparison across five mobile experiences.</h2>
+    <div class="cols c4 rule">
+      <div><div class="num">5–10</div><div class="label">Minute, unmoderated Maze study</div></div>
+      <div><div class="num">1</div><div class="label">Variant experienced by each participant</div></div>
+      <div><div class="num" style="font-size:clamp(26px,2.8vw,44px)">5 / 6 / 6 / 4 / 4</div><div class="label">Participants in A2 / B2 / C2 / D2 / E2</div></div>
+      <div><div class="num">5:22</div><div class="label">Median completion time</div></div>
+    </div>
+    <div class="cols c2">
+      <div><div class="kicker">Task</div><p>Transfer $50 from $200 of earned wages available to a company paycard for an urgent expense.</p></div>
+      <div><div class="kicker">Primary research question</div><p>Which content, information order and interaction pattern best supports accurate comprehension?</p></div>
+    </div>
+    <p class="small">Interpret results directionally. Variant groups ranged from 4 to 6 participants and were not designed for statistical winner selection.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>03 / 13</span></div>
+</section>
+
+<!-- 04 Comprehension -->
+<section class="slide" id="s4">
+  <div class="inner">
+    <div class="kicker">What users understood</div>
+    <h2>Core transfer facts landed. Confirmation language remained the weakest point.</h2>
+    <div class="split rule">
+      <div class="bars" role="img" aria-label="Share of all 25 participants answering each comprehension check correctly">
+        <div class="bar"><span>Destination</span><div class="track"><div class="fill" style="width:92%"></div></div><em>92%</em></div>
+        <div class="bar"><span>Fee</span><div class="track"><div class="fill" style="width:88%"></div></div><em>88%</em></div>
+        <div class="bar"><span>Availability timing</span><div class="track"><div class="fill" style="width:88%"></div></div><em>88%</em></div>
+        <div class="bar"><span>Amount on card</span><div class="track"><div class="fill" style="width:76%"></div></div><em>76%</em></div>
+        <div class="bar"><span>Payroll repayment</span><div class="track"><div class="fill" style="width:76%"></div></div><em>76%</em></div>
+        <div class="bar"><span>Wages remaining</span><div class="track"><div class="fill" style="width:76%"></div></div><em>76%</em></div>
+        <div class="bar"><span>Confirmation amount</span><div class="track"><div class="fill hi" style="width:64%"></div></div><em>64%</em></div>
+      </div>
+      <div style="display:grid;gap:20px">
+        <div><div class="kicker">Positive</div><h3 style="margin-top:6px">Users knew where and when</h3><p>Destination and timing were the most consistently understood facts.</p></div>
+        <div><div class="kicker">Opportunity</div><h3 style="margin-top:6px">Different dollar labels compete</h3><p>"Transferred," "received," "fee" and "repayment" need a stable vocabulary across review and confirmation.</p></div>
+      </div>
+    </div>
+    <p class="small">Accuracy is normalized to the intended outcome of each variant. C2 intentionally delivered $47 from a $50 request; the other variants delivered $50. n = 25.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>04 / 13</span></div>
+</section>
+
+<!-- 05 Scorecard -->
+<section class="slide" id="s5">
+  <div class="inner">
+    <div class="kicker">Variant scorecard</div>
+    <h2>E2 was directionally strongest. No variant solved the entry point.</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Variant</th><th>n</th><th>Normalized comprehension</th><th>Clarity (of 7)</th><th>Ease (of 7)</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr class="best"><td class="v">E2</td><td>4</td><td class="v">96%</td><td>6.25</td><td>6.75</td><td>Recommended foundation</td></tr>
+          <tr><td class="v">A2</td><td>5</td><td class="v">83%</td><td>6.20</td><td>6.00</td><td>Strong baseline</td></tr>
+          <tr><td class="v">B2</td><td>6</td><td class="v">76%</td><td>5.83</td><td>6.50</td><td>Breakdown useful, but not reliably seen</td></tr>
+          <tr><td class="v">C2</td><td>6</td><td class="v">76%</td><td>5.33</td><td>5.67</td><td>Requested $50, received $47</td></tr>
+          <tr><td class="v">D2</td><td>4</td><td class="v">71%</td><td>6.75</td><td>6.75</td><td>Feels clear; arithmetic was not retained</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols c2">
+      <div class="note"><p><strong>Rating is not comprehension.</strong> D2 was rated highest for clarity while only 2 of 4 identified the $53 repayment and 1 of 4 identified the $147 remaining.</p></div>
+      <div class="note"><p><strong>Decision rule.</strong> Prioritize demonstrated comprehension over preference ratings when the design communicates financial consequences.</p></div>
+    </div>
+    <p class="small">Normalized score combines 7 shared comprehension checks: card amount, payroll repayment, fee, remaining wages, timing, destination and confirmation amount. Small samples make rankings directional.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>05 / 13</span></div>
+</section>
+
+<!-- 06 Heatmaps -->
+<section class="slide tint" id="s6">
+  <div class="inner">
+    <div class="kicker">Major usability issue · Task entry</div>
+    <h2>Participants knew they needed to transfer money, but not where to begin.</h2>
+    <div class="heat" aria-label="Eight starting-screen click heatmaps">
+      <img src="../assets/case-studies/fortuna/heatmaps/heatmap-1.webp" alt="Starting-screen click heatmap, participant 1 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-2.webp" alt="Starting-screen click heatmap, participant 2 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-3.webp" alt="Starting-screen click heatmap, participant 3 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-4.webp" alt="Starting-screen click heatmap, participant 4 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-5.webp" alt="Starting-screen click heatmap, participant 5 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-6.webp" alt="Starting-screen click heatmap, participant 6 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-7.webp" alt="Starting-screen click heatmap, participant 7 of 8" loading="lazy"><img src="../assets/case-studies/fortuna/heatmaps/heatmap-8.webp" alt="Starting-screen click heatmap, participant 8 of 8" loading="lazy">
+    </div>
+    <div class="cols c3 rule">
+      <div><h3>More than 3 taps</h3><p>Participants consistently needed more than 3 taps before selecting "Transfer Wages."</p></div>
+      <div><h3>Competing labels</h3><p>"Transfer Money" and "Transfer Wages" both sound like valid ways to start.</p></div>
+      <div><h3>Scattered intent</h3><p>Clicks spread across the paycard, balances, "View Details" and surrounding areas.</p></div>
+    </div>
+    <p class="small">Heatmaps show location, not click order or motivation. The repeated multi-click pattern is treated as a discoverability signal, not a precise measure of severity by variant.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>06 / 13</span></div>
+</section>
+
+<!-- 07 E2 -->
+<section class="slide" id="s7">
+  <div class="inner">
+    <div class="kicker">Why E2 performed best</div>
+    <h2>E2 protects the user's goal: $50 requested means $50 arrives.</h2>
+    <div class="flowwrap"><img class="flow" src="../assets/case-studies/fortuna/fortuna-e2-flow.webp" alt="E2 prototype flow: dashboard, amount entry, transfer type, review with $50 net received, and success confirmation"></div>
+    <div class="split rule">
+      <div>
+        <div class="kicker">4 of 4 correct · Six core facts understood by every E2 participant</div>
+        <ol class="steps" style="margin-top:12px">
+          <li><span><strong>$50</strong> arrives on the company card.</span></li>
+          <li><span><strong>$3</strong> is the instant-transfer fee.</span></li>
+          <li><span><strong>$53</strong> is repaid from the next payroll deposit.</span></li>
+          <li><span><strong>$147</strong> remains available after the transfer and fee.</span></li>
+          <li><span>Funds arrive <strong>within minutes</strong> on the <strong>company card</strong>.</span></li>
+        </ol>
+      </div>
+      <div class="note"><div class="kicker">Residual issue</div><p style="margin-top:6px">One participant recalled $53 as the transferred amount. Confirmation must separate the card credit from the payroll repayment more strongly.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>07 / 13</span></div>
+</section>
+
+<!-- 08 C2 -->
+<section class="slide" id="s8">
+  <div class="inner">
+    <div class="kicker">C2 expectation gap</div>
+    <h2>A $50 request that delivers $47 works mathematically, but misses the urgent-expense goal.</h2>
+    <div class="flowwrap"><img class="flow" src="../assets/case-studies/fortuna/fortuna-c2-flow.webp" alt="C2 prototype flow: a $50 request with the $3 fee deducted, showing $47 net received at review and confirmation"></div>
+    <div class="cols c4 rule">
+      <div><div class="num">4/6</div><div class="label">Initially expected $50 to appear on the card</div></div>
+      <div><div class="num">5/6</div><div class="label">Understood $47 after the outcome was explicitly surfaced</div></div>
+      <div><h3>The issue is expectation, not arithmetic</h3><p>For an urgent $50 expense, receiving $47 leaves a $3 shortfall and may force another transfer.</p></div>
+      <div><h3>Recommendation</h3><p>Charge the fee on top of the requested amount and show the full consequence before agreement.</p></div>
+    </div>
+    <p class="small">Data-quality note: one C2 follow-up question referenced a $50 confirmation even though the tested screen showed $47. That follow-up is excluded from interface conclusions.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>08 / 13</span></div>
+</section>
+
+<!-- 09 Keep/Change/Let go -->
+<section class="slide tint" id="s9">
+  <div class="inner">
+    <div class="kicker">Design decision</div>
+    <h2>Keep what explains consequences. Remove what makes users calculate.</h2>
+    <div class="cols c3 rule">
+      <div><div class="kicker">Keep</div><ul class="plain">
+        <li>E2's fee-on-top model: request $50, receive $50</li>
+        <li>Side-by-side Instant and Standard comparison</li>
+        <li>Fee, timing and destination visible before agreement</li>
+        <li>Review summary that includes payroll repayment</li>
+        <li>Confirmation of card destination and availability</li></ul></div>
+      <div><div class="kicker">Change</div><ul class="plain">
+        <li>Make "Transfer earned wages" the dominant entry CTA</li>
+        <li>Rename "Transfer Money" to describe its distinct purpose</li>
+        <li>Place all four dollar amounts in one consistent equation</li>
+        <li>Separate "Added to card" from "Repaid from payroll"</li>
+        <li>Make the review summary visible without opening a breakdown</li></ul></div>
+      <div><div class="kicker">Let go</div><ul class="plain">
+        <li>C2's pattern where $50 requested silently becomes $47 received</li>
+        <li>Ambiguous "transferred" labels without a destination</li>
+        <li>Timing notes that mix Standard and Instant expectations</li>
+        <li>Reliance on an optional cost breakdown for essential information</li>
+        <li>Equal visual weight for competing dashboard actions</li></ul></div>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>09 / 13</span></div>
+</section>
+
+<!-- 10 Target experience (section-field slide) -->
+<section class="slide blue" id="s10">
+  <div class="inner">
+    <div class="kicker">Recommended experience</div>
+    <h2>One request. One equation. One unambiguous confirmation.</h2>
+    <div class="eq rule">
+      <div><div class="num">$50</div><div class="label" style="color:var(--accent-300)">added to company card</div></div>
+      <div class="op" style="color:var(--accent-300)">+</div>
+      <div><div class="num">$3</div><div class="label" style="color:var(--accent-300)">instant-transfer fee</div></div>
+      <div class="op" style="color:var(--accent-300)">=</div>
+      <div><div class="num">$53</div><div class="label" style="color:var(--accent-300)">next payroll repayment</div></div>
+      <div class="op" style="color:var(--accent-300)">→</div>
+      <div><div class="num">$147</div><div class="label" style="color:var(--accent-300)">wages remaining</div></div>
+    </div>
+    <div class="cols c5" style="--ink:var(--ground)">
+      <div><h3>1 · Start</h3><p>Primary CTA: "Transfer earned wages."</p></div>
+      <div><h3>2 · Amount</h3><p>Enter the amount needed on the card: $50.</p></div>
+      <div><h3>3 · Speed</h3><p>Instant $3, within minutes; or Standard $0, up to 2 business days.</p></div>
+      <div><h3>4 · Review</h3><p>Show the complete equation and next-payday timing.</p></div>
+      <div><h3>5 · Confirm</h3><p>Lead with "$50 added to your company card."</p></div>
+    </div>
+    <p class="small">Use stable labels across every screen: requested amount, fee, amount added to card, payroll repayment and wages remaining.</p>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>10 / 13</span></div>
+</section>
+
+<!-- 11 Action plan -->
+<section class="slide" id="s11">
+  <div class="inner">
+    <div class="kicker">Recommended action plan</div>
+    <h2>Fix the entry point first, then validate the full financial story.</h2>
+    <div class="cols c5 rule">
+      <div><div class="pcode">P0</div><h3 style="margin-top:6px">Redesign dashboard task entry</h3><p>Make "Transfer earned wages" the primary action; rename and de-emphasize "Transfer Money"; validate the full tap target.</p><div class="owner">Product design</div></div>
+      <div><div class="pcode">P0</div><h3 style="margin-top:6px">Adopt E2's amount model</h3><p>The amount requested is the amount added to the card; the instant fee is charged on top.</p><div class="owner">Product + compliance</div></div>
+      <div><div class="pcode">P1</div><h3 style="margin-top:6px">Standardize financial language</h3><p>Use the same 5 labels across amount entry, review, consent and confirmation.</p><div class="owner">Content design</div></div>
+      <div><div class="pcode">P1</div><h3 style="margin-top:6px">Make essential math visible</h3><p>Do not depend on an optional cost breakdown to communicate fee and payroll repayment.</p><div class="owner">Product design</div></div>
+      <div><div class="pcode">P2</div><h3 style="margin-top:6px">Run a focused validation study</h3><p>Test one consolidated flow with first-click success, comprehension and confidence as separate measures.</p><div class="owner">Research</div></div>
+    </div>
+    <div class="cols c3 rule">
+      <div><div class="kicker">Entry target</div><div class="num" style="font-size:clamp(26px,2.8vw,44px);margin-top:6px">≥80%</div><div class="label">First-click success</div></div>
+      <div><div class="kicker">Comprehension target</div><div class="num" style="font-size:clamp(26px,2.8vw,44px);margin-top:6px">≥90%</div><div class="label">On all four amounts</div></div>
+      <div><div class="kicker">Behavior target</div><div class="num" style="font-size:clamp(26px,2.8vw,44px);margin-top:6px">1 tap</div><div class="label">Median to begin</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>11 / 13</span></div>
+</section>
+
+<!-- 12 Decision and limits -->
+<section class="slide tint" id="s12">
+  <div class="inner">
+    <div class="kicker">Decision and limits</div>
+    <h2>Proceed with an E2-based flow, after fixing entry-point discoverability and confirmation hierarchy.</h2>
+    <div class="cols c3 rule">
+      <div><div class="kicker">Sample size</div><h3 style="margin-top:6px">Directional, not statistical</h3><p>4 to 6 participants per variant cannot establish a definitive winner.</p></div>
+      <div><div class="kicker">Audience fit</div><h3 style="margin-top:6px">Recruitment was broader than intended</h3><p>Only 15 of 25 were ages 25–44, and industry or hourly-work status was not captured.</p></div>
+      <div><div class="kicker">Device mix</div><h3 style="margin-top:6px">iOS-heavy panel</h3><p>21 participants used iOS and 4 used Android.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>12 / 13</span></div>
+</section>
+
+<!-- 13 Close -->
+<section class="slide inkbg" id="s13">
+  <div class="inner">
+    <span class="mark">Neil<b>.</b></span>
+    <div class="kicker">Instant wage transfer usability study</div>
+    <h1>Thank you<span style="color:var(--accent-400)">.</span></h1>
+    <div class="rule" style="display:flex;flex-wrap:wrap;gap:24px">
+      <p>Neil Chakrabarty</p><p>linkedin.com/in/nchakrabarty</p><p><a href="../#/case/fortuna-instant-transfer">Read the case study</a></p>
+    </div>
+  </div>
+  <div class="foot"><span>Neil Chakrabarty</span><span>13 / 13</span></div>
+</section>
+</main>
+
+<nav class="nav" aria-label="Slide navigation">
+  <button id="prev" type="button" aria-label="Previous slide">↑</button>
+  <output id="counter" aria-live="polite">1 / 13</output>
+  <button id="next" type="button" aria-label="Next slide">↓</button>
+</nav>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  let active=0;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const go=i=>{active=Math.max(0,Math.min(slides.length-1,i));slides[active].scrollIntoView({behavior:reduce?'auto':'smooth'});};
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){active=slides.indexOf(e.target);counter.textContent=(active+1)+' / '+slides.length;}});},{threshold:.5});
+  slides.forEach(s=>io.observe(s));
+  document.getElementById('prev').addEventListener('click',()=>go(active-1));
+  document.getElementById('next').addEventListener('click',()=>go(active+1));
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','ArrowRight','PageDown'].includes(e.key)){e.preventDefault();go(active+1);}
+    if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(active-1);}
+    if(e.key==='Home'){e.preventDefault();go(0);} if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+  });
+})();
+</script>
+
+</body>
+</html>

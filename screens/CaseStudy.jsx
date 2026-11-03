@@ -102,6 +102,112 @@ const CASE_CONTENT = {
     artifactRatio: '3 / 2',
     artifactTone: 'color',
   },
+  'fortuna-instant-transfer': {
+    pageTitle: 'Users finished the transfer. Not all of them could say what it cost.',
+    pageResult: 'Every participant completed an instant wage transfer, but only 64% could correctly state the amount on the confirmation screen. The answer is to show the money as one equation: the amount you ask for is the amount that arrives, the fee sits on top, and the way in is impossible to miss.',
+    pullQuote: 'A screen can feel clear and still fail to explain the consequence.',
+    narrative: [
+      'Fortuna (MyFortuna.com) is a primary client of Grit Financial, and its earned wage access product lets employees move wages they have already earned to a company paycard before payday. Imagine Derek, an hourly worker with a $50 car repair due today and $200 of earned wages available. He opens the app, transfers $50, and expects $50 on his card.',
+      'The transfer carries a $3 instant fee and a $53 repayment from his next paycheck. Each of our 5 prototype variants showed those numbers in a different order and with different labels ("transferred," "received," "fee," "repayment"). A user who misreads them is surprised at checkout or on payday, and in earned wage access that surprise costs trust.',
+      'The question for the team: which content, information order and interaction pattern lets a user state, before they agree, exactly what lands on the card, what it costs and what comes out of the next paycheck? The answer rests on 3 findings.',
+    ],
+    structureCaption: 'Show the money as one equation',
+    structureColumns: ['1. Keep the amount whole', '2. One equation, stable labels', '3. Fix the front door'],
+    structureRows: [
+      ['Fee on top: $50 asked, $50 arrives', '64% knew the confirmation amount', 'More than 3 taps to start'],
+      ['E2: 4 of 4 got 6 of 7 facts', 'D2 rated clearest, understood least', '"Transfer Money" competes'],
+      ['C2: 4 of 6 expected $50, got $47', 'Same 5 labels on every screen', 'Primary "Transfer earned wages" CTA'],
+    ],
+    structureOutcome: 'proceed with an E2-based flow, after fixing entry-point discoverability and the confirmation hierarchy.',
+    keyDecisionsIntro: 'Each finding below follows the same order: what we saw, the evidence behind it, and the call it led to.',
+    keyDecisions: [
+      {
+        title: '1. Keep the requested amount whole',
+        parts: [
+          { label: 'The finding', text: 'When the fee was charged on top (E2), every participant understood the outcome. When the fee was taken out of the request (C2), most participants expected money that never arrived.' },
+          { label: 'The evidence', text: [
+            'E2: a $50 request put $50 on the card, with $53 repaid from the next paycheck. All 4 E2 participants correctly identified 6 of the 7 core facts: $50 on the card, the $3 fee, the $53 repayment, $147 remaining, arrival within minutes and the company card as destination.',
+            'C2: a $50 request put $47 on the card. 4 of 6 participants initially expected $50 to arrive, and 5 of 6 understood $47 only after the outcome was explicitly surfaced. The math is correct. The problem is the goal: someone with a $50 urgent expense who receives $47 is $3 short and may need a second transfer.',
+          ] },
+          { label: 'The call', text: 'Adopt the E2 amount model: the amount requested is the amount added to the card, with the instant fee charged on top. E2 was not perfect (one participant recalled $53 as the transferred amount), so the confirmation screen also has to separate the card credit from the payroll repayment more clearly.' },
+        ],
+        figure: {
+          src: 'assets/case-studies/fortuna/fortuna-e2-flow.webp',
+          alt: 'E2 prototype flow: dashboard, amount entry, transfer type, review with $50 net received, and success confirmation.',
+          caption: 'E2: $50 requested, $50 received, $53 repaid from the next paycheck.',
+          tone: 'color', ratio: '2567 / 960', fit: 'contain', maxWidth: '100%',
+        },
+      },
+      {
+        title: '2. Show the money in one equation, with labels that never change',
+        parts: [
+          { label: 'The finding', text: 'Participants understood where and when the money would land, but lost track of the dollar amounts as the labels changed from screen to screen.' },
+          { label: 'The evidence', text: [
+            'Destination (92%), fee (88%) and timing (88%) were the best-understood facts. Amount on card, payroll repayment and wages remaining each sat at 76%, and the confirmation amount was lowest at 64%.',
+            'The most useful result went against the ratings. D2 was rated the clearest of all 5 variants (6.75 of 7), yet only 2 of 4 D2 participants identified the $53 repayment and 1 of 4 identified the $147 remaining. Normalized comprehension by variant: E2 96%, A2 83%, B2 76%, C2 76%, D2 71%.',
+          ] },
+          { label: 'The call', text: 'When a screen communicates a financial consequence, demonstrated comprehension outranks preference ratings. The review and confirmation screens keep 4 numbers together with the same 5 labels everywhere: $50 added to card + $3 fee = $53 repaid from next paycheck, leaving $147 in wages.' },
+        ],
+        figure: {
+          src: 'assets/case-studies/fortuna/fortuna-c2-flow.webp',
+          alt: 'C2 prototype flow: a $50 request with the $3 fee deducted, showing $47 net received at review and confirmation.',
+          caption: 'C2: the fee is deducted, so $50 requested becomes $47 received.',
+          tone: 'color', ratio: '2980 / 960', fit: 'contain', maxWidth: '100%',
+        },
+      },
+      {
+        title: '3. Fix the front door before polishing the flow',
+        parts: [
+          { label: 'The finding', text: 'No variant solved the entry point. Participants knew they needed to move money, but consistently needed more than 3 taps before they found "Transfer Wages."' },
+          { label: 'The evidence', text: 'Starting-screen heatmaps show clicks spread across the paycard, the balance, "View Details" and the surrounding area. "Transfer Money" and "Transfer Wages" sit on the same dashboard and both read as valid ways to start. Heatmaps show where people clicked, not the order or the reason, so we treated this as a discoverability signal rather than a severity score by variant.' },
+          { label: 'The call', text: 'Make "Transfer earned wages" the primary dashboard action and rename "Transfer Money" to describe its distinct purpose. This moved entry-point redesign ahead of every content change in the action plan.' },
+        ],
+        figure: {
+          src: 'assets/case-studies/fortuna/fortuna-entry-heatmaps-detail.webp',
+          alt: 'Eight starting-screen click heatmaps with clicks spread across the paycard, balance, Transfer Money and View Details.',
+          caption: 'Starting-screen heatmaps from 8 sessions.',
+          tone: 'color', ratio: '1112 / 1168', fit: 'contain', maxWidth: 560,
+        },
+      },
+    ],
+    validationHeading: 'How we found out',
+    validationParagraphs: [
+      'We ran an unmoderated, between-subjects study on Maze, so each participant saw one variant with no exposure to the others. That kept first impressions clean, which mattered because the question was what a user understands on first use.',
+      '25 US-based mobile participants, split 5 / 6 / 6 / 4 / 4 across variants A2 to E2. The task: transfer $50 from $200 of available earned wages to a company paycard for an urgent expense. Sessions ran 5 to 10 minutes (median 5:22). We measured task completion, 7 comprehension checks, 7-point clarity and ease ratings, and starting-screen click heatmaps.',
+      'Comprehension was scored against each variant\'s intended outcome, so a C2 participant who said "$47 on the card" was marked correct. One C2 follow-up question referenced a $50 confirmation that the tested screen never showed, so we excluded it from interface conclusions.',
+    ],
+    stats: [
+      { value: '100%', label: 'Task completion across all 5 variants' },
+      { value: '64%', label: 'Correctly stated the confirmation amount' },
+      { value: '96%', label: 'Comprehension on E2, the recommended foundation' },
+    ],
+    results: [
+      { stat: 'A decision:', text: 'proceed with an E2-based flow, after fixing entry-point discoverability and the confirmation hierarchy. The findings have been presented and the redesign is slated for the team\'s roadmap.' },
+      { stat: 'P0:', text: 'make "Transfer earned wages" the primary dashboard action (product design), and adopt the fee-on-top amount model (product and compliance).' },
+      { stat: 'P1:', text: 'use the same 5 labels on every screen (content design), and show the fee and payroll repayment on the review screen rather than inside an optional cost breakdown (product design).' },
+      { stat: 'P2:', text: 'validate one consolidated flow against 3 targets: at least 80% first-click success, at least 90% comprehension on all 4 dollar amounts, and a median of 1 tap to begin.' },
+    ],
+    role: 'Director of Data Products, Grit Financial. I took over this project because of my background in UX research (an MS in Human-Computer Interaction and earlier roles as a usability engineer and UX architect). I designed the study, wrote the comprehension checks and synthesized the results into the executive readout, and I managed a senior designer who produced the 5 prototype variants.',
+    roleTag: 'Director of Data Products (study lead)',
+    awards: null,
+    limitsHeading: 'Limits of the evidence',
+    limitsItems: [
+      'Sample size: 4 to 6 participants per variant cannot establish a statistically significant winner. E2\'s 96% comes from 4 people.',
+      'Audience fit: only 15 of 25 participants were ages 25 to 44, and industry and hourly-work status were not captured, so we cannot say how closely the panel matches Fortuna\'s actual users.',
+      'Device mix: 21 participants used iOS and 4 used Android.',
+      'No outcome data yet: production metrics (first-click success, support tickets about fees, repeat transfers) will come after the redesign ships. We think the next study should use one consolidated flow, a panel that matches the hourly workforce, and comprehension and confidence measured separately.',
+    ],
+    presentation: {
+      label: 'View the full presentation',
+      href: 'presentations/fortuna-instant-transfer.html',
+      note: 'The 13-slide executive readout, with the variant scorecard, heatmaps and prototype flows.',
+    },
+    artifactLabel: 'artefact · instant transfer flow',
+    artifactSrc: 'assets/case-studies/fortuna/fortuna-dashboard-thumb.webp',
+    artifactAlt: 'E2 prototype screens: amount entry, Instant or Standard choice, review showing $50 net received, and the success screen.',
+    artifactRatio: '16 / 10',
+    artifactTone: 'color',
+  },
   'grit-bulk-enrollment': {
     pageTitle: 'Turning a 2-day onboarding into a 3-click employer action',
     pageResult: "The fix wasn't a faster version of the employee's flow. It was removing the employee from the flow — the employer already had the data the process kept asking for.",
@@ -590,9 +696,9 @@ function CaseStudyScreen({ go, caseId }) {
                     ) : null}
                     {d.afterBullets ? <p style={{ marginTop: 'var(--space-4)' }}>{d.afterBullets}</p> : null}
                     {d.figure ? (
-                      <div style={{ marginTop: 'var(--space-4)', maxWidth: 480 }}>
+                      <div style={{ marginTop: 'var(--space-4)', maxWidth: d.figure.maxWidth || 480 }}>
                         <ImageSlot src={d.figure.src} alt={d.figure.alt} caption={d.figure.caption}
-                          tone={d.figure.tone || 'mono'} ratio="4 / 3" />
+                          tone={d.figure.tone || 'mono'} ratio={d.figure.ratio || '4 / 3'} fit={d.figure.fit || 'cover'} />
                       </div>
                     ) : null}
                   </div>
@@ -606,6 +712,16 @@ function CaseStudyScreen({ go, caseId }) {
                 {content.validationParagraphs.map((p, i) => (
                   <p key={i} style={{ marginTop: i === 0 ? 0 : 'var(--space-3)' }}>{p}</p>
                 ))}
+              </>
+            ) : null}
+            {content.presentation ? (
+              <>
+                <Rule space={40} weight="hair" />
+                <h3>The presentation</h3>
+                {content.presentation.note ? <p>{content.presentation.note}</p> : null}
+                <p style={{ marginTop: 'var(--space-3)' }}>
+                  <a href={content.presentation.href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-accent-safe)' }}>{content.presentation.label} →</a>
+                </p>
               </>
             ) : null}
             <Rule space={40} weight="hair" />
@@ -679,6 +795,9 @@ function CaseStudyScreen({ go, caseId }) {
                 ratio={content.artifactRatio || '4 / 3'} tone={content.artifactTone || 'mono'} />
             )}
             {content.artifactCaption ? <p className="meta" style={{ marginTop: 'var(--space-3)' }}>{content.artifactCaption}</p> : null}
+            {content.presentation ? (
+              <Button variant="primary" block iconRight={<span>→</span>} href={content.presentation.href} target="_blank">{content.presentation.label}</Button>
+            ) : null}
             <Button variant="secondary" block iconRight={<span>→</span>} href="mailto:neilcbty@gmail.com">Discuss a similar problem</Button>
           </div>
         </div>
