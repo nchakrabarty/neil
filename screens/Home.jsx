@@ -69,7 +69,7 @@ function HomeScreen({ go }) {
               accountable for outcomes.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              I am a dad who runs bedtime like a sprint, and a Juventino at heart. Forza Juve!
+              Off the clock: dad, sprint-planning bedtime, and a Juventus fan who somehow stays optimistic.
             </p>
             <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
               <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>If your team is at the strategy-to-execution gap — let's talk.</Button>
