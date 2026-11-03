@@ -44,28 +44,35 @@ function HomeScreen({ go }) {
             <h1 className="display-1" style={{ maxWidth: '27ch' }}>
               Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
             </h1>
-            <p style={{ marginTop: 'var(--space-8)', maxWidth: '80ch', fontSize: 17 }}>
-              👋 Hi, I'm Neil — a thinking partner and operator for founders and senior teams. I work at the
-              intersection of business, data, usability, and AI — finding the right problem, then building
-              something people actually use.
+            <p className="lead" style={{ marginTop: 'var(--space-8)' }}>
+              Hi, I'm Neil — Product Lead · Usability &amp; AI · 0-to-1 Specialist
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              I started in Human-Computer Interaction research, stumbled into building recommendation engines for
-              eBay sellers at Terapeak, and somewhere in the middle the title became "product manager" — though
-              the actual work never changed: find the real shape of the problem, then build something people can
-              actually use.
+              Here's where teams get stuck: budget approved, roadmap set, team shipping — and building the wrong
+              thing.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              These days I work with founders and senior teams as a fractional product and data leader — figuring
-              out where AI adds real leverage, and building toward it.
+              The pressure to spend overrides the discipline to diagnose. At an EdTech platform, the product had
+              near-zero video completion rates — not a tech problem, a direction problem. I redirected the roadmap
+              before a line of code was written to the original brief. Six months later: 10x paying subscriber
+              growth.
             </p>
-            <Kicker style={{ marginTop: 'var(--space-8)', marginBottom: 'var(--space-3)' }}>Off the clock</Kicker>
-            <p style={{ maxWidth: '80ch', fontSize: 17 }}>
-              Dad who runs bedtime like a sprint, and a hopeless optimist in a football group chat that never
-              sleeps.
+            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
+              That's the job. I act as a thinking partner and operator — taking ideas from strategy through
+              execution, 0 to 1. I work at the intersection of usability and AI, where the most expensive product
+              mistakes live right now. Across 18 years: data products touching 22,000 companies at Grit Financial,
+              a consulting practice scaled to $2.8M, platforms shipped in 40 countries, and a TIME Best Invention
+              in 2023.
+            </p>
+            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
+              I work with founders and senior teams as a fractional product and data leader — embedded, hands-on,
+              accountable for outcomes.
+            </p>
+            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
+              Off the clock: dad, sprint-planning bedtime, and an optimist in a football group chat.
             </p>
             <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
-              <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Let's build something together</Button>
+              <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>If your team is at the strategy-to-execution gap — let's talk.</Button>
             </div>
           </div>
           {portraitOk ? (
