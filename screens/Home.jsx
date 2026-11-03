@@ -59,7 +59,7 @@ function HomeScreen({ go }) {
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
               That's the job. I act as a thinking partner and operator — taking ideas from strategy through
-              execution, 0 to 1. I work at the intersection of usability and AI, where the most expensive product
+              execution, 0 to 1. I work at the intersection of business, usability, data and AI, where the most expensive product
               mistakes live right now. Across 18 years: data products touching 22,000 companies at Grit Financial,
               a consulting practice scaled to $2.8M, platforms shipped in 40 countries, and a TIME Best Invention
               in 2023.
