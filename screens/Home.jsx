@@ -45,31 +45,22 @@ function HomeScreen({ go }) {
               Find what's worth solving. Then build it<span style={{ color: 'var(--color-accent)' }}>.</span>
             </h1>
             <p className="lead" style={{ marginTop: 'var(--space-8)' }}>
-              Hi, I'm Neil — Product Lead · Usability &amp; AI · 0-to-1 Specialist
+              Hi, I'm Neil, a product strategist and operator for data and AI platforms.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              Here's where teams get stuck: budget approved, roadmap set, team shipping — and building the wrong
-              thing.
+              In 2019 a greenhouse-tech company hired me to build a machine learning model. A month in, it was
+              clear their data couldn't support one. I persuaded their leadership to pause the model and build a
+              platform that captured accurate operations data, while an internal team cleaned up what they already
+              had. That data later fed their predictive operational analytics, and a 3-month contract turned into
+              more than two years.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              The pressure to spend overrides the discipline to diagnose. Recently, at a B2C platform, the product
-              had very low usage rates — it was not a tech problem, it was a direction problem. I redirected the
-              roadmap before a line of code was written to the original brief. Six months later: 10x paying
-              subscriber growth.
+              Every AI decision since has come down to four questions. Is the existing data usable? Will a model
+              beat what's there today? Will people trust it? Will it help the business scale? I've been a
+              developer, an HCI researcher, a product lead and a P&amp;L owner, so I answer all four together.
             </p>
             <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              That's the job. I act as a thinking partner and operator — taking ideas from strategy through
-              execution, 0 to 1. I work at the intersection of business, usability, data and AI, where the most expensive product
-              mistakes live right now. Across 18 years: data products touching 22,000 companies at Grit Financial,
-              a consulting practice scaled to $2.8M, platforms shipped in 40 countries, and a TIME Best Invention
-              in 2023.
-            </p>
-            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              I work with founders and senior teams as a fractional product and data leader — embedded, hands-on,
-              accountable for outcomes.
-            </p>
-            <p style={{ marginTop: 'var(--space-4)', maxWidth: '80ch' }}>
-              Off the clock: dad, sprint-planning bedtime, and a Juventus fan who somehow stays optimistic.
+              If you're about to put budget into AI, I'd like to see your data first.
             </p>
             <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
               <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>If your team is at the strategy-to-execution gap — let's talk.</Button>
