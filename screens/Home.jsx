@@ -63,7 +63,7 @@ function HomeScreen({ go }) {
               If you're about to put budget into AI, I'd like to see your data first.
             </p>
             <div className="cta-row" style={{ marginTop: 'var(--space-8)' }}>
-              <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>If your team is at the strategy-to-execution gap — let's talk.</Button>
+              <Button size="lg" href="mailto:neilcbty@gmail.com" iconRight={<span>→</span>}>Talk through your AI plan</Button>
             </div>
           </div>
           {portraitOk ? (
